@@ -1,15 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Routes from "./Routes"
 require("dotenv").config();
 
 // import line that for future use
-// import {
-//   BrowserRouter as Router,
-//   Route,
-//   Link,
-//   Switch,
-//   Redirect
-// } from "react-router-dom";
+
 
 class App extends Component {
   async componentDidMount() {
