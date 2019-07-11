@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Sidebar extends Component {
-  render() {
-    return <div />;
-  }
-}
+const Sidebar = props => {
+  const data = props.data;
+
+  return <h1>Hello world</h1>;
+};
 
 export default Sidebar;

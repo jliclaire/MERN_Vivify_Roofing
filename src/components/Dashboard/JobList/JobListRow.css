@@ -1,0 +1,22 @@
+.jobList-container {
+  background: #c9a9a8;
+  opacity: 0.7;
+  width: 40%;
+}
+
+.jobList-row {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  margin-bottom: 5px;
+  background: #fffefe;
+  opacity: 0.7;
+}
+
+.jobList-list-left {
+  padding-left: 10px;
+}
+
+.jobList-list-right {
+  padding-right: 10px;
+}

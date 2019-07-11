@@ -6,16 +6,23 @@ require("dotenv").config();
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: [] };
+    this.state = {};
   }
+
   async componentDidMount() {
     const response = await axios.get(`${process.env.REACT_APP_API_URL}/jobs`);
     const data = await response.data;
-    console.log(data);
+    console.log("componentDidMount");
     this.setState({ data: data });
   }
   render() {
-    return <Routes data={this.state.data} />;
+    console.log("app.js render");
+    const data = this.state.data;
+    if (!data) {
+      return null;
+    } else {
+      return <Routes data={data} />;
+    }
   }
 }
 export default App;
