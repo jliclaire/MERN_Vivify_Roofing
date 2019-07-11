@@ -2,22 +2,33 @@ import React from 'react';
 import './sidebar.css'
 
 const Sidebar = (props) => {
-  const { data } = props;
+  const { data, currentUser, activeScreen } = props;
   return (
     <div className='sidebar'>
-      <h2 className='sidebar-logo'>VIVIFY</h2>
-      <div className='sidebar-user'>
-        <div>portrait</div>
-        <div>name</div>
-      </div>
-      <div className='sidebar-leadboxes'>
-        <div>Inbox ({data.length})</div>
-        <div>Followup</div>
-        <div>Archive</div>
+      <div>
+        <h1 className='sidebar-logo'>VIVIFY</h1>
+        <div className='sidebar-user'>
+          <div className='user-portrait'></div>
+          <h4 className='user-name'>Brett</h4>
+        </div>
+        <div className='sidebar-leadboxes'>
+          <div className='active-box'>
+            <p>Inbox ({data.length})</p>
+          </div>
+          <div className='inactive-box'>
+            <p>Followup</p>
+          </div>
+          <div className='inactive-box'>
+            <p>Sold</p>
+          </div>
+          <div className='inactive-box'>
+            <p>Archived</p>
+          </div>
+        </div>
       </div>
       <div className='sidebar-bottom'>
-        <div>Admin</div>
-        <div>Logout</div>
+        <h5>Admin</h5>
+        <h5>Logout</h5>
       </div>
     </div>
   )

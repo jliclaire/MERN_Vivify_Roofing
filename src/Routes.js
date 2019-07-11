@@ -8,7 +8,6 @@ import Admin from "./components/Admin"
 class Routes extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
   }
 
   render() {
