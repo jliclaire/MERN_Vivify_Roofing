@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './sidebar.css'
+import capitalise from '../../../utils/capitalise'
 
 const isActive = (box, prop) => {
   return box === prop ? 'sidebar-active-box' : 'sidebar-inactive-box'
@@ -11,23 +12,20 @@ const deleteToken = () => {
   sessionStorage.removeItem('token');
 }
 
-const changeActive = (newScreen) => {
-  this.setState({
-    activeScreen: newScreen
-  })
-}
-
 const Sidebar = (props) => {
   let { data, currentUser, activeScreen } = props;
+  
   // Testing only:
   activeScreen = 'inbox'
+  currentUser = 'brett'
+
   return (
     <div className='sidebar'>
       <div>
         <h1 className='sidebar-logo'>VIVIFY</h1>
         <div className='sidebar-user'>
           <div className='user-portrait'></div>
-          <h4 className='user-name'>Brett</h4>
+          <h4 className='user-name'>{ capitalise(currentUser) }</h4>
         </div>
         <div className='sidebar-leadboxes'>
           <div className={isActive('inbox', activeScreen)}>
@@ -49,7 +47,7 @@ const Sidebar = (props) => {
           <Link to='/admin'>Admin</Link>
         </div>
         <div className='sidebar-bottom-button' onClick={deleteToken}>
-          <a>Logout</a>
+          <p>Logout</p>
         </div>
       </div>
     </div>
