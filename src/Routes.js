@@ -12,13 +12,15 @@ class Routes extends Component {
   }
 
   render() {
+      const { data } = this.props;
       return(
         <Switch>
           <Route path="/login" component={Login}/>
           <Route path="/register" component={Register}/>
-          <Route exact path="/" render={(props) => {
-            return <Dashboard {...props}/>
-          }} />
+          <Route 
+            exact path="/" 
+            render={(props) => <Dashboard {...props} data={data} />} 
+          />
           <Route path="/admin" component={Admin}/>
         </Switch>
       )
