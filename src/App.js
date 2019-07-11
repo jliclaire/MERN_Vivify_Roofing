@@ -5,7 +5,6 @@ require("dotenv").config();
 
 // import line that for future use
 
-
 class App extends Component {
   async componentDidMount() {
     const response = await axios.get(`${process.env.REACT_APP_API_URL}/test`);
@@ -14,10 +13,7 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
-        <p>Hello, MERN</p>
-        <p>Deployed yay!!!</p>
-      </div>
+    <Routes />
     );
   }
 }
