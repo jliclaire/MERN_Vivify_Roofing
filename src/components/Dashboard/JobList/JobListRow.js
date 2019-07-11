@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { capitaliseMultiple } from "../../../utils/capitalise";
 import "./JobListRow.css";
 
 class JobListRow extends Component {
@@ -10,24 +10,19 @@ class JobListRow extends Component {
   handleClick = e => {};
 
   render() {
-    console.log(this.props.data)
+    console.log(this.props.data);
     return (
       <div className="jobList-container">
         {this.props.data.map((job, index) => {
           return (
             <div className="jobList-row" key={index} onClick={this.handleClick}>
               <div className="jobList-list-left">
-                <h4>{job.name}</h4>
-                <h5>
-                  Suburb:{" "}
-                  {job.suburb
-                    .toLowerCase()
-                    .charAt(0)
-                    .toUpperCase() + job.suburb.slice(1)}
-                </h5>
+                <h4>{capitaliseMultiple(job.name)}</h4>
+                <h5>Suburb: {capitaliseMultiple(job.suburb)}</h5>
+                <p>Project Type: {job.projectType} </p>
               </div>
               <div className="jobList-list-right">
-                <h5>{new Date(job.createdTime).toLocaleDateString()}</h5>
+                <p>{new Date(job.createdTime).toLocaleDateString()}</p>
               </div>
             </div>
           );
