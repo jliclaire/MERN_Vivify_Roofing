@@ -13,10 +13,9 @@ const deleteToken = () => {
 }
 
 const Sidebar = (props) => {
-  let { data, currentUser, activeScreen } = props;
+  let { data, currentUser, activeScreen, changeScreen } = props;
 
   // Testing only:
-  activeScreen = 'inbox'
   currentUser = 'luke'
 
   return (
@@ -28,16 +27,16 @@ const Sidebar = (props) => {
           <h4 className='user-name'>{ capitalise(currentUser) }</h4>
         </div>
         <div className='sidebar-leadboxes'>
-          <div className={isActive('inbox', activeScreen)}>
+          <div className={isActive('inbox', activeScreen)} onClick={() => changeScreen('inbox')}>
             <p>Inbox ({data.length})</p>
           </div>
-          <div className={isActive('in-progress', activeScreen)}>
+          <div className={isActive('in-progress', activeScreen)} onClick={() => changeScreen('in progress')}>
             <p>In Progress</p>
           </div>
-          <div className={isActive('sold', activeScreen)}>
+          <div className={isActive('sold', activeScreen)} onClick={() => changeScreen('sold')}>
             <p>Sold</p>
           </div>
-          <div className={isActive('archive', activeScreen)}>
+          <div className={isActive('archive', activeScreen)} onClick={() => changeScreen('archive')}>
             <p>Archived</p>
           </div>
         </div>
