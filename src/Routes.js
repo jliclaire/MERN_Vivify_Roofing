@@ -6,17 +6,23 @@ import Dashboard from "./components/Dashboard"
 import Admin from "./components/Admin"
 
 class Routes extends Component {
-render() {
-
-    return(
-      <Switch>
-        <Route path="/login" component={Login}/>
-        <Route path="/register" component={Register}/>
-        <Route exact path="/" component={Dashboard}/>
-        <Route path="/admin" component={Admin}/>
-      </Switch>
-    )
+  constructor(props) {
+    super(props);
+    this.state = {};
   }
+
+  render() {
+      return(
+        <Switch>
+          <Route path="/login" component={Login}/>
+          <Route path="/register" component={Register}/>
+          <Route exact path="/" render={(props) => {
+            return <Dashboard {...props}/>
+          }} />
+          <Route path="/admin" component={Admin}/>
+        </Switch>
+      )
+    }
 }
 
 export default Routes;
