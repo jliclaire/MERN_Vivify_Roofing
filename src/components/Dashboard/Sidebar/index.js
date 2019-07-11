@@ -14,10 +14,10 @@ const deleteToken = () => {
 
 const Sidebar = (props) => {
   let { data, currentUser, activeScreen } = props;
-  
+
   // Testing only:
   activeScreen = 'inbox'
-  currentUser = 'brett'
+  currentUser = 'luke'
 
   return (
     <div className='sidebar'>
