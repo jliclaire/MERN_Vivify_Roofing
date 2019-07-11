@@ -18,9 +18,7 @@ class Routes extends Component {
         <Route
           exact
           path="/"
-          render={props => {
-            return <Dashboard {...props} data={data} />;
-          }}
+          render={props => <Dashboard {...props} data={data} />}
         />
         <Route path="/admin" component={Admin} />
       </Switch>

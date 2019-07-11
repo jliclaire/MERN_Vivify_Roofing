@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-class index extends Component {
+class Admin extends Component {
   render() {
     return <div />;
   }
 }
 
-export default index;
+export default Admin;
