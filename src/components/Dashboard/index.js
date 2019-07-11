@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import Sidebar from './Sidebar';
+import Sidebar from './Sidebar/';
 import JobList from './JobList';
 import Job from './Job';
 
@@ -11,12 +10,13 @@ class Dashboard extends Component {
   }
 
   render() {
+    const { data } = this.props;
     return (
-      <>
-        <Sidebar data={this.props.data}/>
-        <JobList data={this.props.data}/>
-        <Job data={this.props.data}/>
-      </>
+      <div>
+        <Sidebar data={data}/>
+        <JobList />
+        <Job />
+      </div>
     )
   }
 }

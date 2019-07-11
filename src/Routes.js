@@ -8,17 +8,18 @@ import Admin from "./components/Admin"
 class Routes extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
   }
 
   render() {
+      const { data } = this.props;
       return(
         <Switch>
           <Route path="/login" component={Login}/>
           <Route path="/register" component={Register}/>
-          <Route exact path="/" render={(props) => {
-            return <Dashboard {...props}/>
-          }} />
+          <Route 
+            exact path="/" 
+            render={(props) => <Dashboard {...props} data={data} />} 
+          />
           <Route path="/admin" component={Admin}/>
         </Switch>
       )

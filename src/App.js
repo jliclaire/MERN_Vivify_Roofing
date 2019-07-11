@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import './App.css'
 import Routes from "./Routes"
 require("dotenv").config();
 
@@ -15,12 +16,14 @@ class App extends Component {
   async componentDidMount() {
     const response = await axios.get(`${process.env.REACT_APP_API_URL}/jobs`);
     const data = await response.data;
-    console.log(data);
+    // console.log(data);
     this.setState({data: data})
   }
   render() {
+    const data = this.state.data;
+    // console.log(data);
     return (
-      <Routes data={this.state.data} />
+      <Routes data={data} />
     );
   }
 }
