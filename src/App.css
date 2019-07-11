@@ -17,3 +17,7 @@ p, a {
   font-family: 'Open Sans', sans-serif;
 }
 
+a {
+  text-decoration: none;
+  outline: 0;
+}

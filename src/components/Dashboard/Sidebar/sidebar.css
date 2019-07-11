@@ -33,25 +33,36 @@
   flex-direction: column;
 }
 
-.inactive-box > p {
+.sidebar-inactive-box > p {
   color: #818181;
+  cursor: pointer;
 }
 
-.inactive-box {
-  padding-left: 20px;
+.sidebar-inactive-box > p:hover {
+  color: #000000;
 }
 
-.active-box > p {
+.sidebar-active-box > p {
   color: #FF7E7E;
 }
 
-.active-box {
-  border-left: 1px solid #FF7E7E;
-  padding-left: 20px;
+.sidebar-active-box, .sidebar-inactive-box {
+  margin-bottom: 5px;
 }
 
 .sidebar-bottom {
   display: flex;
   justify-content: space-around;
   margin-bottom: 25px;
+}
+
+.sidebar-bottom-button {
+  padding: 10px;
+  border-radius: 5%;
+  background: #d3d3d3;
+  cursor: pointer;
+}
+
+.sidebar-bottom-button:hover {
+  background: #FF7E7E;
 }
