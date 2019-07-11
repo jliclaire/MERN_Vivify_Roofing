@@ -10,6 +10,7 @@ class JobListRow extends Component {
   handleClick = e => {};
 
   render() {
+    console.log(this.props.data)
     return (
       <div className="jobList-container">
         {this.props.data.map((job, index) => {
@@ -26,7 +27,7 @@ class JobListRow extends Component {
                 </h5>
               </div>
               <div className="jobList-list-right">
-                <h5>{new Date(job.CreatedTime).toLocaleDateString()}</h5>
+                <h5>{new Date(job.createdTime).toLocaleDateString()}</h5>
               </div>
             </div>
           );
