@@ -1,10 +1,68 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import './css/Register.css'
 
-class Register extends Component {
-  render() {
-    return <div />;
+
+// checkbox component
+const Checkbox = props => (
+  <>
+  <input type="checkbox" {...props} />
+  </>
+)
+
+class Register extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+        name: '',
+        password: '',
+        type: '',
+        phone: 0,
+        email: '',
+        checked: false
+
+    };
   }
-}
 
-export default Register;
+    // checkbox handler 
+  handleCheckboxChange = (event) => {
+  this.setState({ checked: event.target.checked })
+  console.log(this.state)
+  }
+
+  handleChange = (e) => {
+    this.setState({ [e.target.id]: e.target.value})
+    console.log(this.state)
+  }
+
+  
+  render () {
+ 
+   return (
+     <div className="register">
+    <h1>Register a new account</h1>
+    <form className="register-form">
+        <input onChange={this.handleChange} type="text" id="name" placeholder="Name" />
+        <input onChange={this.handleChange} type="text" id="password" placeholder="Password" />
+        <input onChange={this.handleChange} type="text" id="type" placeholder="Job Role" />
+        <input onChange={this.handleChange} type="number" id="phone" placeholder="Mobile" />
+        <input onChange={this.handleChange} type="text" id="email" placeholder="Email" />
+        <label>
+          <div className="admin-check-wrapper">
+        <p className="admin-text">admin</p>
+          <Checkbox 
+            className="check-box"
+            checked={this.state.checked}
+            onChange={this.handleCheckboxChange}
+          />
+          </div>
+        </label>
+    </form>
+    <button className="bth-register"onClick={this.handleClick}>Register New Account</button>
+  </div>
+   )
+  }
+ }
+ 
+ export default Register;
+
