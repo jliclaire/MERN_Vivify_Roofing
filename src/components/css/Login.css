@@ -1,0 +1,32 @@
+.login-form form {
+  margin: 1rem;
+  padding: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form button {
+  padding: 10px;
+  margin: auto;
+  width: 30vw;
+}
+
+.login-form input {
+  width: 50%;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.inner-form-login {
+  flex-direction: column;
+  margin: 80px;
+}
+
+.login-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 7rem;
+  color: #ef8582;
+}
