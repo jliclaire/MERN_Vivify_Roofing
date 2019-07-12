@@ -68,8 +68,8 @@ class Dashboard extends Component {
     return (
       <div className='dashboard'>
         <Sidebar data={data} changeScreen={this.changeScreen}/>
-        <JobList data={this.filterData(data)} handleClick={this.setActiveJob} />
-        <Job data={activeJob} />
+        <JobList data={this.filterData(data)} setActiveJob={this.setActiveJob} />
+        <Job job={activeJob} />
       </div>
     );
 
