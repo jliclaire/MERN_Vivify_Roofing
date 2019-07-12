@@ -10,6 +10,11 @@
   /* background: #FF7E7E; */
 }
 
+.button-text {
+  color: #333333;
+  font-weight: 700;
+}
+
 h1,
 h2,
 h3,

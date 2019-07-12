@@ -18,7 +18,7 @@ class JobListRow extends Component {
             <div className="jobList-row" key={index} onClick={this.handleClick}>
               <div className="jobList-list-left">
                 <h4>{capitaliseMultiple(job.name)}</h4>
-                <h5>Suburb: {capitaliseMultiple(job.suburb)}</h5>
+                <h5>{capitaliseMultiple(job.suburb)}</h5>
                 <p>Project Type: {job.projectType} </p>
               </div>
               <div className="jobList-list-right">
