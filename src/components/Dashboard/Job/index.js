@@ -8,7 +8,7 @@ class Job extends Component {
 
   render() {
     return (
-      <div>{this.props.job.name}</div>
+      <div></div>
     );
   }
 }
