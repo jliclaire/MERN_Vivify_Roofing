@@ -1,12 +1,10 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import './css/Register.css'
-
+import React from "react";
+import './Register.css'
 
 // checkbox component
 const Checkbox = props => (
   <>
-  <input type="checkbox" {...props} />
+    <input type="checkbox" {...props} />
   </>
 )
 
@@ -17,16 +15,20 @@ class Register extends React.Component {
         name: '',
         password: '',
         type: '',
-        phone: 0,
+        phone: '',
         email: '',
         checked: false
-
     };
   }
 
+  handleClick = (e) => {
+    e.preventDefault();
+    this.props.authCall(this.state);
+  }
+
     // checkbox handler 
-  handleCheckboxChange = (event) => {
-  this.setState({ checked: event.target.checked })
+  handleCheckboxChange = (e) => {
+  this.setState({ checked: e.target.checked })
   console.log(this.state)
   }
 
@@ -45,7 +47,7 @@ class Register extends React.Component {
         <input onChange={this.handleChange} type="text" id="name" placeholder="Name" />
         <input onChange={this.handleChange} type="text" id="password" placeholder="Password" />
         <input onChange={this.handleChange} type="text" id="type" placeholder="Job Role" />
-        <input onChange={this.handleChange} type="number" id="phone" placeholder="Mobile" />
+        <input onChange={this.handleChange} type="text" id="phone" placeholder="Mobile" />
         <input onChange={this.handleChange} type="text" id="email" placeholder="Email" />
         <label>
           <div className="admin-check-wrapper">
@@ -58,7 +60,7 @@ class Register extends React.Component {
           </div>
         </label>
     </form>
-    <button className="bth-register"onClick={this.handleClick}>Register New Account</button>
+    <button className="bth-register" onClick={this.handleClick}>Register New Account</button>
   </div>
    )
   }

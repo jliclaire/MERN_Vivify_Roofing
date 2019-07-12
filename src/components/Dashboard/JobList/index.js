@@ -6,8 +6,8 @@ class JobList extends Component {
     super(props);
   }
   render() {
-    const { data } = this.props;
-    return <JobListRow data={data} />;
+    const { data, setActiveJob } = this.props;
+    return <JobListRow data={data} setActiveJob={setActiveJob} />;
   }
 }
 
