@@ -57,10 +57,12 @@ const Sidebar = props => {
       </div>
       <div className="sidebar-bottom">
         <div className="sidebar-bottom-button">
-          <Link to="/admin">Admin</Link>
+          <Link to="/admin" className="button-text">
+            Admin
+          </Link>
         </div>
         <div className="sidebar-bottom-button" onClick={deleteToken}>
-          <p>Logout</p>
+          <p className="button-text">Logout</p>
         </div>
       </div>
     </div>
