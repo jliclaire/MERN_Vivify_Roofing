@@ -1,56 +1,70 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './sidebar.css'
-import capitalise from '../../../utils/capitalise'
+import React from "react";
+import { Link } from "react-router-dom";
+import "./sidebar.css";
+import { capitalise } from "../../../utils/capitalise";
 
 const isActive = (box, prop) => {
-  return box === prop ? 'sidebar-active-box' : 'sidebar-inactive-box'
-}
+  return box === prop ? "sidebar-active-box" : "sidebar-inactive-box";
+};
 
 const deleteToken = () => {
-  localStorage.removeItem('token');
-  sessionStorage.removeItem('token');
-}
+  localStorage.removeItem("token");
+  sessionStorage.removeItem("token");
+};
 
-const Sidebar = (props) => {
+const Sidebar = props => {
   let { data, currentUser, activeScreen, changeScreen } = props;
 
   // Testing only:
-  currentUser = 'luke'
+  currentUser = "luke";
 
   return (
-    <div className='sidebar'>
+    <div className="sidebar">
       <div>
-        <h1 className='sidebar-logo'>VIVIFY</h1>
-        <div className='sidebar-user'>
-          <div className='user-portrait'></div>
-          <h4 className='user-name'>{ capitalise(currentUser) }</h4>
+        <div className="sidebar-info">
+          <h1 className="sidebar-logo">VIVIFY</h1>
+          <div className="sidebar-user">
+            <div className="user-portrait" />
+            <h4 className="user-name">{capitalise(currentUser)}</h4>
+          </div>
         </div>
-        <div className='sidebar-leadboxes'>
-          <div className={isActive('inbox', activeScreen)} onClick={() => changeScreen('inbox')}>
+        <div className="sidebar-leadboxes">
+          <div
+            className={isActive("inbox", activeScreen)}
+            onClick={() => changeScreen("inbox")}
+          >
             <p>Inbox ({data.length})</p>
           </div>
-          <div className={isActive('in-progress', activeScreen)} onClick={() => changeScreen('in progress')}>
+          <div
+            className={isActive("in-progress", activeScreen)}
+            onClick={() => changeScreen("in progress")}
+          >
             <p>In Progress</p>
           </div>
-          <div className={isActive('sold', activeScreen)} onClick={() => changeScreen('sold')}>
+          <div
+            className={isActive("sold", activeScreen)}
+            onClick={() => changeScreen("sold")}
+          >
             <p>Sold</p>
           </div>
-          <div className={isActive('archive', activeScreen)} onClick={() => changeScreen('archive')}>
+          <div
+            className={isActive("archive", activeScreen)}
+            onClick={() => changeScreen("archive")}
+          >
             <p>Archived</p>
           </div>
         </div>
       </div>
-      <div className='sidebar-bottom'>
-        <div className='sidebar-bottom-button'>
-          <Link to='/admin'>Admin</Link>
+      <div className="sidebar-bottom">
+        <div className="sidebar-bottom-button">
+          <Link to="/admin">Admin</Link>
         </div>
-        <div className='sidebar-bottom-button' onClick={deleteToken}>
+        <div className="sidebar-bottom-button" onClick={deleteToken}>
           <p>Logout</p>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;

@@ -2,7 +2,16 @@
   background: #d3d3d3;
   border-left: solid 1px #d3d3d3;
   border-right: solid 1px #d3d3d3;
-  width: 40%;
+  width: 30%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+@media only screen and (max-width: 767px) {
+  .jobList-container {
+    width: 100%;
+  }
 }
 
 .jobList-row {
@@ -11,6 +20,12 @@
   height: 80px;
   margin-bottom: 5px;
   background: #ffffff;
+  cursor: pointer;
+}
+
+.jobList-row:hover {
+  background: #e0ffff;
+  color: #000;
 }
 
 .jobList-list-left {
@@ -19,4 +34,17 @@
 
 .jobList-list-right {
   padding-right: 10px;
+}
+
+.jobList-row h4,
+.jobList-row h5 {
+  color: #363636;
+  margin-top: 5px;
+  font-weight: 600;
+}
+
+.jobList-row p {
+  color: #818181;
+  font-size: 0.8rem;
+  margin-top: 5px;
 }
