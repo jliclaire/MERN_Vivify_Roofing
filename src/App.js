@@ -9,7 +9,7 @@ class App extends Component {
     super(props);
     this.state = {
       data: [],
-      authenticated: false,
+      authenticated: true,
       currentUser: null
     };
   }
@@ -27,7 +27,7 @@ class App extends Component {
       })
     } catch (error) {
       this.setState({
-        authenticated: false,
+        authenticated: true,
         error: error
       })
     }
@@ -60,7 +60,8 @@ class App extends Component {
       console.log(err);
       // set state appropriately
       this.setState({
-        authenticated: false,
+        // AUTHENTICATION IS SET TO TRUE FOR DEVELOPMENT PURPOSES
+        authenticated: true,
         currentUser: null,
       })
     }

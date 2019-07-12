@@ -18,7 +18,6 @@ class Register extends React.Component {
         phone: '',
         email: '',
         checked: false
-
     };
   }
 

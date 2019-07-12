@@ -18,11 +18,13 @@ class Routes extends Component {
             <Login {...props} authCall={authCall} />
           )
         }/>
+
         <Route path="/register" render={
           (props) => (
             <Register {...props} authCall={authCall} />
           )
         } />
+        
         <Route
           exact
           path="/"
@@ -34,6 +36,7 @@ class Routes extends Component {
             )
           )}
         />
+        
         <Route path="/admin" component={Admin} />
       </Switch>
     );
