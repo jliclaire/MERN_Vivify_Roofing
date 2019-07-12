@@ -1,12 +1,10 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import './css/Register.css'
-
+import React from "react";
+import './Register.css'
 
 // checkbox component
 const Checkbox = props => (
   <>
-  <input type="checkbox" {...props} />
+    <input type="checkbox" {...props} />
   </>
 )
 
