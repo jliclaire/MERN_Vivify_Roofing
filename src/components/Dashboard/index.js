@@ -10,8 +10,17 @@ class Dashboard extends Component {
     super(props);
     this.state = {
       activeScreen: 'inbox',
-      activeJob: null
+      activeJob: this.props.data[0]
     }
+  }
+
+  setActiveJob = (jobId) => {
+    const foundJob = this.props.data.find((datum) => {
+      return datum._id === jobId;
+    })
+    this.setState({
+      activeJob: foundJob,
+    })
   }
 
   progressFilter = (data) => {
@@ -55,11 +64,12 @@ class Dashboard extends Component {
 
   render() {
     const { data } = this.props;
+    const { activeJob } = this.state;
     return (
       <div className='dashboard'>
         <Sidebar data={data} changeScreen={this.changeScreen}/>
-        <JobList data={this.filterData(data)} />
-        <Job data={data} />
+        <JobList data={this.filterData(data)} setActiveJob={this.setActiveJob} />
+        <Job job={activeJob} />
       </div>
     );
 
