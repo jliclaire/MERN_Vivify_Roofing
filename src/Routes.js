@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import Login from "./components/Login/";
 import Register from "./components/Register/";
 import Dashboard from "./components/Dashboard";
@@ -10,7 +10,7 @@ class Routes extends Component {
     super(props);
   }
   render() {
-    const { data } = this.props;
+    const { data, auth, currentUser } = this.props;
     return (
       <Switch>
         <Route path="/login" component={Login} />
@@ -18,7 +18,13 @@ class Routes extends Component {
         <Route
           exact
           path="/"
-          render={props => <Dashboard {...props} data={data} />}
+          render={(props) => (
+            !auth ? (
+              <Redirect to='/login' />
+            ) : (
+              <Dashboard {...props} data={data} currentUser={currentUser} />
+            )
+          )}
         />
         <Route path="/admin" component={Admin} />
       </Switch>

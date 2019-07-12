@@ -22,9 +22,13 @@ class Register extends React.Component {
     };
   }
 
+  handleClick = (e) => {
+    
+  }
+
     // checkbox handler 
-  handleCheckboxChange = (event) => {
-  this.setState({ checked: event.target.checked })
+  handleCheckboxChange = (e) => {
+  this.setState({ checked: e.target.checked })
   console.log(this.state)
   }
 
@@ -56,7 +60,7 @@ class Register extends React.Component {
           </div>
         </label>
     </form>
-    <button className="bth-register"onClick={this.handleClick}>Register New Account</button>
+    <button className="bth-register" onClick={this.handleClick}>Register New Account</button>
   </div>
    )
   }
