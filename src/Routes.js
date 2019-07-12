@@ -10,11 +10,19 @@ class Routes extends Component {
     super(props);
   }
   render() {
-    const { data, auth, currentUser } = this.props;
+    const { data, auth, currentUser, authCall } = this.props;
     return (
       <Switch>
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
+        <Route path="/login" render={
+          (props) => (
+            <Login {...props} authCall={authCall} />
+          )
+        }/>
+        <Route path="/register" render={
+          (props) => (
+            <Register {...props} authCall={authCall} />
+          )
+        } />
         <Route
           exact
           path="/"

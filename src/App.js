@@ -17,7 +17,7 @@ class App extends Component {
   authCall = async (creds) => {
     try {
       const authCall = await axios.post(
-        `${process.env.REACT_APP_API_URL}/${creds.length > 3 ? 'register' : 'login'}`,
+        `${process.env.REACT_APP_API_URL}/${creds.length > 2 ? 'register' : 'login'}`,
         creds
       )
       const { token } = authCall.data;

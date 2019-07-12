@@ -15,7 +15,7 @@ class Register extends React.Component {
         name: '',
         password: '',
         type: '',
-        phone: 0,
+        phone: '',
         email: '',
         checked: false
 
@@ -23,7 +23,8 @@ class Register extends React.Component {
   }
 
   handleClick = (e) => {
-    
+    e.preventDefault();
+    this.props.authCall(this.state);
   }
 
     // checkbox handler 
@@ -47,7 +48,7 @@ class Register extends React.Component {
         <input onChange={this.handleChange} type="text" id="name" placeholder="Name" />
         <input onChange={this.handleChange} type="text" id="password" placeholder="Password" />
         <input onChange={this.handleChange} type="text" id="type" placeholder="Job Role" />
-        <input onChange={this.handleChange} type="number" id="phone" placeholder="Mobile" />
+        <input onChange={this.handleChange} type="text" id="phone" placeholder="Mobile" />
         <input onChange={this.handleChange} type="text" id="email" placeholder="Email" />
         <label>
           <div className="admin-check-wrapper">
