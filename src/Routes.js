@@ -19,10 +19,10 @@ class Routes extends Component {
           exact
           path="/"
           render={(props) => (
-            !auth ? (
-              <Redirect to='/login' />
-            ) : (
+            auth ? (
               <Dashboard {...props} data={data} currentUser={currentUser} />
+            ) : (
+              <Redirect to='/login' />
             )
           )}
         />

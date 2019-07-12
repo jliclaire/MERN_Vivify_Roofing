@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
 import Routes from "./Routes";
-import { Redirect } from "react-router-dom";
 require("dotenv").config();
 
 class App extends Component {
@@ -13,6 +12,25 @@ class App extends Component {
       authenticated: false,
       currentUser: null
     };
+  }
+
+  authCall = async (creds) => {
+    try {
+      const authCall = await axios.post(
+        `${process.env.REACT_APP_API_URL}/${creds.length > 3 ? 'register' : 'login'}`,
+        creds
+      )
+      const { token } = authCall.data;
+      localStorage.setItem('token', token)
+      this.setState({
+        authenticated: true
+      })
+    } catch (error) {
+      this.setState({
+        authenticated: false,
+        error: error
+      })
+    }
   }
 
   getLeads = async () => {
@@ -50,7 +68,14 @@ class App extends Component {
 
   render() {
     const { data, authenticated, currentUser } = this.state;
-    return <Routes data={data} auth={authenticated} currentUser={currentUser} />;
+    return (
+      <Routes
+      data={data}
+      auth={authenticated}
+      currentUser={currentUser}
+      authCall={this.authCall}
+      />
+    )
   }
 }
 export default App;
