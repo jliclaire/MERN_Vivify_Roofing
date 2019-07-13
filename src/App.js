@@ -39,7 +39,7 @@ class App extends Component {
     this.setState({ data: data });
   }
 
-  async componentDidMount() {
+  getUser = async () => {
     try {
       // check if the user has a token and send to the back end to get user info
       const token = localStorage.getItem('token')
@@ -49,13 +49,12 @@ class App extends Component {
           headers: { token: token }
         }
       )
+      console.log(authCall)
       // set state appropriately
       this.setState({
         authenticated: true,
-        currentUser: authCall.data
+        currentUser: authCall.data.currentUser
       })
-      // get jobs info
-      this.getLeads();
     } catch (err) {
       console.log(err);
       // set state appropriately
@@ -65,6 +64,11 @@ class App extends Component {
         currentUser: null,
       })
     }
+  }
+
+  async componentDidMount() {
+    this.getUser()
+    this.getLeads()
   }
 
   render() {
