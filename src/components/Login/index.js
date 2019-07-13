@@ -1,12 +1,11 @@
 import React from "react";
 import './Login.css'
 
-
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-        name: '',
+        email: '',
         password: '',
     };
   }
@@ -16,8 +15,10 @@ class Login extends React.Component {
   }
 
   handleClick = (e) => {
+    console.log(this.state)
+    const { authCall } = this.props;
     e.preventDefault();
-    this.props.authCall(this.state);
+    authCall(this.state);
   }
 
   render () {
@@ -25,11 +26,11 @@ class Login extends React.Component {
       <div className="login-form">
         <h1 className="login-logo">VIVIFY</h1>
         <form className="inner-form-login">
-            <input onChange={this.handleChange} type="text" id="name" placeholder="Name" />
-            <input onChange={this.handleChange} type="text" id="password" placeholder="Password" />
-            <button onClick={this.handleClick}>Log in</button>
+            <input onChange={this.handleChange} type="text" id="email" placeholder="Email" />
+            <input onChange={this.handleChange} type="password" id="password" placeholder="Password" />
+            <input type='submit' value='login' onClick={this.handleClick} />
         </form>
-    </div>
+      </div>
     )
   }
 }

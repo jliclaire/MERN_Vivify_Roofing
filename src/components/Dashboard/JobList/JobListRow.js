@@ -3,10 +3,6 @@ import { capitaliseMultiple } from "../../../utils/capitalise";
 import "./JobListRow.css";
 
 class JobListRow extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   handleClick = e => {
     let element = e.target
     while (element.className !== 'jobList-row') {
