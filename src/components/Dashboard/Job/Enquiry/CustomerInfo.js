@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./CustomerInfo.css";
+import "./customerInfo.css";
 
 class CustomerInfo extends Component {
   constructor(props) {
@@ -9,8 +9,8 @@ class CustomerInfo extends Component {
   render() {
     const { data } = this.props;
     return (
-      <div className="job-enquiry-customer">
-        <div className="name-suburb-left">
+      <div className="job-enquiry-customer margin-top-bottom">
+        <div className="name-suburb">
           <h3>{data.name}</h3>
           <h5>{data.suburb}</h5>
         </div>

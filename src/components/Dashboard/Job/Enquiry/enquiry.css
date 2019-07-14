@@ -1,0 +1,10 @@
+.job-enquiry {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.margin-top-bottom {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
