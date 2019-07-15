@@ -31,7 +31,7 @@ sales team more generally.
 2. Actionable insights to inform marketing spend
 
 The business does not have a clear idea of whether their marketing spends
-in certain areas are effective. They define effectiveness as the proportion
+in certain suburbs are effective. They define effectiveness as the proportion
 of leads which are converted into sales for any particular area. Collecting this
 data and displaying it in the application over a period of time would allow them
 to make more informed decisions as to where to spend their marketing budget.
