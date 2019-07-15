@@ -23,10 +23,17 @@ const AdminSidebar = props => {
         </div>
       </div>
       <div>
+        <h3>Analytics</h3>
         <p>Sales by Location</p>
         <p>Sales by Salesperson</p>
         <p>Sales by Project Type</p>
         <p>Total Sales</p>
+      </div>
+      <div>
+        <h3>Application</h3>
+        <p>Add new user</p>
+        <p>Edit user</p>
+        <p>Delete user</p>
       </div>
       <div className="sidebar-bottom">
         <div className="sidebar-bottom-button">
