@@ -28,7 +28,7 @@ class Dashboard extends Component {
     console.log(newFollowUps);
     const id = this.state.activeJob._id;
     console.log(id);
-    await axios.put(`${process.env.REACT_APP_API_URL}/jobs/id`, {
+    await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, {
       followUps: newFollowUps
     });
     this.setActiveJob(id);
