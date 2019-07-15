@@ -74,7 +74,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     const { data, authenticated, currentUser } = this.state;
     if (data.length === 0) {
       return null;

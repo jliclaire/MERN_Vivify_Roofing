@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Sidebar from "./Sidebar/";
 import JobList from "./JobList/";
 import Job from "./Job/";
+import axios from "axios";
 
 import "./dashboard.css";
 
@@ -21,6 +22,16 @@ class Dashboard extends Component {
     this.setState({
       activeJob: foundJob
     });
+  };
+
+  handleAddNewFollowUps = async newFollowUps => {
+    console.log(newFollowUps);
+    const id = this.state.activeJob._id;
+    console.log(id);
+    await axios.put(`${process.env.REACT_APP_API_URL}/jobs/id`, {
+      followUps: newFollowUps
+    });
+    this.setActiveJob(id);
   };
 
   progressFilter = data => {
@@ -72,7 +83,7 @@ class Dashboard extends Component {
           data={this.filterData(data)}
           setActiveJob={this.setActiveJob}
         />
-        <Job data={activeJob} />
+        <Job data={activeJob} addNewFollowUps={this.handleAddNewFollowUps} />
       </div>
     );
   }
