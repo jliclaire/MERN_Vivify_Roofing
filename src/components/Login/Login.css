@@ -1,31 +1,32 @@
 .login-form form {
   margin: 1rem;
-  padding: 4rem;
+  padding: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1rem;
 }
 
-.login-form button {
-  padding: 10px;
+.inner-form-login button {
   margin: auto;
-  width: 300px;
+  width: 18rem;
+  padding: 15px;
   font-size: 1.2rem;
   background-color: #ef8582;
   margin: 40px;
-  color: grey;
+  color: white;
 }
 
-.login-form input {
-  width: 50%;
+.inner-form-login input {
+  width: 18rem;
   padding: 10px;
   margin-bottom: 10px;
-  width: 60%;
-  font-size: 1rem;
 }
 
 .login-form button:hover {
   background-color: #ffdbda;
+  color: grey;
+
 }
 
 .inner-form-login {
@@ -36,16 +37,20 @@
   background-color: #ffe8e7;
   flex-direction: column;
   padding: 15px;
-  width: 300px;
-  margin: 40px 0 0 0;
+  margin: 30px 0 0 0;
   font-size: 1.2rem;
-  color: grey;
 }
 
 .login-logo {
   display: flex;
   justify-content: center;
   margin-top: 10vh;
-  font-size: 18vw;
+  font-size: 16vw;
   color: #ef8582;
+}
+
+@media screen and (min-width: 1000px) {
+  .login-logo {
+     font-size: 9rem;
+  }
 }
