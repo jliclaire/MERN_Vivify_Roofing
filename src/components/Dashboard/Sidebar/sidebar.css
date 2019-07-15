@@ -81,10 +81,13 @@
 .sidebar-bottom-button {
   padding: 10px;
   border-radius: 5%;
-  background: #d3d3d3;
+  background: #ff7e7e;
   cursor: pointer;
 }
 
 .sidebar-bottom-button:hover {
-  background: #ff7e7e;
+}
+
+.button-text:hover {
+  color: #fff;
 }
