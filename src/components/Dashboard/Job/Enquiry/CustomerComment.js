@@ -1,8 +1,17 @@
 import React, { Component } from "react";
 
 class CustomerComment extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
-    return <div className="job-enquiry-customer-comment">CustomerComment</div>;
+    const { data } = this.props;
+    return (
+      <p className="job-enquiry-customer-comment margin-top-bottom p-font">
+        <span className="comments">Comments:</span> {data.comments}
+      </p>
+    );
   }
 }
 

@@ -1,0 +1,19 @@
+.project-info-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #838383;
+  line-height: 30px;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #838383;
+}
+
+.project-info-row-left {
+  width: 45%;
+}
+
+.project-info-row-right {
+  width: 55%;
+}

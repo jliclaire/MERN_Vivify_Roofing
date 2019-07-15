@@ -14,6 +14,7 @@
   background-color: #ef8582;
   margin: 40px;
   color: grey;
+}
 
 .login-form input {
   width: 50%;
@@ -23,15 +24,15 @@
   font-size: 1rem;
 }
 
-.login-form button:hover{
+.login-form button:hover {
   background-color: #ffdbda;
-  }
-
-.inner-form-login {
-  flex-direction: column; 
 }
 
-.inner-form-login input{
+.inner-form-login {
+  flex-direction: column;
+}
+
+.inner-form-login input {
   background-color: #ffe8e7;
   flex-direction: column;
   padding: 15px;
@@ -39,7 +40,6 @@
   margin: 40px 0 0 0;
   font-size: 1.2rem;
   color: grey;
-
 }
 
 .login-logo {
@@ -48,5 +48,4 @@
   margin-top: 10vh;
   font-size: 18vw;
   color: #ef8582;
-
 }
