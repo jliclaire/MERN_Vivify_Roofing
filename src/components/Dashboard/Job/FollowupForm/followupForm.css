@@ -3,12 +3,16 @@
 .followup-comment {
   border: 1px solid #e4e3e3;
 }
+
+.job-followup-form {
+  margin-top: 50px;
+}
+
 .job-followup-form-container {
   width: 97%;
   margin: 0 auto;
   margin-top: 5px;
   margin-bottom: 5px;
-  /* background: lightblue; */
 }
 
 .followup-info {
