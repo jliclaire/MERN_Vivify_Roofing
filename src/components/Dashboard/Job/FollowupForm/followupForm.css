@@ -49,3 +49,9 @@
 .followup-add-btn:hover {
   color: #fff;
 }
+
+.checklist-component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
