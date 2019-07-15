@@ -1,10 +1,20 @@
 import React, { Component } from "react";
-import "./followupForm.css";
+import Popup from "reactjs-popup";
+import "./followupForm.css"
+import CheckList from './CheckList/index';  
+
 
 class FollowupForm extends Component {
   constructor(props) {
     super(props);
+    this.state = { showPopup: false };  
   }
+
+  togglePopup() {  
+    this.setState({  
+         showPopup: !this.state.showPopup  
+    });  
+     } 
 
   componentDidMount() {}
 
@@ -15,7 +25,10 @@ class FollowupForm extends Component {
           <div className="followup-info">
             <input className="followup-date" placeholder="Follow up data" />
             <input className="followup-by" placeholder="Follow up by" />
-            <button className="followup-quote-btn">Add Quote</button>
+            <button className="followup-quote-btn" onClick={this.togglePopup.bind(this)}>Add Quote</button>  
+            {this.state.showPopup ?  
+            <CheckList className="checklist-component" closePopup={this.togglePopup.bind(this)} />  
+            : null }  
           </div>
           <textarea
             className="followup-comment"
