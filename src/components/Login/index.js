@@ -28,7 +28,7 @@ class Login extends React.Component {
         <form className="inner-form-login">
             <input onChange={this.handleChange} type="text" id="email" placeholder="Email" />
             <input onChange={this.handleChange} type="password" id="password" placeholder="Password" />
-            <input type='submit' value='login' onClick={this.handleClick} />
+            <button type='submit' value='login' onClick={this.handleClick}>login</button>
         </form>
       </div>
     )
