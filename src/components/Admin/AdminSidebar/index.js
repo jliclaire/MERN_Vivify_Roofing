@@ -1,7 +1,6 @@
 import React from 'react';
 import { capitalise } from '../../../utils/capitalise'
 import { Link } from 'react-router-dom';
-import './adminSidebar.css'
 
 const deleteToken = () => {
   localStorage.removeItem("token");
@@ -9,7 +8,6 @@ const deleteToken = () => {
 };
 
 const AdminSidebar = props => {
-
   // Testing only:
   const currentUser = 'luke'
 
@@ -23,6 +21,13 @@ const AdminSidebar = props => {
             <h4 className="user-name">{capitalise(currentUser)}</h4>
           </div>
         </div>
+      </div>
+      <div>
+        <p>Sales by Location</p>
+        <p>Sales by Salesperson</p>
+        <p>Sales by Project Type</p>
+        <p>Total Sales</p>
+      </div>
       <div className="sidebar-bottom">
         <div className="sidebar-bottom-button">
           <Link to="/" className="button-text">
@@ -33,7 +38,6 @@ const AdminSidebar = props => {
           <p className="button-text">Logout</p>
         </div>
       </div>
-    </div>
     </div>
   );
 };
