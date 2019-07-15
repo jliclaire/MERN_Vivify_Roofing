@@ -30,7 +30,8 @@ const AdminSidebar = props => {
         <p>Total Sales</p>
       </div>
       <div>
-        <h3>Application</h3>
+        <h3>Users</h3>
+        <p>Show all users</p>
         <p>Add new user</p>
         <p>Edit user</p>
         <p>Delete user</p>

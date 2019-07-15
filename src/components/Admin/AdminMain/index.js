@@ -1,8 +1,11 @@
 import React from 'react';
+import './adminMain.css'
 
 const AdminMain = props => {
   return (
-    <h2>Stub for Admin Main</h2>
+    <div className='admin-main'>
+      <h2>Stub for Admin Main</h2>
+    </div>
   )
 }
 
