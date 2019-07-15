@@ -38,9 +38,9 @@ class Login extends React.Component {
             id="password"
             placeholder="Password"
           />
-          <button type="submit" value="login" onClick={this.handleClick}>
-            login
-          </button>
+          <div className="btn-login" onClick={this.handleClick}>
+            <p className="btn-text">Log In</p>
+          </div>
         </form>
       </div>
     );

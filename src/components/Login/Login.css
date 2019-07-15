@@ -2,7 +2,7 @@
   margin: 1rem;
   padding: 2rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   font-size: 1rem;
 }
@@ -30,14 +30,16 @@
 }
 
 .inner-form-login {
+  display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .inner-form-login input {
-  background-color: #ffe8e7;
+  border-radius: 3%;
   flex-direction: column;
-  padding: 15px;
-  margin: 30px 0 0 0;
+  padding: 10px;
+  width: 70%;
   font-size: 1.2rem;
 }
 
@@ -53,4 +55,18 @@
   .login-logo {
      font-size: 10rem;
   }
+}
+
+.btn-login {
+  padding: 10px;
+  margin: auto;
+  width: 85px;
+  border-radius: 10%;
+  background: #ff7e7e;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-login:hover > p {
+  color: #fff;
 }

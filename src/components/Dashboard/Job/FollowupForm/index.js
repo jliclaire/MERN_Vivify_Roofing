@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+// import Popup from "reactjs-popup";
 import "./followupForm.css";
+import CheckList from "./CheckList/index";
 
 class FollowupForm extends Component {
   constructor(props) {
@@ -9,7 +11,8 @@ class FollowupForm extends Component {
         followupDate: "",
         salesName: "",
         tradeComments: ""
-      }
+      },
+      showPopup: false
     };
   }
 
@@ -26,6 +29,12 @@ class FollowupForm extends Component {
   handleChange = e => {
     this.setState({ [e.target.id]: e.target.value });
   };
+
+  togglePopup() {
+    this.setState({
+      showPopup: !this.state.showPopup
+    });
+  }
 
   render() {
     return (
@@ -46,7 +55,18 @@ class FollowupForm extends Component {
               placeholder="Follow up by"
               onChange={this.handleChange}
             />
-            <button className="followup-quote-btn">Add Quote</button>
+            <button
+              className="followup-quote-btn"
+              onClick={this.togglePopup.bind(this)}
+            >
+              Add Quote
+            </button>
+            {this.state.showPopup ? (
+              <CheckList
+                className="checklist-component"
+                closePopup={this.togglePopup.bind(this)}
+              />
+            ) : null}
           </div>
           <textarea
             id="tradeComments"

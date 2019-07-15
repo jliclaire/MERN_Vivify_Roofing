@@ -25,7 +25,10 @@ h6 {
 }
 
 p,
-a {
+a,
+input,
+option,
+select {
   font-family: "Open Sans", sans-serif;
 }
 
