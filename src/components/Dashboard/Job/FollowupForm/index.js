@@ -27,8 +27,6 @@ class FollowupForm extends Component {
     this.setState({ [e.target.id]: e.target.value });
   };
 
-  componentDidMount() {}
-
   render() {
     return (
       <div className="job-followup-form">

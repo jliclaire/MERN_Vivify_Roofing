@@ -11,10 +11,7 @@ class Job extends Component {
   }
 
   handleAddNewFollowup = newFollowup => {
-    // this.setState({ followups: [...this.state.followups, newFollowup] });
-
     this.props.data.followUps.push(newFollowup);
-    // console.log(this.props.data.followUps);
     this.props.addNewFollowUps(this.props.data.followUps);
   };
 
