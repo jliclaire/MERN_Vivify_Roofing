@@ -6,9 +6,6 @@ import Dashboard from "./components/Dashboard";
 import Admin from "./components/Admin";
 
 class Routes extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     const { data, auth, currentUser, authCall } = this.props;
     return (

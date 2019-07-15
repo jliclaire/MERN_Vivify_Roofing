@@ -17,19 +17,13 @@ class Register extends React.Component {
         type: '',
         phone: '',
         email: '',
-        checked: false
+        admin: false
     };
   }
 
   handleClick = (e) => {
     e.preventDefault();
     this.props.authCall(this.state);
-  }
-
-    // checkbox handler 
-  handleCheckboxChange = (e) => {
-  this.setState({ checked: e.target.checked })
-  console.log(this.state)
   }
 
   handleChange = (e) => {
@@ -42,26 +36,16 @@ class Register extends React.Component {
  
    return (
      <div className="register">
-    <h1>Register a new account</h1>
-    <form className="register-form">
-        <input onChange={this.handleChange} type="text" id="name" placeholder="Name" />
-        <input onChange={this.handleChange} type="text" id="password" placeholder="Password" />
-        <input onChange={this.handleChange} type="text" id="type" placeholder="Job Role" />
-        <input onChange={this.handleChange} type="text" id="phone" placeholder="Mobile" />
-        <input onChange={this.handleChange} type="text" id="email" placeholder="Email" />
-        <label>
-          <div className="admin-check-wrapper">
-        <p className="admin-text">admin</p>
-          <Checkbox 
-            className="check-box"
-            checked={this.state.checked}
-            onChange={this.handleCheckboxChange}
-          />
-          </div>
-        </label>
-    </form>
-    <button className="bth-register" onClick={this.handleClick}>Register New Account</button>
-  </div>
+        <h1>Register a new account</h1>
+        <form className="register-form">
+            <input onChange={this.handleChange} type="text" id="name" placeholder="Name" />
+            <input onChange={this.handleChange} type="text" id="password" placeholder="Password" />
+            <input onChange={this.handleChange} type="text" id="type" placeholder="Job Role" />
+            <input onChange={this.handleChange} type="text" id="phone" placeholder="Mobile" />
+            <input onChange={this.handleChange} type="text" id="email" placeholder="Email" />
+        </form>
+        <input type='submit' value='Register' className="bth-register" onClick={this.handleClick} />
+      </div>
    )
   }
  }
