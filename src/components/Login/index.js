@@ -1,5 +1,5 @@
 import React from "react";
-import './Login.css'
+import './login.css'
 
 class Login extends React.Component {
   constructor(props) {
@@ -28,7 +28,9 @@ class Login extends React.Component {
         <form className="inner-form-login">
             <input onChange={this.handleChange} type="text" id="email" placeholder="Email" />
             <input onChange={this.handleChange} type="password" id="password" placeholder="Password" />
-            <button type='submit' value='login' onClick={this.handleClick}>login</button>
+            <div className='btn-login' onClick={this.handleClick}>
+              <p className='btn-text'>Log In</p>
+            </div>
         </form>
       </div>
     )
