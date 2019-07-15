@@ -15,6 +15,12 @@
   margin: 40px;
   color: grey;
 
+.login-form input {
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 60%;
+  font-size: 1rem;
 }
 
 .login-form button:hover{

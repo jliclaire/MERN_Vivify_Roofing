@@ -39,23 +39,22 @@ class App extends Component {
     this.setState({ data: data });
   }
 
-  async componentDidMount() {
+  getUser = async () => {
     try {
       // check if the user has a token and send to the back end to get user info
       const token = localStorage.getItem('token')
-      const authCall = await axios.post(
-        `${process.env.REACT_APP_API_URL}/users/current`,
+      const authCall = await axios.get(
+        `${process.env.REACT_APP_API_URL}/private/current-user`,
         {
           headers: { token: token }
         }
       )
+      console.log(authCall)
       // set state appropriately
       this.setState({
         authenticated: true,
-        currentUser: authCall.data
+        currentUser: authCall.data.currentUser
       })
-      // get jobs info
-      this.getLeads();
     } catch (err) {
       console.log(err);
       // set state appropriately
@@ -67,7 +66,13 @@ class App extends Component {
     }
   }
 
+  async componentDidMount() {
+    this.getUser()
+    this.getLeads()
+  }
+
   render() {
+    console.log(this.state)
     const { data, authenticated, currentUser } = this.state;
     return (
       <Routes
