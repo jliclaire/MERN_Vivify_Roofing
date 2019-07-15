@@ -1,15 +1,16 @@
 import React from 'react';
-import Sidebar from '../Dashboard/Sidebar'
+import AdminSidebar from './AdminSidebar'
+import AdminMain from './AdminMain/'
 import './admin.css'
 
 class Admin extends React.Component {
 
   render() {
-    const { data } = this.props;
+    const { data, currentUser } = this.props;
     return (
       <div className='admin'>
-        <Sidebar data={data} />
-        <h1>This is a stub for the admin view.</h1>
+        <AdminSidebar currentUser={currentUser} />
+        <AdminMain data={data} />
       </div>
     )
   }
