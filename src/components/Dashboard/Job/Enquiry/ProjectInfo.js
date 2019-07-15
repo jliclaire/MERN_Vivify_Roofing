@@ -22,18 +22,18 @@ class ProjectInfo extends Component {
         </div>
         <div className="project-info-row">
           <p className="project-info-row-left p-font">
-            <span className="comments">Home Size: </span>
-            {data.sizeOfHome}
-          </p>
-          <p className="project-info-row-right p-font">
             <span className="comments">House Levels: </span>
             {data.houseLevels}
+          </p>
+          <p className="project-info-row-right p-font">
+            <span className="comments">Approximate Size of Home: </span>
+            {data.sizeOfHome}
           </p>
         </div>
         <div className="project-info-row">
           <p className="project-info-row-left p-font">
-            <span className="comments">Current Roof Material: </span>
-            {data.currentRoofMaterial}
+            <span className="comments">Roof Type: </span>
+            {data.roofType}
           </p>
           <p className="project-info-row-right p-font">
             <span className="comments">Desired Roof Material: </span>
@@ -42,8 +42,8 @@ class ProjectInfo extends Component {
         </div>
         <div className="project-info-row border-bottom">
           <p className="project-info-row-left p-font">
-            <span className="comments">Roof Type: </span>
-            {data.roofType}
+            <span className="comments">Current Roof Material: </span>
+            {data.currentRoofMaterial}
           </p>
           <p className="project-info-row-right p-font">
             <span className="comments">Gutter Downpipe Replacement: </span>

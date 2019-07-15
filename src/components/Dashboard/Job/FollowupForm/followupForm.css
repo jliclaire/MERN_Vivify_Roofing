@@ -1,0 +1,51 @@
+.job-followup-form,
+.job-followup-form input,
+.followup-comment {
+  border: 1px solid #e4e3e3;
+}
+.job-followup-form-container {
+  width: 97%;
+  margin: 0 auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  /* background: lightblue; */
+}
+
+.followup-info {
+  height: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+  margin-bottom: 5px;
+}
+
+.followup-quote-btn {
+  border: none;
+  background: #c1f7f7;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.followup-comment {
+  height: 4rem;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.followup-upload-image {
+  margin-bottom: 5px;
+}
+
+.followup-add-btn {
+  border: none;
+  background: #ff7e7e;
+  padding: 8px 8px;
+  border-radius: 3px;
+  color: #333;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.followup-add-btn:hover {
+  color: #fff;
+}
