@@ -1,5 +1,5 @@
 import React from 'react';
-// import '../components/ImageUpload.css'
+import './imageUpload.css'
 import axios from 'axios';
 
 
@@ -29,8 +29,7 @@ class ImageUpload extends React.Component {
   render() {
     return (
       <>
-        <p>Upload a photo:</p>
-        <input type="file" name="image-upload" id="image-upload" onChange={this.handleUpload}/>
+        <input className="input-btn" type="file" name="image-upload" id="image-upload" onChange={this.handleUpload}/>
       </>
     )
   }

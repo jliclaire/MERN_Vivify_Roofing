@@ -98,7 +98,7 @@ class FollowupForm extends Component {
             onChange={this.handleChange}
           />
           <div className="followup-upload-image">
-            <ImageUpload id={this.props.data._id}/>
+            <ImageUpload className= "image-upload-btn" id={this.props.data._id}/>
           </div>
           <button
             className="followup-add-btn"
