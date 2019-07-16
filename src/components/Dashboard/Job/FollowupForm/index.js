@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Popup from "reactjs-popup";
 import "./followupForm.css"
-import CheckList from './CheckList/index';  
+import CheckList from './CheckList/index';
+import ImageUpload from './ImageUpload';
 
 
 class FollowupForm extends Component {
@@ -35,7 +36,7 @@ class FollowupForm extends Component {
             placeholder="Write a comment"
           />
           <div className="followup-upload-image">
-            <button>Upload Image</button>
+            <ImageUpload id={this.props.data._id}/>
           </div>
           <button className="followup-add-btn">Add Follow Up</button>
         </div>
