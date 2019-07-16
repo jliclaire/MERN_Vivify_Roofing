@@ -7,12 +7,12 @@ class FollowupForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      followup: {
-        followupDate: "",
-        salesName: "",
-        tradeComments: "",
-        quoteAmount: ""
-      },
+      // followup: {
+      followupDate: "",
+      salesName: "",
+      tradeComments: "",
+      quoteAmount: "",
+      // },
       showPopup: false
     };
   }
@@ -25,21 +25,14 @@ class FollowupForm extends Component {
       tradeComments: this.state.tradeComments,
       quoteAmount: this.state.quoteAmount
     };
-    console.log(newFollowup);
     this.props.addNewFollowup(newFollowup);
-    // this.clearFormData();
+    this.setState({
+      followupDate: "",
+      salesName: "",
+      tradeComments: "",
+      quoteAmount: ""
+    });
   };
-
-  // clearFormData = () => {
-  //   this.setState({
-  //     followup: {
-  //       followupDate: null,
-  //       salesName: null,
-  //       tradeComments: null,
-  //       quoteAmount: null
-  //     }
-  //   });
-  // };
 
   handleChange = e => {
     this.setState({ [e.target.id]: e.target.value });
@@ -53,7 +46,6 @@ class FollowupForm extends Component {
 
   addQuoteAmount = amount => {
     this.setState({ quoteAmount: amount });
-    console.log(amount);
   };
 
   render() {
@@ -76,16 +68,13 @@ class FollowupForm extends Component {
               onChange={this.handleChange}
             />
 
-            <button
-              className="followup-quote-btn"
-              onClick={this.togglePopup.bind(this)}
-            >
+            <button className="followup-quote-btn" onClick={this.togglePopup}>
               {this.state.quoteAmount || "Add Quote"}
             </button>
             {this.state.showPopup ? (
               <CheckList
                 className="checklist-component"
-                closePopup={this.togglePopup.bind(this)}
+                closePopup={this.togglePopup}
                 newQuoteAmount={this.addQuoteAmount}
               />
             ) : null}
