@@ -33,8 +33,8 @@ class TopButtons extends React.Component {
   }
 
   handleMoveLead = (e) => {
-    const category = e.target.value;
-    this.props.moveLead();
+    const category = this.parseCategory(e.target.value);
+    this.props.moveLead(category);
   }
 
   handleClick = () => {

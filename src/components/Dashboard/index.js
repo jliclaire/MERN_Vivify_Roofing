@@ -29,10 +29,11 @@ class Dashboard extends Component {
 
   handleMoveLead = async (category) => {
     const id = this.state.activeJob._id;
-    await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, {
+    const job = await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, {
       // Set the existing status to false.
       [category]: true
     })
+    console.log(job)
     this.setActiveJob(id);
   }
 
