@@ -10,7 +10,8 @@ class FollowupForm extends Component {
       followup: {
         followupDate: "",
         salesName: "",
-        tradeComments: ""
+        tradeComments: "",
+        quoteAmount: ""
       },
       showPopup: false
     };
@@ -21,8 +22,10 @@ class FollowupForm extends Component {
     const newFollowup = {
       followupDate: this.state.followupDate,
       salesName: this.state.salesName,
-      tradeComments: this.state.tradeComments
+      tradeComments: this.state.tradeComments,
+      quoteAmount: this.state.quoteAmount
     };
+    console.log(newFollowup);
     this.props.addNewFollowup(newFollowup);
   };
 
@@ -35,6 +38,11 @@ class FollowupForm extends Component {
       showPopup: !this.state.showPopup
     });
   }
+
+  addQuoteAmount = amount => {
+    this.setState({ quoteAmount: amount });
+    console.log(amount);
+  };
 
   render() {
     return (
@@ -65,6 +73,7 @@ class FollowupForm extends Component {
               <CheckList
                 className="checklist-component"
                 closePopup={this.togglePopup.bind(this)}
+                newQuoteAmount={this.addQuoteAmount}
               />
             ) : null}
           </div>
