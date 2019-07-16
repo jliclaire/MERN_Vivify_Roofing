@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-
-import "./followupForm.css"
-import CheckList from './CheckList/index';
+// import Popup from "reactjs-popup";
+import "./followupForm.css";
+import CheckList from "./CheckList/index";
 import ImageUpload from './ImageUpload';
-
 
 class FollowupForm extends Component {
   constructor(props) {
@@ -12,7 +11,8 @@ class FollowupForm extends Component {
       followup: {
         followupDate: "",
         salesName: "",
-        tradeComments: ""
+        tradeComments: "",
+        quoteAmount: ""
       },
       showPopup: false
     };
@@ -23,10 +23,24 @@ class FollowupForm extends Component {
     const newFollowup = {
       followupDate: this.state.followupDate,
       salesName: this.state.salesName,
-      tradeComments: this.state.tradeComments
+      tradeComments: this.state.tradeComments,
+      quoteAmount: this.state.quoteAmount
     };
+    console.log(newFollowup);
     this.props.addNewFollowup(newFollowup);
+    // this.clearFormData();
   };
+
+  // clearFormData = () => {
+  //   this.setState({
+  //     followup: {
+  //       followupDate: null,
+  //       salesName: null,
+  //       tradeComments: null,
+  //       quoteAmount: null
+  //     }
+  //   });
+  // };
 
   handleChange = e => {
     this.setState({ [e.target.id]: e.target.value });
@@ -37,6 +51,11 @@ class FollowupForm extends Component {
       showPopup: !this.state.showPopup
     });
   }
+
+  addQuoteAmount = amount => {
+    this.setState({ quoteAmount: amount });
+    console.log(amount);
+  };
 
   render() {
     return (
@@ -57,16 +76,18 @@ class FollowupForm extends Component {
               placeholder="Follow up by"
               onChange={this.handleChange}
             />
+
             <button
               className="followup-quote-btn"
               onClick={this.togglePopup.bind(this)}
             >
-              Add Quote
+              {this.state.quoteAmount || "Add Quote"}
             </button>
             {this.state.showPopup ? (
               <CheckList
                 className="checklist-component"
                 closePopup={this.togglePopup.bind(this)}
+                newQuoteAmount={this.addQuoteAmount}
               />
             ) : null}
           </div>

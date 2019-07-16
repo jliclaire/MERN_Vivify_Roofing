@@ -24,7 +24,8 @@ class Followups extends Component {
                     {followup.salesName}
                   </p>
                   <p className="p-flex-center">
-                    <span className="comments">Quote Amount:</span> $5,000
+                    <span className="comments">Quote Amount:</span>{" "}
+                    {followup.quoteAmount}
                   </p>
                 </div>
                 <div className="job-followups-comment p-font">
