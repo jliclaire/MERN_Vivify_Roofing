@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-import Popup from "reactjs-popup";
 import "./followupForm.css"
 import CheckList from './CheckList/index';
 import ImageUpload from './ImageUpload';

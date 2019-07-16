@@ -42,6 +42,7 @@ class Dashboard extends Component {
     const res = await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, {
       assignedTrade: name
     })
+    console.log(res)
     this.setActiveJob(id);
   }
 
@@ -69,13 +70,13 @@ class Dashboard extends Component {
 
   soldFilter = data => {
     return data.filter(datum => {
-      return datum.completed;
+      return datum.sold;
     });
   };
 
   archiveFilter = data => {
     return data.filter(datum => {
-      return datum.cancelled;
+      return datum.archived;
     });
   };
 

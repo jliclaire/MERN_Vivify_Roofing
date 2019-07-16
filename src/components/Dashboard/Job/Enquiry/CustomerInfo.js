@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import "./customerInfo.css";
 
 class CustomerInfo extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const { data } = this.props;

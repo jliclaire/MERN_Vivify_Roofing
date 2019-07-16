@@ -3,13 +3,10 @@ import TopButtons from "./TopButtons/";
 import Enquiry from "./Enquiry/";
 import Followups from "./Followups";
 import FollowupForm from "./FollowupForm";
-import "./job.css";
+import "./job.css"
 
 class Job extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+  
   handleAddNewFollowup = newFollowup => {
     this.props.data.followUps.push(newFollowup);
     this.props.addNewFollowUps(this.props.data.followUps);
