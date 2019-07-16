@@ -1,0 +1,29 @@
+.job-top-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-buttons-right {
+  display: flex;
+  align-items: center;
+}
+
+.assign-lead, .move-lead {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-lead {
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.options {
+  margin-top: 10px;
+  padding: 5px;
+}
