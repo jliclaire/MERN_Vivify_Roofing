@@ -8,8 +8,12 @@ import "./job.css";
 class Job extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
   }
+
+  handleAddNewFollowup = newFollowup => {
+    this.props.data.followUps.push(newFollowup);
+    this.props.addNewFollowUps(this.props.data.followUps);
+  };
 
   render() {
     const { data } = this.props;
@@ -19,7 +23,10 @@ class Job extends Component {
           <TopButtons data={data} />
           <Enquiry data={data} />
           <Followups data={data} />
-          <FollowupForm data={data} />
+          <FollowupForm
+            data={data}
+            addNewFollowup={this.handleAddNewFollowup}
+          />
         </div>
       </div>
     );

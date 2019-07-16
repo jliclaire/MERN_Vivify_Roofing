@@ -1,68 +1,127 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Vivify CRM
 
-## Available Scripts
+Built with blood sweat and tears by Jing Li Claire, Mark Butcher, and Andrew Sims
 
-In the project directory, you can run:
+(Link to published application goes here.)
 
-### `npm start`
+(Link to GitHub repository goes here.)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Description
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+This software is a basic CRM (customer relationship management) system 
+which was built for a roof restoration business.
 
-### `npm test`
+### Problem definition
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+There are two business problems which this software is supposed to solve:
 
-### `npm run build`
+1. Standardising the sales procedure
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Irregularities and lack of system around the sales procedure and
+communication between the trades and sales staff had meant that
+mistakes were often made and jobs misquoted. This is a risk to both the
+reputation and bottom line of the business. 
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+A significant aspect of this problem was that communication and record-keeping 
+was done on an ad hoc basis. Therefore, Having all of the information regarding 
+the customer and their particular needs in a centralised hub was meant to 
+improve this situation and improve communication between the trades and the 
+sales team more generally.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Actionable insights to inform marketing spend
 
-### `npm run eject`
+The business does not have a clear idea of whether their marketing spends
+in certain suburbs are effective. They define effectiveness as the proportion
+of leads which are converted into sales for any particular area. Collecting this
+data and displaying it in the application over a period of time would allow them
+to make more informed decisions as to where to spend their marketing budget.
+For example, if they find that (for example) many leads in Noble Park do not 
+convert, then they will stop spending marketing budget in Noble Park.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Functionality
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Our functionality follows from the above two business problems. In the first
+place, we want the software to centralise information regarding customer leads
+and the development of these over the sales lifecycle, as well as to standardise
+interactions and processes concerning the potential customer.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This functionality is covered in the **Dashboard** of the software. An 
+**Admin User** on the dashboard can see all the sales **Leads** and sort them by 
+their current status in the sales lifecycle (new => in progress => sold/archived). 
+Clicking on a lead will display contact information for the potential customer 
+and the details of the job.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Sales leads can be assigned to **Sales Users** whose responsiblity it then is
+to follow up with the lead in order to quote and potentially sell the job. At
+this stage the Lead is marked as "in progress."
+Once in contact with the customers they are required to submit **Followups** using
+the HTML forms which are attached to the **Lead** as a record of the sales
+attempt. The Sales Users can also provide more unforseen details about the job
+and provide the price for which they have sold it. Once this occurs the job is 
+marked as "sold."
 
-## Learn More
+The second piece of functionality, the analytics, is covered in the **Admin**
+section of the software. Here an Admin User can find information about what kinds
+of jobs they have been able to sell, who has been selling them, how much they
+have been sold for, and where they have been sold.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+(Screenshots should be placed between the paragraphs above.)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Technology Stack
 
-### Code Splitting
+The software was built using full-stack Javascript: React on the frontend, and 
+Express and NodeJS on the backend. We use MongoDB for data persistence. The
+software is deployed on Netlify (front) and Now (back).
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Installation and usage
 
-### Analyzing the Bundle Size
+Set up
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+configure
 
-### Making a Progressive Web App
+deploy
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+use
 
-### Advanced Configuration
+## Design documentation
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Design process
 
-### Deployment
+User stories
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Workflow diagram
 
-### `npm run build` fails to minify
+Wireframes
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+ERDs
+
+Data flow diagram
+
+OO design documentation
+
+## Project Management and Planning process
+
+Project plan and timeline
+
+Client communications
+
+Trello screenshots
+
+## Short answer questions
+
+1. What are the most important aspects of quality software?
+
+sep of concerns, reliability(testing), ability to scale, satisfies the logic of
+a business problem
+
+2. What libraries are being used in the app and why?
+
+react, axios, express, testing libraries, nodemon...
+
+3. A team is about to engage in a project, developing a website for a small business. What knowledge and skills would they need in order to develop the project?
+
+planning/agile, design, markup, programming languages (?), tools for data persistence
+
+4. Within your own project what knowledge or skills were required to complete the project, and overcome challenges?
+
+5. Evaluate how effective your knowledge and skills were this project, using examples, and suggest changes or improvements for future projects of a similar nature.
