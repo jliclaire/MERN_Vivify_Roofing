@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import "./CheckList.css";
 
 class CheckList extends Component {

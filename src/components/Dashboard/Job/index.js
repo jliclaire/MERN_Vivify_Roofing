@@ -1,26 +1,28 @@
 import React, { Component } from "react";
-import TopButtons from "./TopButtons";
+import TopButtons from "./TopButtons/";
 import Enquiry from "./Enquiry/";
 import Followups from "./Followups";
 import FollowupForm from "./FollowupForm";
-import "./job.css";
+import "./job.css"
 
 class Job extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+  
   handleAddNewFollowup = newFollowup => {
     this.props.data.followUps.push(newFollowup);
     this.props.addNewFollowUps(this.props.data.followUps);
   };
 
   render() {
-    const { data } = this.props;
+    const { data, assignLead, editLead, moveLead } = this.props;
     return (
       <div className="job">
         <div className="job-container">
-          <TopButtons data={data} />
+          <TopButtons
+            data={data}
+            assignLead={assignLead}
+            editLead={editLead}
+            moveLead={moveLead}
+          />
           <Enquiry data={data} />
           <Followups data={data} />
           <FollowupForm
