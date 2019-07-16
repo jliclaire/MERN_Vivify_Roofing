@@ -1,13 +1,6 @@
 import React from "react";
 import "./register.css";
 
-// checkbox component
-const Checkbox = props => (
-  <>
-    <input type="checkbox" {...props} />
-  </>
-);
-
 class Register extends React.Component {
   constructor(props) {
     super(props);
