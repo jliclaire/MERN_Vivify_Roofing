@@ -39,17 +39,17 @@ class FollowupForm extends Component {
   //       quoteAmount: null
   //     }
   //   });
-  };
+  // };
 
   handleChange = e => {
     this.setState({ [e.target.id]: e.target.value });
   };
 
-  togglePopup() {
+  togglePopup = () => {
     this.setState({
       showPopup: !this.state.showPopup
     });
-  }
+  };
 
   addQuoteAmount = amount => {
     this.setState({ quoteAmount: amount });
