@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-// import Popup from "reactjs-popup";
-import "./followupForm.css";
-import CheckList from "./CheckList/index";
+
+import Popup from "reactjs-popup";
+import "./followupForm.css"
+import CheckList from './CheckList/index';
+import ImageUpload from './ImageUpload';
+
 
 class FollowupForm extends Component {
   constructor(props) {
@@ -75,7 +78,7 @@ class FollowupForm extends Component {
             onChange={this.handleChange}
           />
           <div className="followup-upload-image">
-            <button>Upload Image</button>
+            <ImageUpload id={this.props.data._id}/>
           </div>
           <button
             className="followup-add-btn"
