@@ -29,7 +29,7 @@ class ImageUpload extends React.Component {
   render() {
     return (
       <>
-        <p>{this.props.id}</p>
+        <p>Upload a photo:</p>
         <input type="file" name="image-upload" id="image-upload" onChange={this.handleUpload}/>
       </>
     )

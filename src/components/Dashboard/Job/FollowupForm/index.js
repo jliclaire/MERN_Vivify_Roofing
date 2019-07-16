@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import Popup from "reactjs-popup";
 import "./followupForm.css";
 import CheckList from "./CheckList/index";
+import ImageUpload from './ImageUpload';
 
 class FollowupForm extends Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class FollowupForm extends Component {
   //       quoteAmount: null
   //     }
   //   });
-  };
+  // };
 
   handleChange = e => {
     this.setState({ [e.target.id]: e.target.value });
