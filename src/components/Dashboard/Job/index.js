@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import TopButtons from "./TopButtons";
+import TopButtons from "./TopButtons/";
 import Enquiry from "./Enquiry/";
 import Followups from "./Followups";
 import FollowupForm from "./FollowupForm";
@@ -16,11 +16,16 @@ class Job extends Component {
   };
 
   render() {
-    const { data } = this.props;
+    const { data, assignLead, editLead, moveLead } = this.props;
     return (
       <div className="job">
         <div className="job-container">
-          <TopButtons data={data} />
+          <TopButtons
+            data={data}
+            assignLead={assignLead}
+            editLead={editLead}
+            moveLead={moveLead}
+          />
           <Enquiry data={data} />
           <Followups data={data} />
           <FollowupForm

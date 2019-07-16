@@ -11,7 +11,8 @@ class Dashboard extends Component {
     super(props);
     this.state = {
       activeScreen: "inbox",
-      activeJob: this.props.data[0]
+      activeJob: this.props.data[0],
+      editJob: false
     };
   }
 
@@ -23,6 +24,32 @@ class Dashboard extends Component {
       activeJob: foundJob
     });
   };
+
+  // The below three functions are for the Top Buttons for the Job view
+
+  handleMoveLead = async (category) => {
+    const id = this.state.activeJob._id;
+    const job = await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, {
+      // Set the existing status to false.
+      [category]: true
+    })
+    console.log(job)
+    this.setActiveJob(id);
+  }
+
+  handleAssignLead = async (name) => {
+    const id = this.state.activeJob._id;
+    const res = await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, {
+      assignedTrade: name
+    })
+    this.setActiveJob(id);
+  }
+
+  handleEditLead = () => {
+    this.setState({
+      editJob: !this.state.editJob
+    })
+  }
 
   handleAddNewFollowUps = async newFollowUps => {
     console.log(newFollowUps);
@@ -83,7 +110,13 @@ class Dashboard extends Component {
           data={this.filterData(data)}
           setActiveJob={this.setActiveJob}
         />
-        <Job data={activeJob} addNewFollowUps={this.handleAddNewFollowUps} />
+        <Job 
+          data={activeJob} 
+          addNewFollowUps={this.handleAddNewFollowUps}
+          moveLead={this.handleMoveLead}
+          assignLead={this.handleAssignLead}
+          editLead={this.handleEditLead}
+        />
       </div>
     );
   }

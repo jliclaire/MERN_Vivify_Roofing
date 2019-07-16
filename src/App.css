@@ -5,14 +5,20 @@
   color: #111111;
 }
 
-.logo,
 .button {
-  /* background: #FF7E7E; */
+  padding: 10px;
+  border-radius: 5%;
+  background: #ff7e7e;
+  cursor: pointer;
 }
 
 .button-text {
   color: #333333;
   font-weight: 700;
+}
+
+.button-text:hover {
+  color: #fff;
 }
 
 h1,
