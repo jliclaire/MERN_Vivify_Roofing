@@ -27,6 +27,18 @@ class FollowupForm extends Component {
     };
     console.log(newFollowup);
     this.props.addNewFollowup(newFollowup);
+    // this.clearFormData();
+  };
+
+  // clearFormData = () => {
+  //   this.setState({
+  //     followup: {
+  //       followupDate: null,
+  //       salesName: null,
+  //       tradeComments: null,
+  //       quoteAmount: null
+  //     }
+  //   });
   };
 
   handleChange = e => {
@@ -63,11 +75,12 @@ class FollowupForm extends Component {
               placeholder="Follow up by"
               onChange={this.handleChange}
             />
+
             <button
               className="followup-quote-btn"
               onClick={this.togglePopup.bind(this)}
             >
-              Add Quote
+              {this.state.quoteAmount || "Add Quote"}
             </button>
             {this.state.showPopup ? (
               <CheckList
