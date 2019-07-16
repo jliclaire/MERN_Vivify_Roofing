@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import "./followups.css";
 
 class Followups extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { data } = this.props;
     if (data.followUps.length === 0) {
@@ -36,11 +32,6 @@ class Followups extends Component {
                     <span className="comments">Comment: </span>
                     {followup.tradeComments}
                   </p>
-                </div>
-                <div className="job-followups-img">
-                  <img src="https://static.wixstatic.com/media/1cba3f_fd9ee0cee48d4447a772a83ddec720b2.jpg" />
-                  <img src="https://static.wixstatic.com/media/1cba3f_fd9ee0cee48d4447a772a83ddec720b2.jpg" />
-                  <img src="https://static.wixstatic.com/media/1cba3f_fd9ee0cee48d4447a772a83ddec720b2.jpg" />
                 </div>
               </div>
             );
