@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import "./projectInfo.css";
 
 class ProjectInfo extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { data } = this.props;
     return (
