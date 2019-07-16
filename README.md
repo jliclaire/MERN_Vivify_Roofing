@@ -111,16 +111,86 @@ Trello screenshots
 
 1. What are the most important aspects of quality software?
 
-sep of concerns, reliability(testing), ability to scale, satisfies the logic of
-a business problem
+There are at least four core "most" important aspects of quality software. The
+first aspect is that it satisfies the logic of the business problem which it
+aims to solve. Software is poor quality if it is badly suited to its real world
+problem, or if it approaches this problem with an eccentric or overly complicated
+logic.
+
+The second aspect is that of reliability. Software should be reliable, in the
+sense that it can be used in the same way on different occasions and still yield
+the same result, and that it does not break or work in unintended ways.
+Reliability can be ensured by thorough testing and error handling.
+
+The third aspect is separation of concerns. A piece of software separates its
+concerns when it is well modularised so that each part of the software only
+fulfils its own function and is not overly entangled with the other parts.
+Software that separates its concerns is more easily extensible than software
+which does not.
+
+The final aspect is that of scalability. Quality software can work in production
+contexts where the load on the system may be much higher than in development
+contexts.
 
 2. What libraries are being used in the app and why?
 
-react, axios, express, testing libraries, nodemon...
+We used third-party dependencies on both front-end and back-end.
+
+### Frontend
+
+* React: create-react-app and its dependencies (webpack, babel, etc.) are used
+in order to streamline the process of writing our UI.
+
+* Axios: used in order to make calls to our server and to other APIs, since it
+is more straightforward to use than the native fetch.
+
+* Testing libraries: we use Jest and react-testing-library to test our UI. We
+use Jest because it is intended specifically for DOM testing with React and we
+use react-testing-library because its API is more straightforward and offers
+less opportunity for errors of inexperienced than does Enzyme.
+
+* Dotenv: to store secrets in the environmental variables.
+
+* Netlify-CLI: to facilitate deployment.
+
+* React-Router-DOM: to allow endpoints on the client side.
+
+### Backend
+
+* Express: to provide the tools to build our webserver.
+
+* BCrypt: to hash passwords and compare hashes.
+
+* Cloudinary: to facilitate image upload.
+
+* CORS: to set Cross Origin Request settings.
+
+* JSONWebTokens: to create and check tokens for authentication.
+
+* Mongoose: as the model over our database.
+
+* Multer: to buffer image uploads on their way to the cloudinary API.
+
+* Mocha and Chai: for backend testing.
+
+* Nodemon: to enable hot reloading of the server.
 
 3. A team is about to engage in a project, developing a website for a small business. What knowledge and skills would they need in order to develop the project?
 
-planning/agile, design, markup, programming languages (?), tools for data persistence
+There are a number of skills and knowledges that are necessary to develop a
+website. These are both technical and organisational. The organisational
+skills involve knowing the software development cycle and the team practices
+that surround this (e.g., Agile). Some design skills or knowledge would also
+be useful for the planning of the website and UX (e.g., wireframing).
+
+The technical skills involve the three languages of the browser: HTML, CSS, and
+JavaScript. These languages are those which are used to develop on the client
+side. If the website also includes server-side code, then the developers might
+also want to know a server-side language such as Ruby, PHP, or NodeJS.
+
+If the website also requires the persistence of data, then the team might also
+be required to use some sort of database technology, such as MongoDB or
+PostgreSQL.
 
 4. Within your own project what knowledge or skills were required to complete the project, and overcome challenges?
 

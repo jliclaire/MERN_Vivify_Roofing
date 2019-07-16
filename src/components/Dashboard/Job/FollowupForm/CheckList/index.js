@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import "./CheckList.css";
+import "./checkList.css";
 
 class CheckList extends Component {
   constructor(props) {
