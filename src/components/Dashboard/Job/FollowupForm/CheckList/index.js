@@ -1,5 +1,5 @@
 import React from "react";
-import "./CheckList.css";
+import "./checkList.css";
 
 class CheckList extends React.Component {
  constructor() {
