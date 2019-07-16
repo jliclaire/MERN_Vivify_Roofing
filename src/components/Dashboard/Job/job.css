@@ -19,3 +19,13 @@
 .p-font {
   font-size: 13px;
 }
+
+@media only screen and (max-width: 767px) {
+  .job {
+    width: 100%;
+  }
+
+  .assign-lead {
+    margin-right: 15px;
+  }
+}
