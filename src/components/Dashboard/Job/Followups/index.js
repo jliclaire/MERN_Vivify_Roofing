@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./followups.css";
 
 class Followups extends Component {
-
   render() {
     const { data } = this.props;
     if (data.followUps.length === 0) {

@@ -1,19 +1,16 @@
 import React, { Component } from "react";
-// import Popup from "reactjs-popup";
 import "./followupForm.css";
-import CheckList from "./CheckList/index";
-import ImageUpload from './ImageUpload';
+import CheckList from "./CheckList";
+import ImageUpload from "./ImageUpload";
 
 class FollowupForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      followup: {
-        followupDate: "",
-        salesName: "",
-        tradeComments: "",
-        quoteAmount: ""
-      },
+      followupDate: "",
+      salesName: "",
+      tradeComments: "",
+      quoteAmount: "",
       showPopup: false
     };
   }
@@ -26,35 +23,22 @@ class FollowupForm extends Component {
       tradeComments: this.state.tradeComments,
       quoteAmount: this.state.quoteAmount
     };
-    console.log(newFollowup);
     this.props.addNewFollowup(newFollowup);
-    // this.clearFormData();
+    // e.target.parentNode.reset();
   };
-
-  // clearFormData = () => {
-  //   this.setState({
-  //     followup: {
-  //       followupDate: null,
-  //       salesName: null,
-  //       tradeComments: null,
-  //       quoteAmount: null
-  //     }
-  //   });
-  // };
 
   handleChange = e => {
     this.setState({ [e.target.id]: e.target.value });
   };
 
-  togglePopup() {
+  togglePopup = () => {
     this.setState({
       showPopup: !this.state.showPopup
     });
-  }
+  };
 
   addQuoteAmount = amount => {
     this.setState({ quoteAmount: amount });
-    console.log(amount);
   };
 
   render() {
@@ -77,16 +61,13 @@ class FollowupForm extends Component {
               onChange={this.handleChange}
             />
 
-            <button
-              className="followup-quote-btn"
-              onClick={this.togglePopup.bind(this)}
-            >
+            <button className="followup-quote-btn" onClick={this.togglePopup}>
               {this.state.quoteAmount || "Add Quote"}
             </button>
             {this.state.showPopup ? (
               <CheckList
                 className="checklist-component"
-                closePopup={this.togglePopup.bind(this)}
+                closePopup={this.togglePopup}
                 newQuoteAmount={this.addQuoteAmount}
               />
             ) : null}
@@ -98,7 +79,10 @@ class FollowupForm extends Component {
             onChange={this.handleChange}
           />
           <div className="followup-upload-image">
-            <ImageUpload className= "image-upload-btn" id={this.props.data._id}/>
+            <ImageUpload
+              className="image-upload-btn"
+              id={this.props.data._id}
+            />
           </div>
           <button
             className="followup-add-btn"

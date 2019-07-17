@@ -1,120 +1,137 @@
-.popup {  
+.popup {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;  
-  width: 100%;  
-  height: 100%;  
-  top: 0;  
-  left: 0;  
-  right: 0;  
-  bottom: 0;  
-  margin: auto;  
-  background-color: rgba(0,0,0, 0.5);  
-}  
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
-.popupinner{  
+.popupinner {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 25rem;
-  width: 18rem;
-  background-color: #f4f1f1;
+  height: 70vh;
+  width: 25vw;
+  background-color: #fff;
+  font-family: sans-serif;
+}
+
+.popupinner form {
+  width: 80%;
+}
+
+.popupinner .checkbox-close-icon {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.popupinner .far {
+  cursor: pointer;
+  color: #ff7e7e;
+  font-size: 1.2rem;
+}
+
+.popupinner .far:hover {
+  color: #858282;
+}
+
+.popupinner h1 {
+  text-align: center;
+  color: #ff7e7e;
+  border-bottom: 1px solid #e4e3e3;
+  padding-bottom: 15px;
+  margin-top: 15px;
+  margin-bottom: 20px;
 }
 
 .checkbox-jobtype {
-  font-family: sans-serif;
-  font-size: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 15px;
 }
+
 .checkbox-jobtype label {
-  padding: 0 30px 20px ;
+  display: flex;
+  align-items: center;
   color: #858282;
 }
 
-.checkbox-jobtype input[type="radio"]{
+.checkbox-jobtype input[type="radio"] {
   position: relative;
-  width: 20px;
-  height: 20px;
-  margin: 0 10px 0 0;
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
 }
 
-.checkbox-title {
+.checkbox-list-container {
   display: flex;
   justify-content: center;
-  font-family: sans-serif;
-  font-size: 20px;
-  font-weight: 10;
-  padding: 20px;
-  color: #858282;
 }
 
-.checkbox-list{
+.checkbox-list {
   display: flex;
   flex-direction: column;
   font-family: sans-serif;
-  font-size: 20px;
-  padding: 20px;
-  color: #858282;
+  font-size: 16px;
+  margin-top: 15px;
 }
 
 .checkbox-list label {
   color: #858282;
   padding: 5px;
+  display: flex;
+  align-items: center;
 }
 
 .checkbox-list input[type="checkbox"] {
   position: relative;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   margin: 0 10px 0 0;
-  background-color: #FFF;
+  background-color: #fff;
 }
 
+.quote-wrapper {
+  width: 100%;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 40px;
+}
+
+.dollar-sign {
+  color: #fff;
+  padding: 5px;
+  background-color: #ff7e7e;
+}
+
+.quote-input {
+  width: 60%;
+  padding: 5px;
+  border: 2px solid #ff7e7e;
+}
+
+.next-btn-container {
+  display: flex;
+  justify-content: center;
+}
 
 .checklist-next-btn {
   border: none;
   background: #ff7e7e;
   padding: 8px 8px;
   border-radius: 3px;
-  color: #858282;
+  color: #fff;
   font-weight: 700;
   font-size: 1rem;
-  width: 10rem;
-}
-.checklist-next-btn:hover {
-  color: white;
-}
-
-.quote-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.dollar-box {
-  display: flex;
-  justify-content: center;
-  height: 33px;
-  width: 33px;
-  background-color:white;
-}
-
-.dollar-sign {
-  font-size: 26px;
-  color: #858282;
-  background-color:white;
-}
-
-.quote-input {
-  width: 10rem;
-  font-size: 26px;
-  color: #858282;
-  background-color: #E4E3E3;
-}
-
-.quote-inner-wrapper {
-  display: flex;
-  flex-direction: row;
-  padding: 23px;
-
+  width: 11rem;
 }
