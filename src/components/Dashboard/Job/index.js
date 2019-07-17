@@ -3,6 +3,7 @@ import TopButtons from "./TopButtons/";
 import Enquiry from "./Enquiry/";
 import Followups from "./Followups";
 import FollowupForm from "./FollowupForm";
+import ImageDisplay from "./ImageDisplay";
 import "./job.css"
 
 class Job extends Component {
@@ -24,11 +25,13 @@ class Job extends Component {
             moveLead={moveLead}
           />
           <Enquiry data={data} />
+          <ImageDisplay data={data} />
           <Followups data={data} />
           <FollowupForm
             data={data}
             addNewFollowup={this.handleAddNewFollowup}
           />
+
         </div>
       </div>
     );

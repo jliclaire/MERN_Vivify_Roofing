@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import MetalList from "./MetalList";
 import "./checkList.css";
 
 class CheckList extends Component {
@@ -9,8 +10,11 @@ class CheckList extends Component {
     };
   }
 
+  handleCheckedStatus = () => {
+    return false;
+  };
+
   handleQuoteAmountChange = e => {
-    console.log(e.target.value);
     this.setState({ [e.target.id]: e.target.value });
   };
 
@@ -35,7 +39,7 @@ class CheckList extends Component {
             <h1 className="checkbox-title">Checklist</h1>
             <div className="checkbox-jobtype">
               <label>
-                <input type="radio" name="jobType" value="metal" checked />
+                <input type="radio" name="jobType" value="metal" />
                 Metal
               </label>
               <label>
@@ -44,24 +48,7 @@ class CheckList extends Component {
               </label>
             </div>
             <div className="checkbox-list-container">
-              <div className="checkbox-list">
-                <label>
-                  <input type="checkbox" name="checklist" />
-                  Check the pitch/fall
-                </label>
-                <label>
-                  <input type="checkbox" name="checklist" />
-                  Skylights
-                </label>
-                <label>
-                  <input type="checkbox" name="checklist" />
-                  Sizing of the gutters
-                </label>
-                <label>
-                  <input type="checkbox" name="checklist" />
-                  Need carpentry
-                </label>
-              </div>
+              <MetalList checkListStatus={this.handleCheckedStatus} />
             </div>
             <div className="quote-wrapper">
               <label className="dollar-sign">$</label>
@@ -76,6 +63,7 @@ class CheckList extends Component {
               <button
                 className="checklist-next-btn"
                 onClick={this.handleButtonClick}
+                disabled={this.handleCheckedStatus()}
               >
                 NEXT
               </button>

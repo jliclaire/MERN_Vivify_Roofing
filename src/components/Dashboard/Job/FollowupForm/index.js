@@ -7,12 +7,10 @@ class FollowupForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // followup: {
       followupDate: "",
       salesName: "",
       tradeComments: "",
       quoteAmount: "",
-      // },
       showPopup: false
     };
   }
@@ -26,12 +24,7 @@ class FollowupForm extends Component {
       quoteAmount: this.state.quoteAmount
     };
     this.props.addNewFollowup(newFollowup);
-    this.setState({
-      followupDate: "",
-      salesName: "",
-      tradeComments: "",
-      quoteAmount: ""
-    });
+    // e.target.parentNode.reset();
   };
 
   handleChange = e => {
@@ -86,7 +79,10 @@ class FollowupForm extends Component {
             onChange={this.handleChange}
           />
           <div className="followup-upload-image">
-            <ImageUpload id={this.props.data._id} />
+            <ImageUpload
+              className="image-upload-btn"
+              id={this.props.data._id}
+            />
           </div>
           <button
             className="followup-add-btn"

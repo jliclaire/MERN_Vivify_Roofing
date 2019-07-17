@@ -38,6 +38,10 @@
   font-size: 1.2rem;
 }
 
+.popupinner .far:hover {
+  color: #858282;
+}
+
 .popupinner h1 {
   text-align: center;
   color: #ff7e7e;
