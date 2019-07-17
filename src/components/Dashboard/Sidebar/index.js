@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import "./sidebar.css";
 import { capitalise } from "../../../utils/capitalise";
 
+const SideMenu = () => {
+  return <div />
+}
+
 const isActive = (box, prop) => {
   return box === prop ? "sidebar-active-box" : "sidebar-inactive-box";
 };
@@ -17,6 +21,7 @@ const Sidebar = props => {
 
   // Testing only:
   currentUser = "luke";
+  const hamburgerActive = false;
 
   return (
     <div className="sidebar">
@@ -24,7 +29,20 @@ const Sidebar = props => {
         <div className="sidebar-info">
           <h1 className="sidebar-logo">VIVIFY</h1>
           <div className="sidebar-user">
-            <div className="user-portrait" />
+            <div className="user-portrait">
+              <div className='hamburger'>
+                {
+                  hamburgerActive ?
+                  <SideMenu />
+                  :
+                  <div>
+                    <div className='hb-icon' />
+                    <div className='hb-icon' />
+                    <div className='hb-icon' />
+                  </div>
+                }
+              </div>
+            </div>
             <h4 className="user-name">{capitalise(currentUser)}</h4>
           </div>
         </div>
