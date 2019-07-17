@@ -60,7 +60,6 @@ const Sidebar = props => {
 
   // Testing only:
   currentUser = "luke";
-  console.log(props)
 
   return (
     <div className="sidebar">
