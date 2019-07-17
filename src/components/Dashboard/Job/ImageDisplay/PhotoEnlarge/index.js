@@ -1,4 +1,5 @@
 import React from 'react';
+import './PhotoEnlarge.css'
 
 class PhotoEnlarge extends React.Component {
   render() {
@@ -6,7 +7,7 @@ class PhotoEnlarge extends React.Component {
     return (
       <div className="popup">
         <img className="photo-frame" src={data} />
-        <button className="checklist-next-btn close-btn" onClick={this.props.close}>X</button>
+        <button className="close-btn" onClick={this.props.close}>X</button>
       </div>
     )
   }

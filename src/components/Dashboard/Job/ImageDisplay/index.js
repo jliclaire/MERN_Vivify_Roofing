@@ -21,7 +21,6 @@ class ImageDisplay extends React.Component {
   }
 
 
-
   render() {
     const {data} = this.props;
     const links = data.imageUrls
