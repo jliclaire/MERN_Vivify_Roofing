@@ -31,6 +31,12 @@ class Dashboard extends Component {
     }
   };
 
+  back = () => {
+    this.setState({
+      mobileShowList: true,
+    })
+  }
+
   // The below three functions are for the Top Buttons for the Job view
 
   handleMoveLead = async (category) => {
@@ -117,13 +123,16 @@ class Dashboard extends Component {
           setActiveJob={this.setActiveJob}
           show={this.state.mobileShowList}
         />
+        { !this.mobileShowList &&
         <Job 
           data={activeJob} 
           addNewFollowUps={this.handleAddNewFollowUps}
           moveLead={this.handleMoveLead}
           assignLead={this.handleAssignLead}
           editLead={this.handleEditLead}
+          back={this.back}
         />
+        }
       </div>
     );
   }
