@@ -10,6 +10,7 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      mobileShowList: true,
       activeScreen: "inbox",
       activeJob: this.props.data[0],
       editJob: false
@@ -23,7 +24,18 @@ class Dashboard extends Component {
     this.setState({
       activeJob: foundJob
     });
+    if (window.innerWidth < 767) {
+      this.setState({
+        mobileShowList: false
+      })
+    }
   };
+
+  back = () => {
+    this.setState({
+      mobileShowList: true,
+    })
+  }
 
   // The below three functions are for the Top Buttons for the Job view
 
@@ -55,7 +67,6 @@ class Dashboard extends Component {
   handleAddNewFollowUps = async newFollowUps => {
     console.log(newFollowUps);
     const id = this.state.activeJob._id;
-    console.log(id);
     await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, {
       followUps: newFollowUps
     });
@@ -102,15 +113,23 @@ class Dashboard extends Component {
   };
 
   render() {
+    console.log(this.state)
     const { data } = this.props;
-    const { activeJob } = this.state;
+    const { activeJob, mobileShowList } = this.state;
     return (
       <div className="dashboard">
-        <Sidebar data={data} changeScreen={this.changeScreen} />
+        <Sidebar 
+          data={data} 
+          changeScreen={this.changeScreen}
+          back={this.back}
+          mobileShowList={mobileShowList}
+        />
         <JobList
           data={this.filterData(data)}
           setActiveJob={this.setActiveJob}
+          show={this.state.mobileShowList}
         />
+        { (this.state.mobileShowList && window.innerWidth < 767) ||
         <Job 
           data={activeJob} 
           addNewFollowUps={this.handleAddNewFollowUps}
@@ -118,6 +137,7 @@ class Dashboard extends Component {
           assignLead={this.handleAssignLead}
           editLead={this.handleEditLead}
         />
+        }
       </div>
     );
   }

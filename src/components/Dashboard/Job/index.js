@@ -14,7 +14,7 @@ class Job extends Component {
   };
 
   render() {
-    const { data, assignLead, editLead, moveLead } = this.props;
+    const { data, assignLead, editLead, moveLead, back } = this.props;
     return (
       <div className="job">
         <div className="job-container">
@@ -23,6 +23,7 @@ class Job extends Component {
             assignLead={assignLead}
             editLead={editLead}
             moveLead={moveLead}
+            back={back}
           />
           <Enquiry data={data} />
           <ImageDisplay data={data} />

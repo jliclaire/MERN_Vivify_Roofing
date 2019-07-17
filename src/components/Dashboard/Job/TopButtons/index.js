@@ -64,8 +64,8 @@ class TopButtons extends React.Component {
               <option>Archived</option>
             </select>
           </div>
-          <div className="button edit-lead">
-            <p className='button-text'>Edit Lead</p>
+          <div className="button edit-lead" onClick={this.handleClick}>
+            <p>Edit Lead</p>
           </div>
         </div>
       </div>

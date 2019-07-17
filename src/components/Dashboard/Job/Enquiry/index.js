@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import CustomerInfo from "./CustomerInfo";
 import CustomerComment from "./CustomerComment";
 import ProjectInfo from "./ProjectInfo";
-import ImageDisplay from "../ImageDisplay"
 import "./enquiry.css";
 
 class Enquiry extends Component {
