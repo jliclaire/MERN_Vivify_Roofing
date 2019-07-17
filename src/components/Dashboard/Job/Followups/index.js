@@ -16,16 +16,13 @@ class Followups extends Component {
               <div key={index} className="job-followups-container">
                 <div className="job-followups-info p-font">
                   <p className="p-flex-center">
-                    <span className="comments">Follow up date:</span>
-                    {followup.followupDate}
+                    <span className="comments">{followup.followupDate}</span>
                   </p>
                   <p className="p-border p-flex-center">
-                    <span className="comments">Follow up by:</span>
-                    {followup.salesName}
+                    <span className="comments">{followup.salesName}</span>
                   </p>
                   <p className="p-flex-center">
-                    <span className="comments">Quote Amount:</span>{" "}
-                    {followup.quoteAmount}
+                    <span className="comments">${followup.quoteAmount}</span>
                   </p>
                 </div>
                 <div className="job-followups-comment p-font">

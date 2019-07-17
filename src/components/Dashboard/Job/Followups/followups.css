@@ -1,6 +1,8 @@
 .job-followups h1 {
   text-align: center;
   background: #ff7e7e;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .job-followups-container {
@@ -20,17 +22,6 @@
   border-top: 1px solid #e4e3e3;
   border-bottom: 1px solid #e4e3e3;
   margin-bottom: 5px;
-}
-
-.job-followups-img {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 5px;
-  margin-bottom: 5px;
-}
-
-.job-followups-img img {
-  width: 100%;
 }
 
 .p-border {
