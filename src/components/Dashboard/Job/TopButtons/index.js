@@ -40,20 +40,11 @@ class TopButtons extends React.Component {
   handleClick = () => {
     this.props.editLead();
   }
-
-  back = () => {
-    this.props.back();
-  }
   
   render () {
     const { users } = this
     return (
       <div className="job-top-buttons">
-        <div className='mob-only'>
-          <div className='button' onClick={this.back}>
-            <p>BACK</p>
-          </div>
-        </div>
         <div className="button assign-lead">
           <p>Assigned to:</p>
           <select id='assigned' className='options' onChange={ this.handleAssignLead }>
@@ -74,7 +65,7 @@ class TopButtons extends React.Component {
             </select>
           </div>
           <div className="button edit-lead" onClick={this.handleClick}>
-            <p className='button-text'>Edit Lead</p>
+            <p>Edit Lead</p>
           </div>
         </div>
       </div>

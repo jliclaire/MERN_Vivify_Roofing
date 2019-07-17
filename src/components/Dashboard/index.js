@@ -115,10 +115,15 @@ class Dashboard extends Component {
   render() {
     console.log(this.state)
     const { data } = this.props;
-    const { activeJob } = this.state;
+    const { activeJob, mobileShowList } = this.state;
     return (
       <div className="dashboard">
-        <Sidebar data={data} changeScreen={this.changeScreen} />
+        <Sidebar 
+          data={data} 
+          changeScreen={this.changeScreen}
+          back={this.back}
+          mobileShowList={mobileShowList}
+        />
         <JobList
           data={this.filterData(data)}
           setActiveJob={this.setActiveJob}
@@ -131,7 +136,6 @@ class Dashboard extends Component {
           moveLead={this.handleMoveLead}
           assignLead={this.handleAssignLead}
           editLead={this.handleEditLead}
-          back={this.back}
         />
         }
       </div>

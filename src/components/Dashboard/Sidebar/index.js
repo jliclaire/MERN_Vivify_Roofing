@@ -49,11 +49,18 @@ const deleteToken = () => {
 };
 
 const Sidebar = props => {
-  let { data, currentUser, activeScreen, changeScreen } = props;
+  let { 
+    data, 
+    currentUser, 
+    activeScreen, 
+    changeScreen, 
+    back, 
+    mobileShowList } = props;
   const [hamburgerActive, setHamburgerActive] = useState(false);
 
   // Testing only:
   currentUser = "luke";
+  console.log(props)
 
   return (
     <div className="sidebar">
@@ -61,13 +68,17 @@ const Sidebar = props => {
         <div className="sidebar-info">
           <h1 className="sidebar-logo">VIVIFY</h1>
           <div className="sidebar-user">
-            <div className="user-portrait" onClick={() => setHamburgerActive(!hamburgerActive)}>
+            <div className="user-portrait">
               <div className='hamburger'>
-                <div>
-                  <div className='hb-icon' />
-                  <div className='hb-icon' />
-                  <div className='hb-icon' />
-                </div>
+                {
+                  mobileShowList ?
+                  <div  onClick={() => setHamburgerActive(!hamburgerActive)}>
+                    <div className='hb-icon' />
+                    <div className='hb-icon' />
+                    <div className='hb-icon' />
+                  </div> :
+                  <p onClick={() => back()}>back</p>
+                }
               </div>
             </div>
             <h4 className="user-name">{capitalise(currentUser)}</h4>
