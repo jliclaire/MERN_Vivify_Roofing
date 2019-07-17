@@ -18,7 +18,7 @@ const SideMenu = (props) => {
         className=''
         onClick={() => changeScreen("in progress")}
       >
-        <p>In Progress</p>
+        <p>Assigned</p>
       </div>
       <div
         className=''
@@ -31,11 +31,6 @@ const SideMenu = (props) => {
         onClick={() => changeScreen("archive")}
       >
         <p>Archived</p>
-      </div>
-      <div className="">
-        <Link to="/admin" className="">
-          Admin
-        </Link>
       </div>
       <div className="" onClick={deleteToken}>
         <p className="">Logout</p>
@@ -94,7 +89,7 @@ const Sidebar = props => {
             className={isActive("in-progress", activeScreen)}
             onClick={() => changeScreen("in progress")}
           >
-            <p>In Progress</p>
+            <p>Assigned</p>
           </div>
           <div
             className={isActive("sold", activeScreen)}

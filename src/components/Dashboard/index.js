@@ -123,7 +123,7 @@ class Dashboard extends Component {
           setActiveJob={this.setActiveJob}
           show={this.state.mobileShowList}
         />
-        { !this.mobileShowList &&
+        { this.state.mobileShowList ||
         <Job 
           data={activeJob} 
           addNewFollowUps={this.handleAddNewFollowUps}
