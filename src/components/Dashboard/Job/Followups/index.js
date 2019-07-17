@@ -34,9 +34,6 @@ class Followups extends Component {
                     {followup.tradeComments}
                   </p>
                 </div>
-                <div className="job-followups-img">
-                  <p>Images will go here.</p>
-                </div>
               </div>
             );
           })}
