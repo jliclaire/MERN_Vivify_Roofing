@@ -10,6 +10,7 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      mobileShowList: true,
       activeScreen: "inbox",
       activeJob: this.props.data[0],
       editJob: false
@@ -23,6 +24,11 @@ class Dashboard extends Component {
     this.setState({
       activeJob: foundJob
     });
+    if (window.innerWidth < 767) {
+      this.setState({
+        mobileShowList: false
+      })
+    }
   };
 
   // The below three functions are for the Top Buttons for the Job view
@@ -109,6 +115,7 @@ class Dashboard extends Component {
         <JobList
           data={this.filterData(data)}
           setActiveJob={this.setActiveJob}
+          show={this.state.mobileShowList}
         />
         <Job 
           data={activeJob} 

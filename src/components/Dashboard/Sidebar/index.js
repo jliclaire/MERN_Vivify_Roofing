@@ -4,45 +4,41 @@ import "./sidebar.css";
 import { capitalise } from "../../../utils/capitalise";
 
 const SideMenu = (props) => {
-  let { data, activeScreen, changeScreen } = props;
+  let { data, changeScreen } = props;
 
   return <>
-    <div>
-      <div className="sidebar-leadboxes-mob">
-        <div
-          className={isActive("inbox", activeScreen)}
-          onClick={() => changeScreen("inbox")}
-        >
-          <p>Inbox ({data.length})</p>
-        </div>
-        <div
-          className={isActive("in-progress", activeScreen)}
-          onClick={() => changeScreen("in progress")}
-        >
-          <p>In Progress</p>
-        </div>
-        <div
-          className={isActive("sold", activeScreen)}
-          onClick={() => changeScreen("sold")}
-        >
-          <p>Sold</p>
-        </div>
-        <div
-          className={isActive("archive", activeScreen)}
-          onClick={() => changeScreen("archive")}
-        >
-          <p>Archived</p>
-        </div>
+    <div className='sidemenu-mob'>
+      <div
+        onClick={() => changeScreen("inbox")}
+      >
+        <p
+        className='sidemenu-option'>Inbox ({data.length})</p>  
       </div>
-    </div>
-    <div className="sidebar-bottom">
-      <div className="sidebar-bottom-button">
-        <Link to="/admin" className="button-text">
+      <div
+        className=''
+        onClick={() => changeScreen("in progress")}
+      >
+        <p>In Progress</p>
+      </div>
+      <div
+        className=''
+        onClick={() => changeScreen("sold")}
+      >
+        <p>Sold</p>
+      </div>
+      <div
+        className='sidemenu-option'
+        onClick={() => changeScreen("archive")}
+      >
+        <p>Archived</p>
+      </div>
+      <div className="">
+        <Link to="/admin" className="">
           Admin
         </Link>
       </div>
-      <div className="sidebar-bottom-button" onClick={deleteToken}>
-        <p className="button-text">Logout</p>
+      <div className="" onClick={deleteToken}>
+        <p className="">Logout</p>
       </div>
     </div>
   </>
@@ -77,16 +73,16 @@ const Sidebar = props => {
                   <div className='hb-icon' />
                   <div className='hb-icon' />
                 </div>
-                {
-                  hamburgerActive ?
-                  <SideMenu {...props} />
-                  : null
-                }
               </div>
             </div>
             <h4 className="user-name">{capitalise(currentUser)}</h4>
           </div>
         </div>
+        {
+          hamburgerActive ?
+          <SideMenu {...props} />
+          : null
+        }
         <div className="sidebar-leadboxes">
           <div
             className={isActive("inbox", activeScreen)}

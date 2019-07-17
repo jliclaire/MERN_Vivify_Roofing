@@ -78,18 +78,6 @@
     height: 12vh;
   }
 
-  .hamburger {
-    display: block;
-    cursor: pointer;
-  }
-
-  .hb-icon {
-    width: 35px;
-    height: 3px;
-    background-color: black;
-    margin: 4px 0;
-  }
-
   .sidebar-info {
     width: 95%;
     margin: 4px auto;
@@ -117,11 +105,35 @@
     display: none;
   }
 
-  .sidebar-leadboxes-mob {
-    display: block;
-  }
-
   .sidebar-bottom {
     display: none;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .hb-icon {
+    width: 35px;
+    height: 3px;
+    background-color: black;
+    margin: 4px 0;
+  }
+
+  .sidemenu-mob {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 50vh;
+    width: 90vw;
+    margin-left: 10px;
+    justify-content: space-around;
+    background: #fff;
+    z-index: -7;
+  }
+
+  .sidemenu-option {
+    background: #fff;
   }
 }
