@@ -17,3 +17,13 @@
 .project-info-row-right {
   width: 55%;
 }
+
+@media only screen and (max-width: 767px) {
+  .project-info-row {
+    flex-direction: column;
+  }
+
+  .project-info-row-left, .project-info-row-right {
+    width: 100%;
+  }
+}

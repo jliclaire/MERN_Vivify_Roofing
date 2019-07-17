@@ -27,3 +27,28 @@
   margin-top: 10px;
   padding: 5px;
 }
+
+.mob-only {
+  display: none;
+}
+
+@media only screen and (max-width: 767px) {
+  .mob-only {
+    display: block;
+  }
+
+  .job-top-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start
+  }
+
+  .top-buttons-right {
+    align-items: flex-start;
+  }
+
+  .button {
+    margin: 0 5px;
+  }
+}
