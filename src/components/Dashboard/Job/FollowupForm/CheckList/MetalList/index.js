@@ -19,6 +19,8 @@ class MetalList extends Component {
 
   handleCheckboxChange = e => {
     const { name } = e.target;
+    // this.selectAll();
+    // console.log(this.state.checkboxes);
     this.setState(prevState => ({
       checkboxes: {
         ...prevState.checkboxes,
@@ -27,11 +29,25 @@ class MetalList extends Component {
     }));
   };
 
+  // handleOnBlur = () => {
+  //   console.log("on blur");
+  //   const checkedArray = Object.keys(this.state.checkboxes).filter(
+  //     checkbox => this.state.checkboxes[checkbox]
+  //   );
+  //   if (checkedArray.length === 4) {
+  //     console.log("four calls");
+  //     this.props.checkListStatus();
+  //   } else {
+  //     return null;
+  //   }
+  // };
+
   createCheckbox = option => (
     <Checkbox
       name={option}
       isSelected={this.state.checkboxes[option]}
       onCheckboxChange={this.handleCheckboxChange}
+      // onBlurChange={this.handleOnBlur}
       key={option}
     />
   );
@@ -47,13 +63,39 @@ class MetalList extends Component {
   };
 
   componentDidUpdate() {
+    // console.log("componentDidUpdate");
+    // let checkedArray = this.selectAll();
+    // console.log(checkedArray);
+    // this.props.checkListStatus(checkedArray);
+
     console.log("componentDidUpdate");
-    let checkedArray = this.selectAll();
-    console.log(checkedArray);
+    const checkedArray = Object.keys(this.state.checkboxes).filter(
+      checkbox => this.state.checkboxes[checkbox]
+    );
     if (checkedArray.length === 4) {
+      console.log("four calls");
       this.props.checkListStatus();
     }
   }
+
+  // selectAll = () => {
+  //   const checkedArray = Object.keys(this.state.checkboxes).filter(
+  //     checkbox => this.state.checkboxes[checkbox]
+  //   );
+  //   console.log(checkedArray);
+  //   if (checkedArray.length === 4) {
+  //     this.props.checkListStatus();
+  //   } else {
+  //     return null;
+  //   }
+  // };
+
+  // componentDidUpdate() {
+  //   console.log("componentDidUpdate");
+  //   let checkedArray = this.selectAll();
+  //   console.log(checkedArray);
+
+  // }
 
   render() {
     return <div className="checkbox-list">{this.createCheckboxes()}</div>;

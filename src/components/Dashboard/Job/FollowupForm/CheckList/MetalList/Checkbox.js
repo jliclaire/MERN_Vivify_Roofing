@@ -19,6 +19,7 @@ const Checkbox = props => {
         name={props.name}
         checked={props.isSelected}
         onChange={props.onCheckboxChange}
+        // onMouseDown={props.onBlurChange}
       />
       {/* {checkItem} */}
       Check the pitch/fall

@@ -6,12 +6,16 @@ class CheckList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quoteAmount: 0
+      quoteAmount: 0,
+      disabled: true
     };
   }
 
   handleCheckedStatus = () => {
-    return false;
+    console.log("should enable button");
+    if (this.state.disabled === true) {
+      this.setState({ disabled: false });
+    }
   };
 
   handleQuoteAmountChange = e => {
@@ -63,7 +67,7 @@ class CheckList extends Component {
               <button
                 className="checklist-next-btn"
                 onClick={this.handleButtonClick}
-                disabled={this.handleCheckedStatus()}
+                disabled={this.state.disabled}
               >
                 NEXT
               </button>
