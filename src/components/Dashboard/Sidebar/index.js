@@ -1,10 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./sidebar.css";
 import { capitalise } from "../../../utils/capitalise";
 
-const SideMenu = () => {
-  return <div />
+const SideMenu = (props) => {
+  let { data, activeScreen, changeScreen } = props;
+
+  return <>
+    <div>
+      <div className="sidebar-leadboxes-mob">
+        <div
+          className={isActive("inbox", activeScreen)}
+          onClick={() => changeScreen("inbox")}
+        >
+          <p>Inbox ({data.length})</p>
+        </div>
+        <div
+          className={isActive("in-progress", activeScreen)}
+          onClick={() => changeScreen("in progress")}
+        >
+          <p>In Progress</p>
+        </div>
+        <div
+          className={isActive("sold", activeScreen)}
+          onClick={() => changeScreen("sold")}
+        >
+          <p>Sold</p>
+        </div>
+        <div
+          className={isActive("archive", activeScreen)}
+          onClick={() => changeScreen("archive")}
+        >
+          <p>Archived</p>
+        </div>
+      </div>
+    </div>
+    <div className="sidebar-bottom">
+      <div className="sidebar-bottom-button">
+        <Link to="/admin" className="button-text">
+          Admin
+        </Link>
+      </div>
+      <div className="sidebar-bottom-button" onClick={deleteToken}>
+        <p className="button-text">Logout</p>
+      </div>
+    </div>
+  </>
 }
 
 const isActive = (box, prop) => {
@@ -18,10 +59,10 @@ const deleteToken = () => {
 
 const Sidebar = props => {
   let { data, currentUser, activeScreen, changeScreen } = props;
+  const [hamburgerActive, setHamburgerActive] = useState(false);
 
   // Testing only:
   currentUser = "luke";
-  const hamburgerActive = false;
 
   return (
     <div className="sidebar">
@@ -29,17 +70,17 @@ const Sidebar = props => {
         <div className="sidebar-info">
           <h1 className="sidebar-logo">VIVIFY</h1>
           <div className="sidebar-user">
-            <div className="user-portrait">
+            <div className="user-portrait" onClick={() => setHamburgerActive(!hamburgerActive)}>
               <div className='hamburger'>
+                <div>
+                  <div className='hb-icon' />
+                  <div className='hb-icon' />
+                  <div className='hb-icon' />
+                </div>
                 {
                   hamburgerActive ?
-                  <SideMenu />
-                  :
-                  <div>
-                    <div className='hb-icon' />
-                    <div className='hb-icon' />
-                    <div className='hb-icon' />
-                  </div>
+                  <SideMenu {...props} />
+                  : null
                 }
               </div>
             </div>

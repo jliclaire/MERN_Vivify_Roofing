@@ -80,6 +80,7 @@
 
   .hamburger {
     display: block;
+    cursor: pointer;
   }
 
   .hb-icon {
@@ -114,6 +115,10 @@
 
   .sidebar-leadboxes {
     display: none;
+  }
+
+  .sidebar-leadboxes-mob {
+    display: block;
   }
 
   .sidebar-bottom {
