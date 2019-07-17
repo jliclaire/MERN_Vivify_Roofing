@@ -124,7 +124,7 @@ class Dashboard extends Component {
           setActiveJob={this.setActiveJob}
           show={this.state.mobileShowList}
         />
-        { this.state.mobileShowList && window.innerWidth < 767 ||
+        { (this.state.mobileShowList && window.innerWidth < 767) ||
         <Job 
           data={activeJob} 
           addNewFollowUps={this.handleAddNewFollowUps}
