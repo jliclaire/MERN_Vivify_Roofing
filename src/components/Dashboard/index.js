@@ -16,8 +16,8 @@ class Dashboard extends Component {
     };
   }
 
-  setActiveJob = jobId => {
-    const foundJob = this.props.data.find(datum => {
+  setActiveJob = async jobId => {
+    const foundJob = await this.props.data.find(datum => {
       return datum._id === jobId;
     });
     this.setState({
@@ -26,44 +26,58 @@ class Dashboard extends Component {
     if (window.innerWidth < 767) {
       this.setState({
         mobileShowList: false
-      })
+      });
     }
   };
 
   back = () => {
     this.setState({
-      mobileShowList: true,
-    })
-  }
+      mobileShowList: true
+    });
+  };
 
   // The below three functions are for the Top Buttons for the Job view
 
-  handleMoveLead = async (category) => {
+  handleMoveLead = async category => {
     const id = this.state.activeJob._id;
     const job = await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, {
       // Set the existing status to false.
       [category]: true
-    })
-    console.log(job)
+    });
+    console.log(job);
     this.setActiveJob(id);
-  }
+  };
 
-  handleAssignLead = async (name) => {
+  handleAssignLead = async name => {
     const id = this.state.activeJob._id;
     const res = await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, {
       assignedTrade: name
-    })
-    console.log(res)
+    });
+    console.log(res);
     this.setActiveJob(id);
-  }
+  };
+
+  handleEditLead = () => {
+    this.setState({
+      editJob: !this.state.editJob
+    });
+  };
 
   handleAddNewFollowUps = async newFollowUps => {
-    console.log(newFollowUps);
     const id = this.state.activeJob._id;
     await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, {
       followUps: newFollowUps
     });
+    console.log("loggginggggggggggggggggggggggggggg");
+    console.log(this.setActiveJob(id));
     this.setActiveJob(id);
+  };
+
+  handleAddUpdatedLead = async updatedLead => {
+    const id = this.state.activeJob._id;
+    await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, updatedLead);
+    console.log(this.setActiveJob(id));
+    await this.setActiveJob(id);
   };
 
   progressFilter = data => {
@@ -106,13 +120,12 @@ class Dashboard extends Component {
   };
 
   render() {
-    console.log(this.state)
     const { data } = this.props;
     const { activeJob, mobileShowList } = this.state;
     return (
       <div className="dashboard">
-        <Sidebar 
-          data={data} 
+        <Sidebar
+          data={data}
           changeScreen={this.changeScreen}
           back={this.back}
           mobileShowList={mobileShowList}
@@ -122,14 +135,17 @@ class Dashboard extends Component {
           setActiveJob={this.setActiveJob}
           show={this.state.mobileShowList}
         />
-        { (this.state.mobileShowList && window.innerWidth < 767) ||
-        <Job 
-          data={activeJob} 
-          addNewFollowUps={this.handleAddNewFollowUps}
-          moveLead={this.handleMoveLead}
-          assignLead={this.handleAssignLead}
-        />
-        }
+        {(this.state.mobileShowList && window.innerWidth < 767) || (
+          <Job
+            data={activeJob}
+            addNewFollowUps={this.handleAddNewFollowUps}
+            addUpdatedLead={this.handleAddUpdatedLead}
+            moveLead={this.handleMoveLead}
+            assignLead={this.handleAssignLead}
+            editLead={this.handleEditLead}
+          />
+        )}
+
       </div>
     );
   }

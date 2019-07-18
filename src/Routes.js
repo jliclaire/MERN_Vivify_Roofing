@@ -10,35 +10,34 @@ class Routes extends Component {
     const { data, auth, currentUser, authCall } = this.props;
     return (
       <Switch>
-        <Route path="/login" render={
-          (props) => (
-            <Login {...props} authCall={authCall} />
-          )
-        }/>
+        <Route
+          path="/login"
+          render={props => <Login {...props} authCall={authCall} />}
+        />
 
-        <Route path="/register" render={
-          (props) => (
-            <Register {...props} authCall={authCall} />
-          )
-        } />
-        
+        <Route
+          path="/register"
+          render={props => <Register {...props} authCall={authCall} />}
+        />
+
         <Route
           exact
           path="/"
-          render={(props) => (
+          render={props =>
             auth ? (
               <Dashboard {...props} data={data} currentUser={currentUser} />
             ) : (
-              <Redirect to='/login' />
+              <Redirect to="/login" />
             )
+          }
+        />
+
+        <Route
+          path="/admin"
+          render={props => (
+            <Admin {...props} data={data} currentUser={currentUser} />
           )}
         />
-        
-        <Route path="/admin" render={
-          (props) => (
-            <Admin {...props} data={data} currentUser={currentUser} />
-          )
-        } />
       </Switch>
     );
   }

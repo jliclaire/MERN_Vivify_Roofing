@@ -1,10 +1,10 @@
 import React from "react";
-import './topButtons.css'
+import "./topButtons.css";
 
 class TopButtons extends React.Component {
   state = {
-    assigned: ''
-  }
+    assigned: ""
+  };
   // Testing only:
   users = [
     { name: "Brett" },
@@ -12,47 +12,45 @@ class TopButtons extends React.Component {
     { name: "Luke" },
     { name: "Kev" },
     { name: "Spiros" }
-  ]
+  ];
 
-  parseCategory = (category) => {
+  parseCategory = category => {
     switch (category) {
-      case 'In Progress':
-        return 'inProgress'
-      case 'Sold':
-        return 'sold'
-      case 'Archived':
-        return 'archived'
+      case "In Progress":
+        return "inProgress";
+      case "Sold":
+        return "sold";
+      case "Archived":
+        return "archived";
       default:
         return null;
     }
-  }
+  };
 
-  handleAssignLead = (e) => {
+  handleAssignLead = e => {
     const name = e.target.value;
     this.props.assignLead(name);
-  }
+  };
 
-  handleMoveLead = (e) => {
+  handleMoveLead = e => {
     const category = this.parseCategory(e.target.value);
     this.props.moveLead(category);
-  }
+  };
 
-  handleClick = () => {
-    this.props.editLead();
-  }
-  
-  render () {
-    const { users } = this
+  render() {
+    const { users } = this;
     return (
       <div className="job-top-buttons">
         <div className="button assign-lead">
           <p>Assigned to:</p>
-          <select id='assigned' className='options' onChange={ this.handleAssignLead }>
-            {
-              users.map((user, i) => (
-                <option key={i}>{user.name}</option>
-              ))
-            }
+          <select
+            id="assigned"
+            className="options"
+            onChange={this.handleAssignLead}
+          >
+            {users.map((user, i) => (
+              <option key={i}>{user.name}</option>
+            ))}
           </select>
         </div>
         <div className="top-buttons-right">
@@ -64,12 +62,9 @@ class TopButtons extends React.Component {
               <option>Archived</option>
             </select>
           </div>
-          <div className="button edit-lead" onClick={this.handleClick}>
-            <p>Edit Lead</p>
-          </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

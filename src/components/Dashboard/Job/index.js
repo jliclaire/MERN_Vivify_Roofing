@@ -4,26 +4,36 @@ import Enquiry from "./Enquiry/";
 import Followups from "./Followups";
 import FollowupForm from "./FollowupForm";
 import ImageDisplay from "./ImageDisplay";
-import "./job.css"
-const EditJob = () => {
-  return <div />
-};
+import EditJob from "./EditJob";
+import axios from "axios";
+import "./job.css";
 
 class Job extends Component {
-  state = {
-    editJob: false
+  constructor(props) {
+    super(props);
+    this.state = {
+      editJob: false
+    };
   }
-  
   handleAddNewFollowup = newFollowup => {
     this.props.data.followUps.push(newFollowup);
     this.props.addNewFollowUps(this.props.data.followUps);
   };
 
-  handleEditLead = () => {
+  handleSaveUpdatedLead = async updatedLead => {
+    // const id = this.props.data._id;
+    // await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, updatedLead);
+    this.props.addUpdatedLead(updatedLead);
     this.setState({
       editJob: !this.state.editJob
-    })
-  }
+    });
+  };
+
+  handleShowEditForm = () => {
+    this.setState({
+      editJob: !this.state.editJob
+    });
+  };
 
   render() {
     const { data, assignLead, moveLead, back } = this.props;
@@ -37,12 +47,12 @@ class Job extends Component {
             moveLead={moveLead}
             back={back}
           />
-          {
-            this.state.editJob ?
-            <EditJob />
-            : 
-            <Enquiry data={data} />
-          }
+          {this.state.editJob ? (
+            <EditJob data={data} saveUpdatedLead={this.handleSaveUpdatedLead} />
+          ) : (
+            <Enquiry data={data} showEditForm={this.handleShowEditForm} />
+          )}
+
           <ImageDisplay data={data} />
           <Followups data={data} />
           <FollowupForm

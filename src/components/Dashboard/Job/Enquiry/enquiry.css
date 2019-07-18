@@ -8,3 +8,16 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.edit-button {
+  width: 20%;
+  background: #ff7e7e;
+  border: none;
+  border-radius: 5px;
+  height: 1.5rem;
+  margin-top: 10px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+}
