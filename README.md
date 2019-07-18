@@ -2,7 +2,7 @@
 
 Built with blood sweat and tears by Jing Li Claire, Mark Butcher, and Andrew Sims
 
-(Link to published application goes here.)
+https://vivify-roofing.netlify.com/
 
 (Link to GitHub repository goes here.)
 
