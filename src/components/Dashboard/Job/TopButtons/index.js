@@ -59,7 +59,7 @@ class TopButtons extends React.Component {
           <div className="button move-lead">
             <p>Mark as:</p>
             <select className='options' onChange={ this.handleMoveLead }>
-              <option>In Progress</option>
+              <option>Assigned</option>
               <option>Sold</option>
               <option>Archived</option>
             </select>
