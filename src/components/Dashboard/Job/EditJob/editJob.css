@@ -1,0 +1,66 @@
+/* global css  */
+.job-enquiry {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.margin-top-bottom {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* css for edit customer basic info */
+.job-enquiry-customer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.name-suburb {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.email-phone-date {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.job-enquiry-customer h5 {
+  margin-top: 5px;
+}
+
+/* css for edit customer project info */
+.project-info-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #e4e3e3;
+  line-height: 30px;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #e4e3e3;
+}
+
+.project-info-row-left {
+  width: 45%;
+}
+
+.project-info-row-right {
+  width: 55%;
+}
+
+@media only screen and (max-width: 767px) {
+  .project-info-row {
+    flex-direction: column;
+  }
+
+  .project-info-row-left,
+  .project-info-row-right {
+    width: 100%;
+  }
+}
