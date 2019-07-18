@@ -4,8 +4,10 @@ import Enquiry from "./Enquiry/";
 import Followups from "./Followups";
 import FollowupForm from "./FollowupForm";
 import ImageDisplay from "./ImageDisplay";
-import EditJob from "./EditJob";
 import "./job.css"
+const EditJob = () => {
+  return <div />
+};
 
 class Job extends Component {
   state = {
@@ -24,7 +26,7 @@ class Job extends Component {
   }
 
   render() {
-    const { data, assignLead, editLead, moveLead, back } = this.props;
+    const { data, assignLead, moveLead, back } = this.props;
     return (
       <div className="job">
         <div className="job-container">

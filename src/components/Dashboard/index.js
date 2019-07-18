@@ -128,7 +128,6 @@ class Dashboard extends Component {
           addNewFollowUps={this.handleAddNewFollowUps}
           moveLead={this.handleMoveLead}
           assignLead={this.handleAssignLead}
-          editLead={this.handleEditLead}
         />
         }
       </div>

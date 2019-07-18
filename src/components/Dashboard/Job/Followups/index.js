@@ -1,6 +1,62 @@
 import React, { Component } from "react";
 import "./followups.css";
 
+class FollowupEdit extends Component {
+  state = {
+    
+  }
+
+  render () {
+    const { followup, index } = this.props;
+    return (
+      <div key={index} className="job-followups-container">
+        <div className="job-followups-info p-font">
+          <p className="p-flex-center">
+            <span className="comments">{followup.followupDate}</span>
+          </p>
+          <p className="p-border p-flex-center">
+            <span className="comments">{followup.salesName}</span>
+          </p>
+          <p className="p-flex-center">
+            <span className="comments">${followup.quoteAmount}</span>
+          </p>
+        </div>
+        <div className="job-followups-comment p-font">
+          <p>
+            <span className="comments">Comment: </span>
+            {followup.tradeComments}
+          </p>
+        </div>
+      </div>
+    )
+  }
+}
+
+const SingleFollowUp = (props) => {
+  const { followup, index } = props;
+  return (
+    <div key={index} className="job-followups-container">
+      <div className="job-followups-info p-font">
+        <p className="p-flex-center">
+          <span className="comments">{followup.followupDate}</span>
+        </p>
+        <p className="p-border p-flex-center">
+          <span className="comments">{followup.salesName}</span>
+        </p>
+        <p className="p-flex-center">
+          <span className="comments">${followup.quoteAmount}</span>
+        </p>
+      </div>
+      <div className="job-followups-comment p-font">
+        <p>
+          <span className="comments">Comment: </span>
+          {followup.tradeComments}
+        </p>
+      </div>
+    </div>
+  )
+}
+
 class Followups extends Component {
   render() {
     const { data } = this.props;
@@ -12,26 +68,8 @@ class Followups extends Component {
           <h1>Follow Ups</h1>
           {data.followUps.map((followup, index) => {
             return (
-              <div key={index} className="job-followups-container">
-                <div className="job-followups-info p-font">
-                  <p className="p-flex-center">
-                    <span className="comments">{followup.followupDate}</span>
-                  </p>
-                  <p className="p-border p-flex-center">
-                    <span className="comments">{followup.salesName}</span>
-                  </p>
-                  <p className="p-flex-center">
-                    <span className="comments">${followup.quoteAmount}</span>
-                  </p>
-                </div>
-                <div className="job-followups-comment p-font">
-                  <p>
-                    <span className="comments">Comment: </span>
-                    {followup.tradeComments}
-                  </p>
-                </div>
-              </div>
-            );
+              <SingleFollowUp followup={followup} index={index} />
+            )
           })}
         </div>
       );
