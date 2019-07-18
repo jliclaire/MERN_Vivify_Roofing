@@ -9,7 +9,8 @@
   align-items: center;
 }
 
-.assign-lead, .move-lead {
+.assign-lead,
+.move-lead {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,7 +42,7 @@
     margin-top: 20px;
     display: flex;
     justify-content: space-around;
-    align-items: flex-start
+    align-items: flex-start;
   }
 
   .top-buttons-right {

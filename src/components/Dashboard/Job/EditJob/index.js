@@ -48,11 +48,11 @@ class EditJob extends Component {
   render() {
     const { data } = this.props;
     return (
-      <div className="job-enquiry">
+      <div className="job-enquiry job-enquiry-edit">
         {/* save enquiry info button */}
-        <div className="button edit-lead" onClick={this.handleSaveClick}>
-          <p>Save</p>
-        </div>
+        <button className="edit-button" onClick={this.handleSaveClick}>
+          Save
+        </button>
         {/* customer info section */}
         <div className="job-enquiry-customer margin-top-bottom">
           <div className="name-suburb">

@@ -22,8 +22,12 @@ class Job extends Component {
   };
 
   handleSaveUpdatedLead = async updatedLead => {
-    const id = this.props.data._id;
-    await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, updatedLead);
+    // const id = this.props.data._id;
+    // await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, updatedLead);
+    this.props.addUpdatedLead(updatedLead);
+    this.setState({
+      editJob: !this.state.editJob
+    });
   };
 
   handleShowEditForm = () => {

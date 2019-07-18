@@ -18,9 +18,9 @@ class Enquiry extends Component {
     const { data } = this.props;
     return (
       <div className="job-enquiry">
-        <div className="button edit-lead" onClick={this.handleEditClick}>
-          <p>Edit</p>
-        </div>
+        <button className="edit-button" onClick={this.handleEditClick}>
+          Edit
+        </button>
         <CustomerInfo data={data} />
         <CustomerComment data={data} />
         <ProjectInfo data={data} />

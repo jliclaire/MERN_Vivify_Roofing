@@ -17,8 +17,8 @@ class Dashboard extends Component {
     };
   }
 
-  setActiveJob = jobId => {
-    const foundJob = this.props.data.find(datum => {
+  setActiveJob = async jobId => {
+    const foundJob = await this.props.data.find(datum => {
       return datum._id === jobId;
     });
     this.setState({
@@ -65,12 +65,20 @@ class Dashboard extends Component {
   };
 
   handleAddNewFollowUps = async newFollowUps => {
-    console.log(newFollowUps);
     const id = this.state.activeJob._id;
     await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, {
       followUps: newFollowUps
     });
+    console.log("loggginggggggggggggggggggggggggggg");
+    console.log(this.setActiveJob(id));
     this.setActiveJob(id);
+  };
+
+  handleAddUpdatedLead = async updatedLead => {
+    const id = this.state.activeJob._id;
+    await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, updatedLead);
+    console.log(this.setActiveJob(id));
+    await this.setActiveJob(id);
   };
 
   progressFilter = data => {
@@ -132,6 +140,7 @@ class Dashboard extends Component {
           <Job
             data={activeJob}
             addNewFollowUps={this.handleAddNewFollowUps}
+            addUpdatedLead={this.handleAddUpdatedLead}
             moveLead={this.handleMoveLead}
             assignLead={this.handleAssignLead}
             editLead={this.handleEditLead}

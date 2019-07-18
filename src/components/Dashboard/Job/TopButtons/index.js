@@ -4,7 +4,6 @@ import "./topButtons.css";
 class TopButtons extends React.Component {
   state = {
     assigned: ""
-    // editLead: true
   };
   // Testing only:
   users = [
@@ -38,23 +37,6 @@ class TopButtons extends React.Component {
     this.props.moveLead(category);
   };
 
-  // handleClick = () => {
-  //   this.props.editLead();
-  // };
-
-  // handleEditClick = e => {
-  //   e.preventDefault();
-  //   this.setState({
-  //     editLead: false
-  //   });
-  //   this.props.showEditForm();
-  // };
-
-  // handleSubmitClick = e => {
-  //   e.preventDefault();
-  //   this.props.saveEditForm();
-  // };
-
   render() {
     const { users } = this;
     return (
@@ -80,15 +62,6 @@ class TopButtons extends React.Component {
               <option>Archived</option>
             </select>
           </div>
-          {/* {this.state.editLead ? (
-            <div className="button edit-lead" onClick={this.handleEditClick}>
-              <p>Edit Lead</p>
-            </div>
-          ) : (
-            <div className="button edit-lead" onClick={this.handleSubmitClick}>
-              <p>Submit Lead</p>
-            </div>
-          )} */}
         </div>
       </div>
     );
