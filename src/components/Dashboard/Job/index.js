@@ -4,14 +4,24 @@ import Enquiry from "./Enquiry/";
 import Followups from "./Followups";
 import FollowupForm from "./FollowupForm";
 import ImageDisplay from "./ImageDisplay";
+import EditJob from "./EditJob";
 import "./job.css"
 
 class Job extends Component {
+  state = {
+    editJob: false
+  }
   
   handleAddNewFollowup = newFollowup => {
     this.props.data.followUps.push(newFollowup);
     this.props.addNewFollowUps(this.props.data.followUps);
   };
+
+  handleEditLead = () => {
+    this.setState({
+      editJob: !this.state.editJob
+    })
+  }
 
   render() {
     const { data, assignLead, editLead, moveLead, back } = this.props;
@@ -21,18 +31,22 @@ class Job extends Component {
           <TopButtons
             data={data}
             assignLead={assignLead}
-            editLead={editLead}
+            editLead={this.handleEditLead}
             moveLead={moveLead}
             back={back}
           />
-          <Enquiry data={data} />
+          {
+            this.state.editJob ?
+            <EditJob />
+            : 
+            <Enquiry data={data} />
+          }
           <ImageDisplay data={data} />
           <Followups data={data} />
           <FollowupForm
             data={data}
             addNewFollowup={this.handleAddNewFollowup}
           />
-
         </div>
       </div>
     );
