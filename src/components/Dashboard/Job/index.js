@@ -15,7 +15,6 @@ class Job extends Component {
       editJob: false
     };
   }
-
   handleAddNewFollowup = newFollowup => {
     this.props.data.followUps.push(newFollowup);
     this.props.addNewFollowUps(this.props.data.followUps);
@@ -37,14 +36,14 @@ class Job extends Component {
   };
 
   render() {
-    const { data, assignLead, editLead, moveLead, back } = this.props;
+    const { data, assignLead, moveLead, back } = this.props;
     return (
       <div className="job">
         <div className="job-container">
           <TopButtons
             data={data}
             assignLead={assignLead}
-            editLead={editLead}
+            editLead={this.handleEditLead}
             moveLead={moveLead}
             back={back}
           />
@@ -53,6 +52,7 @@ class Job extends Component {
           ) : (
             <Enquiry data={data} showEditForm={this.handleShowEditForm} />
           )}
+
           <ImageDisplay data={data} />
           <Followups data={data} />
           <FollowupForm

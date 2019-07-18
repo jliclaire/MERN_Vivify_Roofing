@@ -12,8 +12,7 @@ class Dashboard extends Component {
     this.state = {
       mobileShowList: true,
       activeScreen: "inbox",
-      activeJob: this.props.data[0],
-      editJob: false
+      activeJob: this.props.data[0]
     };
   }
 
@@ -146,6 +145,7 @@ class Dashboard extends Component {
             editLead={this.handleEditLead}
           />
         )}
+
       </div>
     );
   }
