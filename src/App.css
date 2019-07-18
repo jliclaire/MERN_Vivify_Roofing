@@ -34,7 +34,8 @@ p,
 a,
 input,
 option,
-select {
+select,
+textarea {
   font-family: "Open Sans", sans-serif;
 }
 

@@ -12,8 +12,7 @@ class Dashboard extends Component {
     this.state = {
       mobileShowList: true,
       activeScreen: "inbox",
-      activeJob: this.props.data[0],
-      editJob: false
+      activeJob: this.props.data[0]
     };
   }
 
@@ -56,12 +55,6 @@ class Dashboard extends Component {
     })
     console.log(res)
     this.setActiveJob(id);
-  }
-
-  handleEditLead = () => {
-    this.setState({
-      editJob: !this.state.editJob
-    })
   }
 
   handleAddNewFollowUps = async newFollowUps => {
@@ -135,7 +128,6 @@ class Dashboard extends Component {
           addNewFollowUps={this.handleAddNewFollowUps}
           moveLead={this.handleMoveLead}
           assignLead={this.handleAssignLead}
-          editLead={this.handleEditLead}
         />
         }
       </div>
