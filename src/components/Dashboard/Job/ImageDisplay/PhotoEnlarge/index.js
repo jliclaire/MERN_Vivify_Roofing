@@ -6,7 +6,7 @@ class PhotoEnlarge extends React.Component {
     const {data} = this.props;
     return (
       <div className="popup">
-        <img className="photo-frame" src={data} />
+        <img className="photo-frame" src={data} alt=''/>
         <button className="close-btn" onClick={this.props.close}>X</button>
       </div>
     )
