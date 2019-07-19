@@ -6,6 +6,7 @@ import { FaAngleDown, FaAngleLeft } from 'react-icons/fa';
 
 const SideMenu = (props) => {
   let { changeScreen } = props;
+  // function to toggle classname
 
   return <>
     <div className='sidemenu-mob'>
@@ -93,24 +94,51 @@ const Sidebar = props => {
             onClick={() => changeScreen("inbox")}
           >
             <p>Inbox ({data.length})</p>
+            {console.log(data)}
+
           </div>
           <div
-            className={isActive("in-progress", activeScreen)}
+            className={isActive("in progress", activeScreen)}
             onClick={() => changeScreen("in progress")}
           >
-            <p>Assigned</p>
+            <p>Assigned (
+              {
+                // awaiting for assinged parts to be setup for the sales team
+                data.filter((datum) => {
+                  return datum.assignedTrade 
+                }).length
+              }
+              )
+
+
+            </p>
           </div>
           <div
             className={isActive("sold", activeScreen)}
             onClick={() => changeScreen("sold")}
           >
-            <p>Sold</p>
+            <p>Sold (
+              {
+                data.filter((datum) => {
+                  return datum.sold 
+                }).length
+              }
+              )
+            </p>
           </div>
           <div
             className={isActive("archive", activeScreen)}
             onClick={() => changeScreen("archive")}
           >
-            <p>Archived</p>
+            <p>Archived 
+            (
+              {
+                data.filter((datum) => {
+                  return datum.archived 
+                }).length
+              }
+              )
+            </p>
           </div>
         </div>
       </div>
