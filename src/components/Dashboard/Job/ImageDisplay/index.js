@@ -22,7 +22,7 @@ class ImageDisplay extends React.Component {
     const { data } = this.props;
     const links = data.imageUrls;
 
-    if (links.length === 0) {
+    if (links === undefined || links.length === 0) {
       return null;
     } else {
       return (
