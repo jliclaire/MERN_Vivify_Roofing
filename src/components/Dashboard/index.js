@@ -126,6 +126,7 @@ class Dashboard extends Component {
           data={this.filterData(data)}
           setActiveJob={this.setActiveJob}
           show={this.state.mobileShowList}
+          activeId={this.state.activeJob._id}
         />
         {(this.state.mobileShowList && window.innerWidth < 767) || (
           <Job

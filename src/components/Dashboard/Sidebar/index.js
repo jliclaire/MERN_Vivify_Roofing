@@ -2,26 +2,27 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./sidebar.css";
 import { capitalise } from "../../../utils/capitalise";
+import { FaAngleDown, FaAngleLeft } from 'react-icons/fa';
 
 const SideMenu = (props) => {
-  let { data, changeScreen } = props;
+  let { changeScreen } = props;
 
   return <>
     <div className='sidemenu-mob'>
-      <div
+      <div 
+        className='sidemenu-option'
         onClick={() => changeScreen("inbox")}
       >
-        <p
-        className='sidemenu-option'>Inbox ({data.length})</p>  
+        <p>New</p>  
       </div>
       <div
-        className=''
+        className='sidemenu-option'
         onClick={() => changeScreen("in progress")}
       >
         <p>Assigned</p>
       </div>
       <div
-        className=''
+        className='sidemenu-option'
         onClick={() => changeScreen("sold")}
       >
         <p>Sold</p>
@@ -32,7 +33,7 @@ const SideMenu = (props) => {
       >
         <p>Archived</p>
       </div>
-      <div className="" onClick={deleteToken}>
+      <div className="sidemenu-option" onClick={deleteToken}>
         <p className="">Logout</p>
       </div>
     </div>
@@ -68,19 +69,17 @@ const Sidebar = props => {
           <h1 className="sidebar-logo">VIVIFY</h1>
           <div className="sidebar-user">
             <div className="user-portrait">
-              <div className='hamburger'>
-                {
-                  mobileShowList ?
-                  <div  onClick={() => setHamburgerActive(!hamburgerActive)}>
-                    <div className='hb-icon' />
-                    <div className='hb-icon' />
-                    <div className='hb-icon' />
-                  </div> :
-                  <p onClick={() => back()}>back</p>
-                }
-              </div>
             </div>
             <h4 className="user-name">{capitalise(currentUser)}</h4>
+          </div>
+          <div className='hamburger'>
+            {
+              mobileShowList ?
+              <div onClick={() => setHamburgerActive(!hamburgerActive)}>
+                <FaAngleDown size='33px' />
+              </div> :
+              <FaAngleLeft size='33px' onClick={() => back()} />
+            }
           </div>
         </div>
         {

@@ -49,3 +49,20 @@
   font-size: 0.8rem;
   margin-top: 5px;
 }
+
+
+.blueButton{
+  background-color: rgb(189, 253, 255)
+}
+
+.whiteButton{
+  background-color: white;
+  color: black;
+}
+
+
+@media (max-width: 1010px) and (min-width: 767px) {
+  .jobList-row p {
+  font-size: .7rem;
+  }
+}
