@@ -4,10 +4,10 @@ import Checkbox from "../Checkbox";
 const OPTIONS = ["checkOne", "checkTwo", "checkThree", "checkFour"];
 
 const LISTS = [
-  { name: "checkOne", text: "Check the pitch/fall" },
-  { name: "checkTwo", text: "Skylights" },
-  { name: "checkThree", text: "Sizing of the gutters" },
-  { name: "checkFour", text: "Need carpentry" }
+  { name: "checkOne", text: "Tile checklist one" },
+  { name: "checkTwo", text: "Tile checklist two" },
+  { name: "checkThree", text: "Tile checklist three" },
+  { name: "checkFour", text: "Tile checklist four" }
 ];
 
 class MetalList extends Component {
