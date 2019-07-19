@@ -8,12 +8,7 @@ import EditJob from "./EditJob";
 import "./job.css";
 
 class Job extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      editJob: false
-    };
-  }
+
   handleAddNewFollowup = newFollowup => {
     this.props.data.followUps.push(newFollowup);
     this.props.addNewFollowUps(this.props.data.followUps);
@@ -23,33 +18,24 @@ class Job extends Component {
     // const id = this.props.data._id;
     // await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, updatedLead);
     this.props.addUpdatedLead(updatedLead);
-    this.setState({
-      editJob: !this.state.editJob
-    });
-  };
-
-  handleShowEditForm = () => {
-    this.setState({
-      editJob: !this.state.editJob
-    });
+    this.props.toggleEdit();
   };
 
   render() {
-    const { data, assignLead, moveLead, back } = this.props;
+    const { data, assignLead, moveLead, back, toggleEdit } = this.props;
     return (
       <div className="job">
         <div className="job-container">
           <TopButtons
             data={data}
             assignLead={assignLead}
-            editLead={this.handleEditLead}
             moveLead={moveLead}
             back={back}
           />
-          {this.state.editJob ? (
+          {this.props.editJob ? (
             <EditJob data={data} saveUpdatedLead={this.handleSaveUpdatedLead} />
           ) : (
-            <Enquiry data={data} showEditForm={this.handleShowEditForm} />
+            <Enquiry data={data} showEditForm={toggleEdit} />
           )}
 
           {/* {data.imageUrls.length ? <ImageDisplay data={data} /> : null} */}
