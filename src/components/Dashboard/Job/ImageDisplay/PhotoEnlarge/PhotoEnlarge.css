@@ -13,6 +13,11 @@
   background-color: rgba(0,0,0, 0.5);  
 }  
 
+.photo-enlarge-frame {
+  width: 100%;
+
+}
+
 .close-btn {
   opacity: 0.9;
   border: none;
@@ -26,10 +31,8 @@
   position: absolute;
   right: 25px;
   top: 25px;
-
 }
 
 .close-btn:hover {
   color: #858282;
-
 }
