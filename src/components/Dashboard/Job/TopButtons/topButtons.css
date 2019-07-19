@@ -1,7 +1,7 @@
 .job-top-buttons {
   margin-top: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .top-buttons-right {
@@ -9,12 +9,14 @@
   align-items: center;
 }
 
-.assign-lead,
-.move-lead {
+.top-options {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 1px solid #ff7e7e;
+  border-radius: 5%;
+  padding: 16px;
+  background: #f7d3d3;
 }
 
 .edit-lead {
@@ -25,8 +27,9 @@
 }
 
 .options {
-  margin-top: 10px;
+  margin-left: 15px;
   padding: 5px;
+  font-size: 1em
 }
 
 .mob-only {
@@ -41,15 +44,11 @@
   .job-top-buttons {
     margin-top: 20px;
     display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
   }
-
-  .top-buttons-right {
-    align-items: flex-start;
-  }
-
-  .button {
-    margin: 0 5px;
+  
+  .top-options {
+    margin-bottom: 10px;
   }
 }
