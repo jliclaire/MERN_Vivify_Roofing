@@ -69,19 +69,11 @@ class Dashboard extends Component {
     this.setActiveJob(id);
   };
 
-  handleEditLead = () => {
-    this.setState({
-      editJob: !this.state.editJob
-    });
-  };
-
   handleAddNewFollowUps = async newFollowUps => {
     const id = this.state.activeJob._id;
     await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, {
       followUps: newFollowUps
     });
-    console.log("loggginggggggggggggggggggggggggggg");
-    console.log(this.setActiveJob(id));
     this.setActiveJob(id);
   };
 
@@ -160,7 +152,6 @@ class Dashboard extends Component {
             editJob={this.state.editJob}
           />
         )}
-
       </div>
     );
   }
