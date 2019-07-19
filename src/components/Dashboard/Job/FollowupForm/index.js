@@ -46,6 +46,9 @@ class FollowupForm extends Component {
       <div className="job-followup-form">
         <div className="job-followup-form-container">
           <div className="followup-info">
+            <p className='mob-only'>
+              Leave a followup:
+            </p>
             <input
               className="job-followup-date"
               type="date"
@@ -60,9 +63,12 @@ class FollowupForm extends Component {
               placeholder="Follow up by"
               onChange={this.handleChange}
             />
-
             <button className="followup-quote-btn" onClick={this.togglePopup}>
-              {this.state.quoteAmount || "Add Quote"}
+              {
+                this.state.quoteAmount ?
+                "$" + this.state.quoteAmount
+                : "Add Quote"
+              }
             </button>
             {this.state.showPopup ? (
               <CheckList
@@ -79,6 +85,7 @@ class FollowupForm extends Component {
             onChange={this.handleChange}
           />
           <div className="followup-upload-image">
+            <p>Attach a photo:</p>
             <ImageUpload
               className="image-upload-btn"
               id={this.props.data._id}
