@@ -26,6 +26,14 @@ class CheckList extends Component {
     }
   };
 
+  handleCheckedStatusWhenFalse = () => {
+    if (this.state.disabled === false) {
+      this.setState({
+        disabled: true
+      });
+    }
+  };
+
   handleQuoteAmountChange = e => {
     this.setState({ [e.target.id]: e.target.value });
   };
@@ -34,7 +42,7 @@ class CheckList extends Component {
     e.preventDefault();
     const quoteAmount = this.state.quoteAmount;
     this.props.newQuoteAmount(quoteAmount);
-    this.props.closePopup();
+    this.props.closePopup(e);
   };
 
   render() {
@@ -73,9 +81,19 @@ class CheckList extends Component {
 
             <div className="checkbox-list-container">
               {this.state.radioChecked ? (
-                <MetalList checkListStatus={this.handleCheckedStatus} />
+                <MetalList
+                  checkListStatus={this.handleCheckedStatus}
+                  handleCheckedStatusWhenFalse={
+                    this.handleCheckedStatusWhenFalse
+                  }
+                />
               ) : (
-                <TileList checkListStatus={this.handleCheckedStatus} />
+                <TileList
+                  checkListStatus={this.handleCheckedStatus}
+                  handleCheckedStatusWhenFalse={
+                    this.handleCheckedStatusWhenFalse
+                  }
+                />
               )}
             </div>
 
