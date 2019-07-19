@@ -5,9 +5,6 @@ import ProjectInfo from "./ProjectInfo";
 import "./enquiry.css";
 
 class Enquiry extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   handleEditClick = () => {
     console.log("logging from Enquiry index.js");

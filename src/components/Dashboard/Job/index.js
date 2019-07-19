@@ -5,7 +5,6 @@ import Followups from "./Followups";
 import FollowupForm from "./FollowupForm";
 import ImageDisplay from "./ImageDisplay";
 import EditJob from "./EditJob";
-import axios from "axios";
 import "./job.css";
 
 class Job extends Component {
