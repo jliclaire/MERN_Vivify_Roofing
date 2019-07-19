@@ -113,20 +113,20 @@
 
   .hamburger {
     display: block;
+    height: 100%;
+    padding-top: 10px;
+    width: 12%;
+    margin-right: 15px;
     cursor: pointer;
   }
 
-  .hb-icon {
-    width: 35px;
-    height: 3px;
-    background-color: black;
-    margin: 4px 0;
-  }
-
   .sidemenu-mob {
-    border: 1px solid pink;
+    border: 1px solid #c2c2c2;
+    border-radius: 5%;
+    box-shadow: -9px 13px 17px -16px rgba(0,0,0,0.75);
     position: fixed;
-    right: 12px;
+    top: 74px;
+    right: 10px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -137,6 +137,12 @@
   }
 
   .sidemenu-option {
-    background: #fff;
+    cursor: pointer;
+    background: #f7d3d3;
+    padding: 10px;
+    width: 80%;
+    border: 1px solid #ff7e7e;
+    border-radius: 5%;
+    text-align: center;
   }
 }
