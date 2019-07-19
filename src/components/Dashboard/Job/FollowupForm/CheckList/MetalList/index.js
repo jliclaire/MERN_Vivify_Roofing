@@ -47,48 +47,17 @@ class MetalList extends Component {
 
   createCheckboxes = () => LISTS.map(this.createCheckbox);
 
-  // loop through the state, if all values are true, call checkListStatus()
-  // selectAll = () => {
-  //   const array = Object.keys(this.state.checkboxes).filter(
-  //     checkbox => this.state.checkboxes[checkbox]
-  //   );
-  //   return array;
-  // };
-
   componentDidUpdate() {
-    // console.log("componentDidUpdate");
-    // let checkedArray = this.selectAll();
-    // console.log(checkedArray);
-    // this.props.checkListStatus(checkedArray);
-
-    console.log("componentDidUpdate");
     const checkedArray = Object.keys(this.state.checkboxes).filter(
       checkbox => this.state.checkboxes[checkbox]
     );
+    if (checkedArray.length < 4) {
+      this.props.handleCheckedStatusWhenFalse();
+    }
     if (checkedArray.length === 4) {
-      console.log("four calls");
       this.props.checkListStatus();
     }
   }
-
-  // selectAll = () => {
-  //   const checkedArray = Object.keys(this.state.checkboxes).filter(
-  //     checkbox => this.state.checkboxes[checkbox]
-  //   );
-  //   console.log(checkedArray);
-  //   if (checkedArray.length === 4) {
-  //     this.props.checkListStatus();
-  //   } else {
-  //     return null;
-  //   }
-  // };
-
-  // componentDidUpdate() {
-  //   console.log("componentDidUpdate");
-  //   let checkedArray = this.selectAll();
-  //   console.log(checkedArray);
-
-  // }
 
   render() {
     return <div className="checkbox-list">{this.createCheckboxes()}</div>;
