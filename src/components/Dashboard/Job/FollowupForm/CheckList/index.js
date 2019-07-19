@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import MetalList from "./MetalList";
-import "./checklist.css";
+import "./checkList.css";
 
 class CheckList extends Component {
   constructor(props) {
