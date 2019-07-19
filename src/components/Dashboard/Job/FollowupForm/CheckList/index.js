@@ -86,6 +86,10 @@ class CheckList extends Component {
                 type="text"
                 id="quoteAmount"
                 onChange={this.handleQuoteAmountChange}
+                disabled={this.state.disabled}
+                style={{
+                  backgroundColor: this.state.disabled ? "#e4e3e3" : "#fff"
+                }}
               />
             </div>
             <div className="next-btn-container">
@@ -93,6 +97,9 @@ class CheckList extends Component {
                 className="checklist-next-btn"
                 onClick={this.handleButtonClick}
                 disabled={this.state.disabled}
+                style={{
+                  backgroundColor: this.state.disabled ? "#e4e3e3" : "#ff7e7e"
+                }}
               >
                 NEXT
               </button>
