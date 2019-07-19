@@ -41,7 +41,7 @@ class TopButtons extends React.Component {
     const { users } = this;
     return (
       <div className="job-top-buttons">
-        <div className="button assign-lead">
+        <div className="top-options">
           <p>Assigned to:</p>
           <select
             id="assigned"
@@ -54,7 +54,7 @@ class TopButtons extends React.Component {
           </select>
         </div>
         <div className="top-buttons-right">
-          <div className="button move-lead">
+          <div className="top-options">
             <p>Mark as:</p>
             <select className='options' onChange={ this.handleMoveLead }>
               <option>Assigned</option>

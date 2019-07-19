@@ -2,7 +2,7 @@
 
 Built with blood sweat and tears by Jing Li Claire, Mark Butcher, and Andrew Sims
 
-(Link to published application goes here.)
+https://vivify-roofing.netlify.com/
 
 (Link to GitHub repository goes here.)
 
@@ -13,9 +13,8 @@ which was built for a roof restoration business.
 
 ### Problem definition
 
-There are two business problems which this software is supposed to solve:
-
-1. Standardising the sales procedure
+The business problem that this is supposed to solve is that of standardising
+the sales procedure.
 
 Irregularities and lack of system around the sales procedure and
 communication between the trades and sales staff had meant that
@@ -27,16 +26,6 @@ was done on an ad hoc basis. Therefore, Having all of the information regarding
 the customer and their particular needs in a centralised hub was meant to 
 improve this situation and improve communication between the trades and the 
 sales team more generally.
-
-2. Actionable insights to inform marketing spend
-
-The business does not have a clear idea of whether their marketing spends
-in certain suburbs are effective. They define effectiveness as the proportion
-of leads which are converted into sales for any particular area. Collecting this
-data and displaying it in the application over a period of time would allow them
-to make more informed decisions as to where to spend their marketing budget.
-For example, if they find that (for example) many leads in Noble Park do not 
-convert, then they will stop spending marketing budget in Noble Park.
 
 ### Functionality
 
