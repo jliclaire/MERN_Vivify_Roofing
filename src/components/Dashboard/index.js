@@ -12,7 +12,8 @@ class Dashboard extends Component {
     this.state = {
       mobileShowList: true,
       activeScreen: "inbox",
-      activeJob: this.props.data[0]
+      activeJob: this.props.data[0],
+      editJob: false
     };
   }
 
@@ -30,6 +31,17 @@ class Dashboard extends Component {
         activeJob: foundJob
       });
     }
+    if (this.state.editJob) {
+      this.setState({
+        editJob: false,
+      })
+    }
+  };
+  
+  handleShowEditForm = () => {
+    this.setState({
+      editJob: !this.state.editJob
+    });
   };
 
   back = () => {
@@ -137,6 +149,9 @@ class Dashboard extends Component {
             addUpdatedLead={this.handleAddUpdatedLead}
             moveLead={this.handleMoveLead}
             assignLead={this.handleAssignLead}
+            editLead={this.handleEditLead}
+            toggleEdit={this.handleShowEditForm}
+            editJob={this.state.editJob}
           />
         )}
       </div>
