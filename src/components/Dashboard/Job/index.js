@@ -53,6 +53,7 @@ class Job extends Component {
             <Enquiry data={data} showEditForm={this.handleShowEditForm} />
           )}
 
+          {/* {data.imageUrls.length ? <ImageDisplay data={data} /> : null} */}
           <ImageDisplay data={data} />
           <Followups data={data} />
           <FollowupForm

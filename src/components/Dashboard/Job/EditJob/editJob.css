@@ -1,19 +1,16 @@
-/* global css  */
-.job-enquiry {
-  width: 100%;
+.job-enquiry-edit {
+  border-top: 1px solid #e4e3e3;
+  margin-top: 15px;
+}
+
+.job-enquiry-edit label {
   display: flex;
   flex-direction: column;
 }
 
-.job-enquiry-edit {
-  border: 1px solid #e4e3e3;
-  padding-bottom: 0;
-  margin-top: 15px;
-}
-
-.margin-top-bottom {
-  margin-top: 10px;
-  margin-bottom: 10px;
+.job-enquiry-edit input {
+  height: 2rem;
+  background: #f7f7f7;
 }
 
 /* css for edit customer basic info */
@@ -29,56 +26,32 @@
   font-weight: 700;
   font-size: 1rem;
 }
-.job-enquiry-customer {
+.job-enquiry-customer-edit {
   width: 100%;
   display: flex;
-  justify-content: space-between;
 }
 
-.name-suburb {
+.name-suburb-edit {
+  width: 45%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
 
-/* .email-phone-date {
+.email-phone-date-edit {
+  width: 55%;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-} */
-
-.job-enquiry-customer h5 {
-  margin-top: 5px;
-}
-
-/* css for edit customer project info */
-.project-info-row {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  border-top: 1px solid #e4e3e3;
-  line-height: 30px;
-}
-
-.border-bottom {
-  border-bottom: 1px solid #e4e3e3;
-}
-
-.project-info-row-left {
-  width: 45%;
-}
-
-.project-info-row-right {
-  width: 55%;
+  justify-content: flex-end;
 }
 
 @media only screen and (max-width: 767px) {
-  .project-info-row {
+  .job-enquiry-customer-edit {
     flex-direction: column;
   }
 
-  .project-info-row-left,
-  .project-info-row-right {
+  .name-suburb-edit,
+  .email-phone-date-edit {
     width: 100%;
   }
 }
