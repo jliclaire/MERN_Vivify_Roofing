@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import MetalList from "./MetalList";
+import TileList from "./TileList";
 import "./checkList.css";
 
 class CheckList extends Component {
@@ -7,9 +8,16 @@ class CheckList extends Component {
     super(props);
     this.state = {
       quoteAmount: 0,
-      disabled: true
+      disabled: true,
+      radioChecked: true
     };
   }
+
+  handleRoofTypeChange = e => {
+    this.setState({
+      radioChecked: !this.state.radioChecked
+    });
+  };
 
   handleCheckedStatus = () => {
     console.log("should enable button");
@@ -43,17 +51,34 @@ class CheckList extends Component {
             <h1 className="checkbox-title">Checklist</h1>
             <div className="checkbox-jobtype">
               <label>
-                <input type="radio" name="jobType" value="metal" />
+                <input
+                  type="radio"
+                  name="jobType"
+                  value="metal"
+                  checked={this.state.radioChecked}
+                  onChange={this.handleRoofTypeChange}
+                />
                 Metal
               </label>
               <label>
-                <input type="radio" name="jobType" value="tile" />
+                <input
+                  type="radio"
+                  name="jobType"
+                  value="tile"
+                  onChange={this.handleRoofTypeChange}
+                />
                 Tile
               </label>
             </div>
+
             <div className="checkbox-list-container">
-              <MetalList checkListStatus={this.handleCheckedStatus} />
+              {this.state.radioChecked ? (
+                <MetalList checkListStatus={this.handleCheckedStatus} />
+              ) : (
+                <TileList checkListStatus={this.handleCheckedStatus} />
+              )}
             </div>
+
             <div className="quote-wrapper">
               <label className="dollar-sign">$</label>
               <input
