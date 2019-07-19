@@ -59,3 +59,24 @@
   justify-content: center;
   align-items: center;
 }
+
+@media only screen and (max-width: 767px) {
+  .job-followup-date {
+    display: none;
+  }
+  .job-followup-by {
+    display: none;
+  }
+  .followup-quote-btn {
+    padding: 10px;
+    border-radius: 5%;
+  }
+  .followup-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #tradeComments {
+    height: 200px;
+  }
+}

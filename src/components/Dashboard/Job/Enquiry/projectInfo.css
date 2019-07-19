@@ -25,5 +25,6 @@
 
   .project-info-row-left, .project-info-row-right {
     width: 100%;
+    font-size: 1.3em;
   }
 }
