@@ -15,6 +15,9 @@
 
 /* css for edit customer basic info */
 .edit-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 20%;
   background: #ff7e7e;
   border: none;
