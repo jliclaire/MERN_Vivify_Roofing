@@ -41,11 +41,11 @@
   justify-content: flex-end;
 }
 
-.email-phone-date {
+/* .email-phone-date {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-}
+} */
 
 .job-enquiry-customer h5 {
   margin-top: 5px;
