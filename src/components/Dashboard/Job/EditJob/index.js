@@ -54,11 +54,10 @@ class EditJob extends Component {
           Save
         </button>
         {/* customer info section */}
-        <div className="job-enquiry-customer margin-top-bottom">
-          <div className="name-suburb">
+        <div className="job-enquiry-customer-edit margin-top-bottom">
+          <div className="name-suburb-edit">
             <label className="p-font" htmlFor="name">
-              {" "}
-              Name
+              <span className="comments">Name: </span>
               <input
                 id="name"
                 type="text"
@@ -67,8 +66,7 @@ class EditJob extends Component {
               />
             </label>
             <label className="p-font" htmlFor="suburb">
-              {" "}
-              Suburb
+              <span className="comments">Suburb: </span>
               <input
                 id="suburb"
                 type="text"
@@ -77,10 +75,9 @@ class EditJob extends Component {
               />
             </label>
           </div>
-          <div className="email-phone-date">
+          <div className="email-phone-date-edit">
             <label className="p-font" htmlFor="email">
-              {" "}
-              Email
+              <span className="comments">Email: </span>
               <input
                 id="email"
                 type="email"
@@ -89,8 +86,7 @@ class EditJob extends Component {
               />
             </label>
             <label className="p-font" htmlFor="phone">
-              {" "}
-              Phone
+              <span className="comments">Phone: </span>
               <input
                 id="phone"
                 type="text"
