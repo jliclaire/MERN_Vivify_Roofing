@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 
 class CustomerComment extends Component {
-
   render() {
     const { data } = this.props;
     return (
