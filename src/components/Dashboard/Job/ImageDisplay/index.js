@@ -22,29 +22,33 @@ class ImageDisplay extends React.Component {
     const { data } = this.props;
     const links = data.imageUrls;
 
-    return (
-      <div className="photos-wrapper">
-        {links.map((url, i) => {
-          return (
-            <img
-              className="photo-frame"
-              id={i}
-              src={url}
-              alt=""
-              width="90"
-              height="110"
-              onClick={this.toggleImagePopup.bind(this)}
+    if (links.length === 0) {
+      return null;
+    } else {
+      return (
+        <div className="photos-wrapper">
+          {links.map((url, i) => {
+            return (
+              <img
+                className="photo-frame"
+                id={i}
+                src={url}
+                alt=""
+                width="90"
+                height="110"
+                onClick={this.toggleImagePopup.bind(this)}
+              />
+            );
+          })}
+          {this.state.showPopup && (
+            <PhotoEnlarge
+              data={links[this.state.activeImage]}
+              close={this.toggleImagePopup.bind(this)}
             />
-          );
-        })}
-        {this.state.showPopup && (
-          <PhotoEnlarge
-            data={links[this.state.activeImage]}
-            close={this.toggleImagePopup.bind(this)}
-          />
-        )}
-      </div>
-    );
+          )}
+        </div>
+      );
+    }
   }
 }
 
