@@ -15,10 +15,12 @@ class JobListRow extends Component {
 
   render() {
     const { activeId } = this.props
+    console.log(activeId)
     return (
       <div className="jobList-container">
         {this.props.data.map((job, index) => {
           let btnClass = activeId === job._id ? "blueButton" : "whiteButton";
+          console.log(btnClass)
           // console.log(activeId)
           return (
             <div
