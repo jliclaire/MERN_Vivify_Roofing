@@ -34,7 +34,7 @@ class CheckList extends Component {
     e.preventDefault();
     const quoteAmount = this.state.quoteAmount;
     this.props.newQuoteAmount(quoteAmount);
-    this.props.closePopup();
+    this.props.closePopup(e);
   };
 
   render() {

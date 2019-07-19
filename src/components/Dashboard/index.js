@@ -20,12 +20,14 @@ class Dashboard extends Component {
     const foundJob = await this.props.data.find(datum => {
       return datum._id === jobId;
     });
-    this.setState({
-      activeJob: foundJob
-    });
     if (window.innerWidth < 767) {
       this.setState({
-        mobileShowList: false
+        mobileShowList: false,
+        activeJob: foundJob
+      });
+    } else {
+      this.setState({
+        activeJob: foundJob
       });
     }
   };

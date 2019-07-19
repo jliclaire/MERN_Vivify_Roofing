@@ -24,14 +24,18 @@ class FollowupForm extends Component {
       quoteAmount: this.state.quoteAmount
     };
     this.props.addNewFollowup(newFollowup);
-    // e.target.parentNode.reset();
+    e.target.parentNode.reset();
+    this.setState({
+      quoteAmount: ""
+    });
   };
 
   handleChange = e => {
     this.setState({ [e.target.id]: e.target.value });
   };
 
-  togglePopup = () => {
+  togglePopup = e => {
+    e.preventDefault();
     this.setState({
       showPopup: !this.state.showPopup
     });
@@ -44,11 +48,9 @@ class FollowupForm extends Component {
   render() {
     return (
       <div className="job-followup-form">
-        <div className="job-followup-form-container">
+        <form className="job-followup-form-container">
           <div className="followup-info">
-            <p className='mob-only'>
-              Leave a followup:
-            </p>
+            <p className="mob-only">Leave a followup:</p>
             <input
               className="job-followup-date"
               type="date"
@@ -64,11 +66,9 @@ class FollowupForm extends Component {
               onChange={this.handleChange}
             />
             <button className="followup-quote-btn" onClick={this.togglePopup}>
-              {
-                this.state.quoteAmount ?
-                "$" + this.state.quoteAmount
-                : "Add Quote"
-              }
+              {this.state.quoteAmount
+                ? "$" + this.state.quoteAmount
+                : "Add Quote"}
             </button>
             {this.state.showPopup ? (
               <CheckList
@@ -97,7 +97,7 @@ class FollowupForm extends Component {
           >
             Add Follow Up
           </button>
-        </div>
+        </form>
       </div>
     );
   }
