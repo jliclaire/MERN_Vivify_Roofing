@@ -20,7 +20,9 @@ class Enquiry extends Component {
         </button>
         <CustomerInfo data={data} />
         <CustomerComment data={data} />
-        <ProjectInfo data={data} />
+        {
+          data.paintingQuote || <ProjectInfo data={data} />
+        }
       </div>
     );
   }
