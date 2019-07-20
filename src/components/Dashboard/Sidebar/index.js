@@ -69,9 +69,7 @@ const Sidebar = props => {
         <div className="sidebar-info">
           <h1 className="sidebar-logo">VIVIFY</h1>
           <div className="sidebar-user">
-            <div className="user-portrait">
-            </div>
-            <h4 className="user-name">{capitalise(currentUser)}</h4>
+            <h4 className="user-name">Hi, {capitalise(currentUser)}</h4>
           </div>
           <div className='hamburger'>
             {
