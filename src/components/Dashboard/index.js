@@ -33,11 +33,11 @@ class Dashboard extends Component {
     }
     if (this.state.editJob) {
       this.setState({
-        editJob: false,
-      })
+        editJob: false
+      });
     }
   };
-  
+
   handleShowEditForm = () => {
     this.setState({
       editJob: !this.state.editJob
@@ -79,10 +79,14 @@ class Dashboard extends Component {
     this.setActiveJob(id);
   };
 
-  handleAddUpdatedLead = async updatedLead => {
-    const id = this.state.activeJob._id;
-    await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, updatedLead);
-    console.log(this.setActiveJob(id));
+  // handleAddUpdatedLead = async updatedLead => {
+  //   const id = this.state.activeJob._id;
+  //   await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, updatedLead);
+  //   console.log(this.setActiveJob(id));
+  //   await this.setActiveJob(id);
+  // };
+
+  handleAddUpdatedLead = async id => {
     await this.setActiveJob(id);
   };
 
@@ -136,7 +140,6 @@ class Dashboard extends Component {
           back={this.back}
           mobileShowList={mobileShowList}
           activeScreen={activeScreen}
-
         />
         <JobList
           data={this.filterData(data)}
