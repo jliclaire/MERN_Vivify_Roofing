@@ -3,18 +3,18 @@ import { capitaliseMultiple } from "../../../utils/capitalise";
 import "./JobListRow.css";
 
 class JobListRow extends Component {
-
   handleClick = e => {
     let element = e.target;
     while (!element.className.match(/jobList-row/)) {
       element = element.parentElement;
     }
     const jobId = element.id;
+    this.props.clearEditData();
     this.props.setActiveJob(jobId);
   };
 
   render() {
-    const { activeId } = this.props
+    const { activeId } = this.props;
     return (
       <div className="jobList-container">
         {this.props.data.map((job, index) => {
@@ -22,7 +22,7 @@ class JobListRow extends Component {
           // console.log(activeId)
           return (
             <div
-              className={btnClass + ' jobList-row'}
+              className={btnClass + " jobList-row"}
               id={job._id}
               key={index}
               onClick={this.handleClick}

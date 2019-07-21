@@ -13,7 +13,8 @@ class Dashboard extends Component {
       mobileShowList: true,
       activeScreen: "inbox",
       activeJob: this.props.data[0],
-      editJob: false
+      editJob: false,
+      editedEnquiry: ""
     };
   }
 
@@ -79,16 +80,30 @@ class Dashboard extends Component {
     this.setActiveJob(id);
   };
 
-  // handleAddUpdatedLead = async updatedLead => {
-  //   const id = this.state.activeJob._id;
-  //   await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, updatedLead);
-  //   console.log(this.setActiveJob(id));
-  //   await this.setActiveJob(id);
-  // };
-
-  handleAddUpdatedLead = id => {
+  handleAddUpdatedLead = async updatedLead => {
+    const id = this.state.activeJob._id;
+    const editedEnquiry = await axios.put(
+      `${process.env.REACT_APP_API_URL}/jobs/${id}`,
+      updatedLead
+    );
+    this.setState({
+      editedEnquiry: editedEnquiry
+    });
+    console.log(this.state.editedEnquiry);
     this.setActiveJob(id);
   };
+
+  handleClearEditData = () => {
+    if (this.state.editedEnquiry_id !== this.state.activeJob._id) {
+      this.setState({
+        editedEnquiry: ""
+      });
+    }
+  };
+
+  // handleAddUpdatedLead = id => {
+  //   this.setActiveJob(id);
+  // };
 
   progressFilter = data => {
     return data.filter(datum => {
@@ -146,6 +161,7 @@ class Dashboard extends Component {
           setActiveJob={this.setActiveJob}
           show={this.state.mobileShowList}
           activeId={this.state.activeJob._id}
+          clearEditData={this.handleClearEditData}
         />
         {(this.state.mobileShowList && window.innerWidth < 767) || (
           <Job
@@ -157,6 +173,7 @@ class Dashboard extends Component {
             editLead={this.handleEditLead}
             toggleEdit={this.handleShowEditForm}
             editJob={this.state.editJob}
+            editedEnquiry={this.state.editedEnquiry}
           />
         )}
       </div>
