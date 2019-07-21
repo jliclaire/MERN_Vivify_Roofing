@@ -23,6 +23,8 @@ class Job extends Component {
 
   render() {
     const { data, assignLead, moveLead, back, toggleEdit } = this.props;
+    console.log(data)
+
     return (
       <div className="job">
         <div className="job-container">

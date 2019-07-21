@@ -7,6 +7,7 @@ class CustomerInfo extends Component {
   render() {
     const { data } = this.props;
     return (
+      
       <div className="job-enquiry-customer margin-top-bottom">
         <div className="name-suburb">
           <h3>{capitaliseMultiple(data.name)}</h3>
