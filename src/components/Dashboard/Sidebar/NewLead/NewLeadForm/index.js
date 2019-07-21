@@ -19,6 +19,7 @@ class NewLeadForm extends Component {
       suburb: this.state.suburb,
       email: this.state.email,
       phone: this.state.phone,
+      comments: this.state.comments,
       projectType: this.state.projectType,
       roofFrameType: this.state.roofFrameType,
       houseLevels: this.state.houseLevels,
@@ -38,21 +39,11 @@ class NewLeadForm extends Component {
       <div className="new-lead-popup">
         <div className="new-lead-popupinner">
           <form>
-            <div className="new-lead-form-top">
-              <div className="checkbox-close-icon">
-                <i
-                  className="far fa-window-close"
-                  onClick={this.props.closeNewLeadPopup}
-                />
-              </div>
-
-              {/* save enquiry info button */}
-              <button
-                className="edit-button"
-                onClick={this.handleSaveNewLeadClick}
-              >
-                Save
-              </button>
+            <div className="checkbox-close-icon">
+              <i
+                className="far fa-window-close"
+                onClick={this.props.closeNewLeadPopup}
+              />
             </div>
             {/* customer info section */}
             <div className="job-enquiry job-enquiry-edit">
@@ -196,7 +187,28 @@ class NewLeadForm extends Component {
                   </label>
                 </div>
               </div>
+
+              {/* customer comments section */}
+              <label
+                className="job-enquiry-customer-comment margin-top-bottom p-font"
+                htmlFor="new-lead-customer-comment"
+              >
+                <span className="comments">Comments:</span>
+                <input
+                  id="new-lead-customer-comment"
+                  type="text"
+                  onChange={this.handleOnChange}
+                />
+              </label>
             </div>
+
+            {/* save enquiry info button */}
+            <button
+              className="edit-button"
+              onClick={this.handleSaveNewLeadClick}
+            >
+              Save
+            </button>
           </form>
         </div>
       </div>

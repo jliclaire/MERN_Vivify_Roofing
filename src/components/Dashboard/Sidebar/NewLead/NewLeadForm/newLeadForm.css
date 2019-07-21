@@ -16,7 +16,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   width: 80vw;
   background-color: #fff;
   font-family: sans-serif;
@@ -43,4 +43,12 @@
   padding-bottom: 15px;
   margin-top: 15px;
   margin-bottom: 20px;
+}
+
+.new-lead-popupinner button {
+  float: right;
+}
+
+#new-lead-customer-comment {
+  height: 2rem;
 }
