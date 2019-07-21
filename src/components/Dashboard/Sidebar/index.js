@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import NewLead from "./NewLead";
 import "./sidebar.css";
 import { capitalise } from "../../../utils/capitalise";
 import { FaAngleDown, FaAngleLeft } from "react-icons/fa";
@@ -130,6 +131,10 @@ const Sidebar = props => {
               )
             </p>
           </div>
+
+          {/* to add lead from other resources */}
+
+          <NewLead {...props} />
         </div>
       </div>
       <div className="sidebar-bottom">

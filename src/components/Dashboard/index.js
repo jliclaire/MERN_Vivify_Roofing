@@ -86,8 +86,8 @@ class Dashboard extends Component {
   //   await this.setActiveJob(id);
   // };
 
-  handleAddUpdatedLead = async id => {
-    await this.setActiveJob(id);
+  handleAddUpdatedLead = id => {
+    this.setActiveJob(id);
   };
 
   progressFilter = data => {

@@ -123,7 +123,7 @@
   .sidemenu-mob {
     border: 1px solid #c2c2c2;
     border-radius: 5%;
-    box-shadow: -9px 13px 17px -16px rgba(0,0,0,0.75);
+    box-shadow: -9px 13px 17px -16px rgba(0, 0, 0, 0.75);
     position: fixed;
     top: 74px;
     right: 10px;
@@ -144,5 +144,12 @@
     border: 1px solid #ff7e7e;
     border-radius: 5%;
     text-align: center;
+  }
+
+  .sidebar-add-lead-button {
+    height: 1.2rem;
+    background: #ff7e7e;
+    color: #fff;
+    font-weight: 700;
   }
 }

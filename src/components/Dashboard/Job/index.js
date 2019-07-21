@@ -50,11 +50,6 @@ class Job extends Component {
             moveLead={moveLead}
             back={back}
           />
-          {/* {this.props.editJob ? (
-            <EditJob data={data} saveUpdatedLead={this.handleSaveUpdatedLead} />
-          ) : (
-            <Enquiry data={data} showEditForm={toggleEdit} />
-          )} */}
 
           {this.props.editJob ? (
             this.state.editedEnquiry ? (
@@ -77,9 +72,10 @@ class Job extends Component {
             <Enquiry data={data} showEditForm={toggleEdit} />
           )}
 
-          {/* {data.imageUrls.length ? <ImageDisplay data={data} /> : null} */}
           <ImageDisplay data={data} />
+
           <Followups data={data} />
+
           <FollowupForm
             data={data}
             addNewFollowup={this.handleAddNewFollowup}

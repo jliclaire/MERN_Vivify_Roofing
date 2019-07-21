@@ -1,27 +1,27 @@
 import React, { Component } from "react";
 import "./followups.css";
-import axios from 'axios';
+import axios from "axios";
 
 class FollowupEdit extends Component {
   state = {
-    comment: this.props.followup.tradeComments | '',
-  }
+    comment: this.props.followup.tradeComments | ""
+  };
 
   handleClick = () => {
     const { save, followup, jobId } = this.props;
     const followupId = followup._id;
     const { comment } = this.state;
     save(comment, jobId, followupId);
-  }
+  };
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({
       comment: event.target.value
-    })
-    console.log(this.state)
-  }
+    });
+    console.log(this.state);
+  };
 
-  render () {
+  render() {
     const { followup, index } = this.props;
     return (
       <div key={index} className="job-followups-container">
@@ -39,20 +39,22 @@ class FollowupEdit extends Component {
         <div className="job-followups-comment p-font">
           <p>
             <div className="comments">Comment: </div>
-            <textarea className='edit-comment' onChange={this.handleChange}>
+            <textarea className="edit-comment" onChange={this.handleChange}>
               {followup.tradeComments}
             </textarea>
           </p>
-          <p className='float-right'>
-            <span className='button' onClick={this.handleClick}>Save</span>
+          <p className="float-right">
+            <span className="button" onClick={this.handleClick}>
+              Save
+            </span>
           </p>
         </div>
       </div>
-    )
+    );
   }
 }
 
-const SingleFollowUp = (props) => {
+const SingleFollowUp = props => {
   const { followup, index, edit } = props;
   return (
     <div key={index} className="job-followups-container">
@@ -71,38 +73,40 @@ const SingleFollowUp = (props) => {
         <p>
           <div className="comments">Comment: </div>
           {followup.tradeComments}
-          <p className='float-right'>
-            <span className='button' onClick={edit}>Edit</span>
+          <p className="float-right">
+            <span className="button" onClick={edit}>
+              Edit
+            </span>
           </p>
         </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
 class Followups extends Component {
   state = {
-    edit: false,
-  }
-  
+    edit: false
+  };
+
   saveFollowup = async (comment, jobId, followupId) => {
     const response = await axios.put(
-      `${process.env.REACT_APP_API_URL}/jobs/${jobId}/followups/${followupId}`, 
+      `${process.env.REACT_APP_API_URL}/jobs/${jobId}/followups/${followupId}`,
       {
-      newComment: comment
+        newComment: comment
       }
-    )
-    console.log(response)
+    );
+    console.log(response);
     this.setState({
       edit: !this.state.edit
-    })
-  }
+    });
+  };
 
   toggleEdit = () => {
     this.setState({
       edit: !this.state.edit
-    })
-  }
+    });
+  };
 
   render() {
     const { edit } = this.state;
@@ -117,21 +121,21 @@ class Followups extends Component {
           {data.followUps.map((followup, index) => {
             if (edit) {
               return (
-                <FollowupEdit 
+                <FollowupEdit
                   key={index}
-                  save={this.saveFollowup} 
+                  save={this.saveFollowup}
                   followup={followup}
                   jobId={jobId}
                 />
-              ) 
+              );
             } else {
               return (
-                <SingleFollowUp 
-                  edit={this.toggleEdit} 
-                  followup={followup} 
+                <SingleFollowUp
+                  edit={this.toggleEdit}
+                  followup={followup}
                   key={index}
                 />
-              ) 
+              );
             }
           })}
         </div>

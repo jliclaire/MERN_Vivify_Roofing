@@ -5,9 +5,7 @@ import ProjectInfo from "./ProjectInfo";
 import "./enquiry.css";
 
 class Enquiry extends Component {
-
   handleEditClick = () => {
-    console.log("logging from Enquiry index.js");
     this.props.showEditForm();
   };
 
