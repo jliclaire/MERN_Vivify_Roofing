@@ -45,6 +45,7 @@ class Job extends Component {
             moveLead={moveLead}
             back={back}
             users={this.props.users}
+            currentUser={this.props.currentUser}
           />
 
           {this.props.editJob ? (

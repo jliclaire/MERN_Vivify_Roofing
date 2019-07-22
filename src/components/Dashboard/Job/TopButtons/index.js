@@ -30,7 +30,7 @@ class TopButtons extends React.Component {
   };
 
   render() {
-    const { users } = this.props;
+    const { users, data } = this.props;
     return (
       <div className="job-top-buttons">
         <div className="top-options">
@@ -43,9 +43,15 @@ class TopButtons extends React.Component {
             <option>---</option>
           {
             users &&
-            users.map((user, i) => (
-              <option key={i}>{user}</option>
-            ))
+            users.map((user, i) => {
+              console.log(data.assignedTrade)
+              console.log(this.props.currentUser.name)
+              if (data.assignedTrade === this.props.currentUser.name) {
+                return <option key={i} selected>{user}</option>
+              } else {
+                return <option key={i}>{user}</option>
+              }
+            })
           }
           </select>
         </div>
