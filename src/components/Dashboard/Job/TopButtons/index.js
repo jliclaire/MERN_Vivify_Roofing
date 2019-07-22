@@ -46,7 +46,7 @@ class TopButtons extends React.Component {
             users.map((user, i) => {
               console.log(data.assignedTrade)
               console.log(this.props.currentUser.name)
-              if (data.assignedTrade === this.props.currentUser.name) {
+              if (data.assignedTrade === user.name) {
                 return <option key={i} selected>{user}</option>
               } else {
                 return <option key={i}>{user}</option>
