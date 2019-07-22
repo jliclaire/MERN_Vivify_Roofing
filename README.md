@@ -189,8 +189,13 @@ MERN stack application. This included knowing how to write code and solve
 problems in Javascript, but also specific knowledge about APIs, authentication
 and authorisation, databases, and Web/Browser APIs.
 
+General progamming skills were very helpful in order to debug or to resolve
+issues after the code had been written. These skills allowed us to quickly isolate
+and fix bugs in our code.
+
 Organisation-wise, we needed to know how to effectively delegate tasks in order
 to take advantage of our strengths and weaknesses and complete the work to a
 high standard in the time alotted.
 
 5. Evaluate how effective your knowledge and skills were this project, using examples, and suggest changes or improvements for future projects of a similar nature.
+
