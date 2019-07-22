@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./customerInfo.css";
 import { capitaliseMultiple } from '../../../../utils/capitalise'
-import { FaPhone } from 'react-icons/fa';
+import { FaPhone, FaEnvelope } from 'react-icons/fa';
 
 class CustomerInfo extends Component {
 
@@ -15,8 +15,12 @@ class CustomerInfo extends Component {
           <h5>{capitaliseMultiple(data.suburb)}</h5>
         </div>
         <div className="email-phone-date">
-          <h5>{data.email}</h5>
-          <a href={'tel:' + data.phone}><h5><FaPhone /> {data.phone}</h5></a>
+          <a href={'mailto:' + data.email}>
+            <h5><FaEnvelope /> {data.email}</h5>
+          </a>
+          <a href={'tel:' + data.phone}>
+            <h5><FaPhone /> {data.phone}</h5>
+          </a>
           <h5>Received {new Date(data.createdTime).toLocaleDateString()}</h5>
         </div>
       </div>
