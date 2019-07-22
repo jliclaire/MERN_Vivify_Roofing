@@ -18,11 +18,10 @@ class App extends Component {
     try {
       const authCall = await axios.post(
         `${process.env.REACT_APP_API_URL}/${
-          creds.length > 2 ? "register" : "login"
+          Object.keys(creds).length > 2 ? "register" : "login"
         }`,
         creds
       );
-      console.log(authCall)
       const { token } = authCall.data;
       localStorage.setItem("token", token);
       this.setState({
@@ -57,8 +56,13 @@ class App extends Component {
       // set state appropriately
       this.setState({
         authenticated: true,
-        currentUser: authCall.data.user
+        currentUser: {
+          email: authCall.data.email,
+          name: authCall.data.name,
+          role: authCall.data.role
+        }
       });
+      console.log(this.state)
     } catch (err) {
       console.log(err);
       // set state appropriately
@@ -73,7 +77,6 @@ class App extends Component {
   async componentDidMount() {
     this.getUser();
     this.getLeads();
-    console.log(this.state)
   }
 
   render() {
