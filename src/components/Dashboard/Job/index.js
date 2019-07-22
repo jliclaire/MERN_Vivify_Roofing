@@ -61,9 +61,13 @@ class Job extends Component {
           )}
 
           {this.props.editedEnquiry ? (
-            <Followups data={this.props.editedEnquiry.data} />
+            <Followups
+              data={this.props.editedEnquiry.data}
+              handleSaveEditedFollowup={this.props.handleSaveEditedFollowup} />
           ) : (
-            <Followups data={data} />
+            <Followups 
+              data={data}
+              handleSaveEditedFollowup={this.props.handleSaveEditedFollowup} />
           )}
 
           <FollowupForm

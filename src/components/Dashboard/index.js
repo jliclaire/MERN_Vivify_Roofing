@@ -72,6 +72,18 @@ class Dashboard extends Component {
     this.setActiveJob(id);
   };
 
+  handleSaveEditedFollowup = async (comment, jobId, followupId) => {
+    const response = await axios.put(
+      `${process.env.REACT_APP_API_URL}/jobs/${jobId}/followups/${followupId}`,
+      {
+        newComment: comment
+      }
+    );
+    this.setState({
+      editedEnquiry: response,
+    });
+  };
+
   handleAddNewFollowUps = async newFollowUps => {
     const id = this.state.activeJob._id;
     const newFollowup = await axios.put(
@@ -83,8 +95,6 @@ class Dashboard extends Component {
     this.setState({
       editedEnquiry: newFollowup
     });
-
-    this.setActiveJob(id);
   };
 
   handleAddUpdatedLead = async updatedLead => {
@@ -191,6 +201,7 @@ class Dashboard extends Component {
             editJob={this.state.editJob}
             editedEnquiry={this.state.editedEnquiry}
             currentUser={currentUser}
+            handleSaveEditedFollowup={this.handleSaveEditedFollowup}
           />
         )}
       </div>
