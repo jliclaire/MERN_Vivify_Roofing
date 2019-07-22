@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import NewLead from "./NewLead";
 import "./sidebar.css";
-import { capitalise } from "../../../utils/capitalise";
+import { capitaliseMultiple } from "../../../utils/capitalise";
 import { FaAngleDown, FaAngleLeft } from "react-icons/fa";
 
 const SideMenu = props => {
@@ -13,7 +13,7 @@ const SideMenu = props => {
     <>
       <div className="sidemenu-mob">
         <div className="sidemenu-option" onClick={() => changeScreen("inbox")}>
-          <p>New</p>
+          <p>Unassigned</p>
         </div>
         <div
           className="sidemenu-option"
@@ -45,6 +45,7 @@ const isActive = (box, prop) => {
 const deleteToken = () => {
   localStorage.removeItem("token");
   sessionStorage.removeItem("token");
+  document.location.reload();
 };
 
 const Sidebar = props => {
@@ -59,16 +60,15 @@ const Sidebar = props => {
   } = props;
   const [hamburgerActive, setHamburgerActive] = useState(false);
 
-  // Testing only:
-  currentUser = "luke";
-
   return (
     <div className="sidebar">
       <div>
         <div className="sidebar-info">
           <h1 className="sidebar-logo">VIVIFY</h1>
           <div className="sidebar-user">
-            <h4 className="user-name">Hi, {capitalise(currentUser)}</h4>
+            <h4 className="user-name">
+              Hi, {capitaliseMultiple(currentUser.name)}
+            </h4>
           </div>
           <div className="hamburger">
             {mobileShowList ? (
@@ -82,11 +82,12 @@ const Sidebar = props => {
         </div>
         {hamburgerActive ? <SideMenu {...props} /> : null}
         <div className="sidebar-leadboxes">
+          <NewLead {...props} />
           <div
             className={isActive("inbox", activeScreen)}
             onClick={() => changeScreen("inbox")}
           >
-            <p>Inbox ({data.length})</p>
+            <p>Unassigned ({data.length})</p>
           </div>
           <div
             className={isActive("in progress", activeScreen)}
@@ -133,16 +134,17 @@ const Sidebar = props => {
           </div>
 
           {/* to add lead from other resources */}
-
           <NewLead {...props} newLead={newLead} />
         </div>
       </div>
       <div className="sidebar-bottom">
-        <div className="sidebar-bottom-button">
-          <Link to="/admin" className="button-text">
-            Admin
-          </Link>
-        </div>
+        {currentUser.role === "Admin" && (
+          <div className="sidebar-bottom-button">
+            <Link to="/admin" className="button-text">
+              Admin
+            </Link>
+          </div>
+        )}
         <div className="sidebar-bottom-button" onClick={deleteToken}>
           <p className="button-text">Logout</p>
         </div>

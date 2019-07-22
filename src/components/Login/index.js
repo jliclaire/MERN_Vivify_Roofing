@@ -51,13 +51,14 @@ class Login extends React.Component {
   }
 
   handleClick = e => {
-    console.log(this.state);
     const { authCall } = this.props;
     e.preventDefault();
-    authCall(this.state);
+    authCall({
+      email: this.state.email,
+      password: this.state.password
+    });
     const isValid = this.validate()
     if (isValid) {
-      console.log(this.state);
       this.setState(initialState);
     }
 

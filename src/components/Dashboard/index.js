@@ -113,7 +113,7 @@ class Dashboard extends Component {
 
   progressFilter = data => {
     return data.filter(datum => {
-      return datum.inProgress;
+      return datum.assignedTrade;
     });
   };
 
@@ -150,8 +150,15 @@ class Dashboard extends Component {
     });
   };
 
+  authoriseData = (data, user) => {
+    // Filter the data so that only leads assigned to the currentUser are shown
+    data.filter(datum => {
+      return user.name === datum.assignedTrade;
+    });
+  };
+
   render() {
-    const { data, newLead } = this.props;
+    const { data, currentUser, newLead } = this.props;
     const { activeJob, mobileShowList, activeScreen } = this.state;
     return (
       <div className="dashboard">
@@ -162,6 +169,7 @@ class Dashboard extends Component {
           mobileShowList={mobileShowList}
           activeScreen={activeScreen}
           newLead={newLead}
+          currentUser={currentUser}
         />
         <JobList
           data={this.filterData(data)}
@@ -172,6 +180,7 @@ class Dashboard extends Component {
         />
         {(this.state.mobileShowList && window.innerWidth < 767) || (
           <Job
+            users={this.props.users}
             data={activeJob}
             addNewFollowUps={this.handleAddNewFollowUps}
             addUpdatedLead={this.handleAddUpdatedLead}
@@ -181,6 +190,7 @@ class Dashboard extends Component {
             toggleEdit={this.handleShowEditForm}
             editJob={this.state.editJob}
             editedEnquiry={this.state.editedEnquiry}
+            currentUser={currentUser}
           />
         )}
       </div>

@@ -123,7 +123,7 @@ class Followups extends Component {
     } else {
       return (
         <div className="job-followups">
-          <h1>Follow Ups</h1>
+          <h1>Followups</h1>
           {data.followUps.map((followup, index) => {
             if (edit && editedFollowup === followup._id) {
               return (
