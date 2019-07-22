@@ -45,6 +45,7 @@ const isActive = (box, prop) => {
   return box === prop ? "sidebar-active-box" : "sidebar-inactive-box";
 };
 
+// needing token to login > user
 const deleteToken = () => {
   localStorage.removeItem("token");
   sessionStorage.removeItem("token");
