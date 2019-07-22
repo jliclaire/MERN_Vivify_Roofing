@@ -5,9 +5,7 @@ import ProjectInfo from "./ProjectInfo";
 import "./enquiry.css";
 
 class Enquiry extends Component {
-
   handleEditClick = () => {
-    console.log("logging from Enquiry index.js");
     this.props.showEditForm();
   };
 
@@ -20,7 +18,9 @@ class Enquiry extends Component {
         </button>
         <CustomerInfo data={data} />
         <CustomerComment data={data} />
-        <ProjectInfo data={data} />
+        {
+          data.projectType === "Painting" || <ProjectInfo data={data} />
+        }
       </div>
     );
   }

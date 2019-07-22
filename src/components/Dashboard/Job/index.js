@@ -5,9 +5,16 @@ import Followups from "./Followups";
 import FollowupForm from "./FollowupForm";
 import ImageDisplay from "./ImageDisplay";
 import EditJob from "./EditJob";
+import axios from "axios";
 import "./job.css";
 
 class Job extends Component {
+  constructor(props) {
+    super(props);
+    // this.state = {
+    //   editedEnquiry: ""
+    // };
+  }
 
   handleAddNewFollowup = newFollowup => {
     this.props.data.followUps.push(newFollowup);
@@ -15,11 +22,22 @@ class Job extends Component {
   };
 
   handleSaveUpdatedLead = async updatedLead => {
-    // const id = this.props.data._id;
-    // await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, updatedLead);
     this.props.addUpdatedLead(updatedLead);
     this.props.toggleEdit();
   };
+
+  // handleSaveUpdatedLead = async updatedLead => {
+  //   const id = this.props.data._id;
+  //   const editedEnquiry = await axios.put(
+  //     `${process.env.REACT_APP_API_URL}/jobs/${id}`,
+  //     updatedLead
+  //   );
+  //   this.props.addUpdatedLead(id);
+  //   this.setState({
+  //     editedEnquiry: editedEnquiry
+  //   });
+  //   this.props.toggleEdit();
+  // };
 
   render() {
     const { data, assignLead, moveLead, back, toggleEdit } = this.props;
@@ -34,15 +52,32 @@ class Job extends Component {
             moveLead={moveLead}
             back={back}
           />
+
           {this.props.editJob ? (
-            <EditJob data={data} saveUpdatedLead={this.handleSaveUpdatedLead} />
+            this.props.editedEnquiry ? (
+              <EditJob
+                data={this.props.editedEnquiry.data}
+                saveUpdatedLead={this.handleSaveUpdatedLead}
+              />
+            ) : (
+              <EditJob
+                data={data}
+                saveUpdatedLead={this.handleSaveUpdatedLead}
+              />
+            )
+          ) : this.props.editedEnquiry ? (
+            <Enquiry
+              data={this.props.editedEnquiry.data}
+              showEditForm={toggleEdit}
+            />
           ) : (
             <Enquiry data={data} showEditForm={toggleEdit} />
           )}
 
-          {/* {data.imageUrls.length ? <ImageDisplay data={data} /> : null} */}
           <ImageDisplay data={data} />
+
           <Followups data={data} />
+
           <FollowupForm
             data={data}
             addNewFollowup={this.handleAddNewFollowup}

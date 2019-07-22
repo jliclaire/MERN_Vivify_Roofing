@@ -22,7 +22,6 @@ class EditJob extends Component {
 
   handleOnChange = e => {
     this.setState({ [e.target.id]: e.target.value });
-    console.log(this.state);
   };
 
   // assign below method to the edit lead button
@@ -94,14 +93,8 @@ class EditJob extends Component {
                 onChange={this.handleOnChange}
               />
             </label>
-            {/* <h5>{new Date(data.createdTime).toLocaleDateString()}</h5> */}
           </div>
         </div>
-
-        {/* customer comment section */}
-        {/* <p className="job-enquiry-customer-comment margin-top-bottom p-font">
-          <span className="comments">Comments:</span> {data.comments}
-        </p> */}
 
         {/* customer project info section */}
         <div className="job-enquiry-project-info margin-top-bottom">

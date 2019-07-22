@@ -1,0 +1,54 @@
+.new-lead-popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.new-lead-popupinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 80vw;
+  background-color: #fff;
+  font-family: sans-serif;
+}
+.new-lead-popupinner form {
+  width: 90%;
+}
+.new-lead-popupinner .checkbox-close-icon {
+  display: flex;
+  justify-content: flex-end;
+}
+.new-lead-popupinner .far {
+  cursor: pointer;
+  color: #ff7e7e;
+  font-size: 1.2rem;
+}
+.new-lead-popupinner .far:hover {
+  color: #858282;
+}
+.new-lead-popupinner h1 {
+  text-align: center;
+  color: #ff7e7e;
+  border-bottom: 1px solid #e4e3e3;
+  padding-bottom: 15px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.new-lead-popupinner button {
+  float: right;
+}
+
+#new-lead-customer-comment {
+  height: 2rem;
+}

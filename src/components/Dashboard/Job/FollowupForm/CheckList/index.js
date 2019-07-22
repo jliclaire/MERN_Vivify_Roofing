@@ -20,7 +20,6 @@ class CheckList extends Component {
   };
 
   handleCheckedStatus = () => {
-    console.log("should enable button");
     if (this.state.disabled === true) {
       this.setState({ disabled: false });
     }
