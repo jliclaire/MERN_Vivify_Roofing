@@ -15,11 +15,15 @@ class FollowupForm extends Component {
     };
   }
 
+  trimDate = (string) => {
+    return string.split(' ').slice(1, 5).join(' ');
+  }
+
   handleAddFollowups = e => {
     e.preventDefault();
     const newFollowup = {
-      followupDate: this.state.followupDate,
-      salesName: this.state.salesName,
+      followupDate: this.trimDate(new Date().toString()),
+      salesName: this.props.currentUser.name,
       tradeComments: this.state.tradeComments,
       quoteAmount: this.state.quoteAmount
     };

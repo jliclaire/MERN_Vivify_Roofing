@@ -5,16 +5,9 @@ import Followups from "./Followups";
 import FollowupForm from "./FollowupForm";
 import ImageDisplay from "./ImageDisplay";
 import EditJob from "./EditJob";
-import axios from "axios";
 import "./job.css";
 
 class Job extends Component {
-  constructor(props) {
-    super(props);
-    // this.state = {
-    //   editedEnquiry: ""
-    // };
-  }
 
   handleAddNewFollowup = newFollowup => {
     this.props.data.followUps.push(newFollowup);
@@ -82,6 +75,7 @@ class Job extends Component {
           <FollowupForm
             data={data}
             addNewFollowup={this.handleAddNewFollowup}
+            currentUser={this.props.currentUser}
           />
         </div>
       </div>

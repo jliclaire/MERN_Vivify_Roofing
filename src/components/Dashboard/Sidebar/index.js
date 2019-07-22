@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import NewLead from "./NewLead";
 import "./sidebar.css";
-import { capitalise, capitaliseMultiple } from "../../../utils/capitalise";
+import { capitaliseMultiple } from "../../../utils/capitalise";
 import { FaAngleDown, FaAngleLeft } from "react-icons/fa";
 
 const SideMenu = props => {

@@ -176,6 +176,7 @@ class Dashboard extends Component {
             toggleEdit={this.handleShowEditForm}
             editJob={this.state.editJob}
             editedEnquiry={this.state.editedEnquiry}
+            currentUser={currentUser}
           />
         )}
       </div>
