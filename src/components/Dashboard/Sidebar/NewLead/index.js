@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import NewLeadForm from "./NewLeadForm";
-import axios from "axios";
 
 class NewLead extends Component {
   constructor(props) {
@@ -17,10 +16,6 @@ class NewLead extends Component {
     });
   };
 
-  handleAddNewLead = async newLead => {
-    await axios.post(`${process.env.REACT_APP_API_URL}/jobs`, newLead);
-  };
-
   render() {
     return (
       <div className="sidebar-add-lead">
@@ -33,7 +28,7 @@ class NewLead extends Component {
         {this.state.showNewLeadPopup ? (
           <NewLeadForm
             closeNewLeadPopup={this.toggleNewLeadPopup}
-            addNewLead={this.handleAddNewLead}
+            newLead={this.props.newLead}
           />
         ) : null}
       </div>

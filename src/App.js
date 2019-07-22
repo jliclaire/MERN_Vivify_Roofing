@@ -41,6 +41,10 @@ class App extends Component {
     this.setState({ data: data });
   };
 
+  updateNewLeads = async lead => {
+    await axios.post(`${process.env.REACT_APP_API_URL}/jobs`, lead);
+  };
+
   getUser = async () => {
     try {
       // check if the user has a token and send to the back end to get user info
@@ -73,8 +77,10 @@ class App extends Component {
     this.getLeads();
   }
 
+  componentDidUpdate() {
+    this.getLeads();
+  }
   render() {
-    // console.log(this.state);
     const { data, authenticated, currentUser } = this.state;
     if (data.length === 0) {
       return null;
@@ -85,6 +91,7 @@ class App extends Component {
           auth={authenticated}
           currentUser={currentUser}
           authCall={this.authCall}
+          newLead={this.updateNewLeads}
         />
       );
     }

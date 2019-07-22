@@ -54,7 +54,8 @@ const Sidebar = props => {
     activeScreen,
     changeScreen,
     back,
-    mobileShowList
+    mobileShowList,
+    newLead
   } = props;
   const [hamburgerActive, setHamburgerActive] = useState(false);
 
@@ -133,7 +134,7 @@ const Sidebar = props => {
 
           {/* to add lead from other resources */}
 
-          <NewLead {...props} />
+          <NewLead {...props} newLead={newLead} />
         </div>
       </div>
       <div className="sidebar-bottom">
