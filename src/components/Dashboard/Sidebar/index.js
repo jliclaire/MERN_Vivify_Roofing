@@ -13,7 +13,7 @@ const SideMenu = props => {
     <>
       <div className="sidemenu-mob">
         <div className="sidemenu-option" onClick={() => changeScreen("inbox")}>
-          <p>New</p>
+          <p>Unassigned</p>
         </div>
         <div
           className="sidemenu-option"
@@ -83,7 +83,7 @@ const Sidebar = props => {
             className={isActive("inbox", activeScreen)}
             onClick={() => changeScreen("inbox")}
           >
-            <p>Inbox ({data.length})</p>
+            <p>Unassigned ({data.length})</p>
           </div>
           <div
             className={isActive("in progress", activeScreen)}
