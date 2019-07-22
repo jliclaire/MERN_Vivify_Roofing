@@ -144,6 +144,13 @@ class Dashboard extends Component {
     });
   };
 
+  authoriseData = (data, user) => {
+    // Filter the data so that only leads assigned to the currentUser are shown
+    data.filter((datum) => {
+      return user.name === datum.assignedTrade;
+    })
+  }
+
   render() {
     const { data, currentUser } = this.props;
     const { activeJob, mobileShowList, activeScreen } = this.state;

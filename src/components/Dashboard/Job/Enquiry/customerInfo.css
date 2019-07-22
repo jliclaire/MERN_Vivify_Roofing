@@ -7,13 +7,24 @@
 .name-suburb {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .email-phone-date {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.email-phone-date > a > h5 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.contact-icon {
+  margin-right: 10px;
 }
 
 .job-enquiry-customer h5 {

@@ -58,10 +58,17 @@
 }
 
 .sidebar-bottom-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px;
   border-radius: 5%;
   background: #ff7e7e;
   cursor: pointer;
+}
+
+.m-2 {
+  margin-bottom: 20px;
 }
 
 .button-text:hover {
@@ -70,6 +77,13 @@
 
 .hamburger {
   display: none;
+}
+
+.sidebar-add-lead-button {
+  height: 1.2rem;
+  background: #ff7e7e;
+  color: #fff;
+  font-weight: 700;
 }
 
 @media only screen and (max-width: 767px) {
