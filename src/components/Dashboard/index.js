@@ -107,7 +107,7 @@ class Dashboard extends Component {
 
   progressFilter = data => {
     return data.filter(datum => {
-      return datum.inProgress;
+      return datum.assignedTrade;
     });
   };
 
@@ -145,7 +145,7 @@ class Dashboard extends Component {
   };
 
   render() {
-    const { data } = this.props;
+    const { data, currentUser } = this.props;
     const { activeJob, mobileShowList, activeScreen } = this.state;
     return (
       <div className="dashboard">
@@ -155,6 +155,7 @@ class Dashboard extends Component {
           back={this.back}
           mobileShowList={mobileShowList}
           activeScreen={activeScreen}
+          currentUser={currentUser}
         />
         <JobList
           data={this.filterData(data)}
@@ -165,6 +166,7 @@ class Dashboard extends Component {
         />
         {(this.state.mobileShowList && window.innerWidth < 767) || (
           <Job
+            users={this.props.users}
             data={activeJob}
             addNewFollowUps={this.handleAddNewFollowUps}
             addUpdatedLead={this.handleAddUpdatedLead}
@@ -174,6 +176,7 @@ class Dashboard extends Component {
             toggleEdit={this.handleShowEditForm}
             editJob={this.state.editJob}
             editedEnquiry={this.state.editedEnquiry}
+            currentUser={currentUser}
           />
         )}
       </div>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
 import Routes from "./Routes";
+import Loading from './components/Loading/'
 require("dotenv").config();
 
 class App extends Component {
@@ -9,7 +10,7 @@ class App extends Component {
     super(props);
     this.state = {
       data: [],
-      authenticated: true,
+      authenticated: false,
       currentUser: null
     };
   }
@@ -18,7 +19,7 @@ class App extends Component {
     try {
       const authCall = await axios.post(
         `${process.env.REACT_APP_API_URL}/${
-          creds.length > 2 ? "register" : "login"
+          Object.keys(creds).length > 2 ? "register" : "login"
         }`,
         creds
       );
@@ -28,6 +29,7 @@ class App extends Component {
         authenticated: true
       });
     } catch (error) {
+      console.log(error)
       this.setState({
         authenticated: true,
         error: error
@@ -46,7 +48,7 @@ class App extends Component {
       // check if the user has a token and send to the back end to get user info
       const token = localStorage.getItem("token");
       const authCall = await axios.get(
-        `${process.env.REACT_APP_API_URL}/private/current-user`,
+        `${process.env.REACT_APP_API_URL}/identify-me`,
         {
           headers: { token: token }
         }
@@ -55,35 +57,54 @@ class App extends Component {
       // set state appropriately
       this.setState({
         authenticated: true,
-        currentUser: authCall.data.currentUser
+        currentUser: {
+          email: authCall.data.email,
+          name: authCall.data.name,
+          role: authCall.data.role
+        }
       });
+      console.log(this.state)
     } catch (err) {
       console.log(err);
       // set state appropriately
       this.setState({
-        // AUTHENTICATION IS SET TO TRUE FOR DEVELOPMENT PURPOSES
-        authenticated: true,
+        authenticated: false,
         currentUser: null
       });
     }
   };
 
+  getUsernames = async () => {
+    try {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/users`)
+      const users = response.data.map((user) => user.name)
+      this.setState({
+        usernames: users,
+      })
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async componentDidMount() {
     this.getUser();
+    this.getUsernames();
     this.getLeads();
   }
 
   render() {
-    // console.log(this.state);
-    const { data, authenticated, currentUser } = this.state;
+    const { data, authenticated, currentUser, usernames } = this.state;
     if (data.length === 0) {
-      return null;
+      return (
+        <Loading />
+      );
     } else {
       return (
         <Routes
           data={data}
-          auth={authenticated}
+          authenticated={authenticated}
           currentUser={currentUser}
+          users={usernames}
           authCall={this.authCall}
         />
       );

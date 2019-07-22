@@ -17,7 +17,17 @@ const initialState = {
 class Register extends React.Component {
   constructor(props) {
     super(props);
+<<<<<<< HEAD
     this.state = initialState;
+=======
+    this.state = {
+      name: "",
+      password: "",
+      role: "Sales",
+      phone: "",
+      email: ""
+    };
+>>>>>>> master
   }
 
   handleChange = e => {
@@ -120,10 +130,14 @@ class Register extends React.Component {
             <p>
               <label htmlFor="role">Role</label>
               <br />
+<<<<<<< HEAD
               <select
               id="type"
               onChange={this.handleChange}
               value={this.state.type}>
+=======
+              <select onChange={this.handleChange} id="role">
+>>>>>>> master
                 <option>Sales</option>
                 <option>Admin</option>
               </select>
