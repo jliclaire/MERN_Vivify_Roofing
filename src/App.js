@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
 import Routes from "./Routes";
-import Loading from './components/Loading/'
+import Loading from "./components/Loading/";
 require("dotenv").config();
 
 class App extends Component {
@@ -29,7 +29,7 @@ class App extends Component {
         authenticated: true
       });
     } catch (error) {
-      console.log(error)
+      console.log(error);
       this.setState({
         authenticated: true,
         error: error
@@ -41,6 +41,10 @@ class App extends Component {
     const response = await axios.get(`${process.env.REACT_APP_API_URL}/jobs`);
     const data = await response.data;
     this.setState({ data: data });
+  };
+
+  updateNewLeads = async lead => {
+    await axios.post(`${process.env.REACT_APP_API_URL}/jobs`, lead);
   };
 
   getUser = async () => {
@@ -63,7 +67,7 @@ class App extends Component {
           role: authCall.data.role
         }
       });
-      console.log(this.state)
+      console.log(this.state);
     } catch (err) {
       console.log(err);
       // set state appropriately
@@ -76,15 +80,17 @@ class App extends Component {
 
   getUsernames = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/users`)
-      const users = response.data.map((user) => user.name)
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/users`
+      );
+      const users = response.data.map(user => user.name);
       this.setState({
-        usernames: users,
-      })
+        usernames: users
+      });
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   async componentDidMount() {
     this.getUser();
@@ -92,12 +98,15 @@ class App extends Component {
     this.getLeads();
   }
 
+  componentDidUpdate(prevState) {
+    if (prevState.data !== this.state.data) {
+      this.getLeads();
+    }
+  }
   render() {
     const { data, authenticated, currentUser, usernames } = this.state;
     if (data.length === 0) {
-      return (
-        <Loading />
-      );
+      return <Loading />;
     } else {
       return (
         <Routes
@@ -106,6 +115,7 @@ class App extends Component {
           currentUser={currentUser}
           users={usernames}
           authCall={this.authCall}
+          newLead={this.updateNewLeads}
         />
       );
     }

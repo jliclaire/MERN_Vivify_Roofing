@@ -55,7 +55,8 @@ const Sidebar = props => {
     activeScreen,
     changeScreen,
     back,
-    mobileShowList
+    mobileShowList,
+    newLead
   } = props;
   const [hamburgerActive, setHamburgerActive] = useState(false);
 
@@ -65,7 +66,9 @@ const Sidebar = props => {
         <div className="sidebar-info">
           <h1 className="sidebar-logo">VIVIFY</h1>
           <div className="sidebar-user">
-            <h4 className="user-name">Hi, {capitaliseMultiple(currentUser.name)}</h4>
+            <h4 className="user-name">
+              Hi, {capitaliseMultiple(currentUser.name)}
+            </h4>
           </div>
           <div className="hamburger">
             {mobileShowList ? (
@@ -131,19 +134,17 @@ const Sidebar = props => {
           </div>
 
           {/* to add lead from other resources */}
-
-          
+          <NewLead {...props} newLead={newLead} />
         </div>
       </div>
       <div className="sidebar-bottom">
-        {
-          currentUser.role === 'Admin' &&
+        {currentUser.role === "Admin" && (
           <div className="sidebar-bottom-button">
             <Link to="/admin" className="button-text">
               Admin
             </Link>
           </div>
-        }
+        )}
         <div className="sidebar-bottom-button" onClick={deleteToken}>
           <p className="button-text">Logout</p>
         </div>

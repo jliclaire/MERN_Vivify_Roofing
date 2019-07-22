@@ -29,8 +29,7 @@ class NewLeadForm extends Component {
       currentRoofMaterial: this.state.currentRoofMaterial,
       gutterDownpipeReplacement: this.state.gutterDownpipeReplacement
     };
-    this.props.addNewLead(newLead);
-
+    this.props.newLead(newLead);
     this.props.closeNewLeadPopup(e);
   };
 
