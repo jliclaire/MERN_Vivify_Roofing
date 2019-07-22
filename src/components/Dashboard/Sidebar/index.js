@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import NewLead from "./NewLead";
 import "./sidebar.css";
-import { capitalise } from "../../../utils/capitalise";
+import { capitalise, capitaliseMultiple } from "../../../utils/capitalise";
 import { FaAngleDown, FaAngleLeft } from "react-icons/fa";
 
 const SideMenu = props => {
@@ -58,16 +58,13 @@ const Sidebar = props => {
   } = props;
   const [hamburgerActive, setHamburgerActive] = useState(false);
 
-  // Testing only:
-  currentUser = "luke";
-
   return (
     <div className="sidebar">
       <div>
         <div className="sidebar-info">
           <h1 className="sidebar-logo">VIVIFY</h1>
           <div className="sidebar-user">
-            <h4 className="user-name">Hi, {capitalise(currentUser)}</h4>
+            <h4 className="user-name">Hi, {capitaliseMultiple(currentUser.name)}</h4>
           </div>
           <div className="hamburger">
             {mobileShowList ? (

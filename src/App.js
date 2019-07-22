@@ -68,7 +68,6 @@ class App extends Component {
       console.log(err);
       // set state appropriately
       this.setState({
-        // AUTHENTICATION IS SET TO TRUE FOR DEVELOPMENT PURPOSES
         authenticated: false,
         currentUser: null
       });
@@ -81,7 +80,6 @@ class App extends Component {
   }
 
   render() {
-    // console.log(this.state);
     const { data, authenticated, currentUser } = this.state;
     if (data.length === 0) {
       return (
@@ -91,7 +89,7 @@ class App extends Component {
       return (
         <Routes
           data={data}
-          auth={authenticated}
+          authenticated={authenticated}
           currentUser={currentUser}
           authCall={this.authCall}
         />

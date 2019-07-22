@@ -145,7 +145,7 @@ class Dashboard extends Component {
   };
 
   render() {
-    const { data } = this.props;
+    const { data, currentUser } = this.props;
     const { activeJob, mobileShowList, activeScreen } = this.state;
     return (
       <div className="dashboard">
@@ -155,6 +155,7 @@ class Dashboard extends Component {
           back={this.back}
           mobileShowList={mobileShowList}
           activeScreen={activeScreen}
+          currentUser={currentUser}
         />
         <JobList
           data={this.filterData(data)}
