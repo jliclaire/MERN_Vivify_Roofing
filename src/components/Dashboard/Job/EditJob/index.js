@@ -1,28 +1,60 @@
 import React, { Component } from "react";
 import "./editJob.css";
 
+
+const initialState = {
+  name: "",
+  suburb: "",
+  email: "",
+  phone: "",
+  projectType: "",
+  roofFrameType: "",
+  houseLevels: "",
+  sizeOfHome: "",
+  desiredRoofMaterial: "",
+  roofType: "",
+  currentRoofMaterial: "",
+  gutterDownpipeReplacement: "",
+  nameError: "",
+  suburbError:""
+};
+
 class EditJob extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: this.props.data.name,
-      suburb: this.props.data.suburb,
-      email: this.props.data.email,
-      phone: this.props.data.phone,
-      projectType: this.props.data.projectType,
-      roofFrameType: this.props.data.roofFrameType,
-      houseLevels: this.props.data.houseLevels,
-      sizeOfHome: this.props.data.sizeOfHome,
-      desiredRoofMaterial: this.props.data.desiredRoofMaterial,
-      roofType: this.props.data.roofType,
-      currentRoofMaterial: this.props.data.currentRoofMaterial,
-      gutterDownpipeReplacement: this.props.data.gutterDownpipeReplacement
-    };
+    this.state = initialState;
   }
 
   handleOnChange = e => {
+    const isCheckbox = e.target.type === "checkbox";
     this.setState({ [e.target.id]: e.target.value });
+
+    this.setState({
+      [e.target.name]: isCheckbox
+      ? e.target.checked
+      : e.target.value
+      });
   };
+
+  validate= () => {
+    let nameError= "";
+    let suburbError= "";
+
+    if(!this.state.name) {
+      nameError = "* name required";
+    } 
+
+    if(!this.state.suburb) {
+      suburbError = "* suburb required";
+    }
+
+    if (nameError || suburbError) {
+      this.setState({ nameError, suburbError});
+      return false;
+    }
+    return true;
+  }
+
 
   // assign below method to the edit lead button
   handleSaveClick = e => {
@@ -41,9 +73,17 @@ class EditJob extends Component {
       currentRoofMaterial: this.state.currentRoofMaterial,
       gutterDownpipeReplacement: this.state.gutterDownpipeReplacement
     };
-    this.props.saveUpdatedLead(updatedLead);
+
+    const isValid = this.validate()
+    if (isValid) {
+      console.log(this.state);
+      this.setState(initialState);
+      this.props.saveUpdatedLead(updatedLead);
+    }
+
   };
 
+  
   render() {
     const { data } = this.props;
     return (
@@ -62,7 +102,9 @@ class EditJob extends Component {
                 type="text"
                 defaultValue={data.name || ""}
                 onChange={this.handleOnChange}
+                value={this.state.name}    
               />
+             <div className="validation-prompt">{this.state.nameError}</div>
             </label>
             <label className="p-font" htmlFor="suburb">
               <span className="comments">Suburb: </span>
@@ -71,7 +113,9 @@ class EditJob extends Component {
                 type="text"
                 defaultValue={data.suburb || ""}
                 onChange={this.handleOnChange}
-              />
+                value={this.state.suburb}
+                />
+                <div className="validation-prompt">{this.state.suburbError}</div>
             </label>
           </div>
           <div className="email-phone-date-edit">
@@ -83,6 +127,7 @@ class EditJob extends Component {
                 defaultValue={data.email || ""}
                 onChange={this.handleOnChange}
               />
+             <div style={{color: "white" }}>{this.state.nameError}</div>
             </label>
             <label className="p-font" htmlFor="phone">
               <span className="comments">Phone: </span>
@@ -92,6 +137,7 @@ class EditJob extends Component {
                 defaultValue={data.phone || ""}
                 onChange={this.handleOnChange}
               />
+             <div style={{color: "white" }}>{this.state.suburbError}</div>
             </label>
           </div>
         </div>

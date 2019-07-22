@@ -1,27 +1,87 @@
 import React from "react";
 import "./register.css";
 
+const initialState = {
+  name: "",
+  password: "",
+  role: "",
+  phone: "",
+  email: "",
+  nameError: "",
+  passwordError: "",
+  roleError: "",
+  phoneError: "",
+  emailError: "",
+};
+
 class Register extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: "",
-      password: "",
-      role: "Sales",
-      phone: "",
-      email: ""
-    };
+    this.state = initialState;
   }
 
-  handleClick = e => {
-    e.preventDefault();
-    this.props.authCall(this.state);
-  };
-
   handleChange = e => {
+    const isCheckbox = e.target.type === "checkbox";
     this.setState({ [e.target.id]: e.target.value });
+    this.setState({
+      [e.target.id]: isCheckbox
+      ? e.target.checked
+      : e.target.value
+    });
     console.log(this.state);
   };
+
+  validate = () => {
+    let nameError = "";
+    let passwordError = "";
+    let roleError = "";
+    let phoneError = "";
+    let emailError = "";
+    
+    if(!this.state.name) {
+      nameError = "* name required";
+    } 
+    if(!this.state.password) {
+      passwordError = "* password required";
+    }
+    if(!this.state.type) {
+      roleError = "* type of role required";
+    }
+    if(!this.state.phone) {
+      phoneError = "* phone number required";
+    }
+    if(!this.state.email) {
+      emailError = "* email required";
+    }
+    
+    if (nameError || passwordError || roleError || phoneError || emailError) {
+      this.setState({ nameError, passwordError, roleError, phoneError, emailError});
+      return false;
+    }
+    return true;
+  }
+
+  handleClick = async(e) => {
+    e.preventDefault();
+    const isValid = this.validate()
+    
+
+    if (isValid) {
+      console.log(this.state);
+      this.setState(initialState);
+      const { email, password, role, name, phone } = this.state;
+      const res = await this.props.authCall({
+        email,
+        password,
+        role,
+        name,
+        phone,
+      });
+      console.log(res);
+    }
+  };
+
+
 
   render() {
     return (
@@ -33,39 +93,61 @@ class Register extends React.Component {
               <label htmlFor="email">E-mail</label>
               <br />
               <input
-                onChange={this.handleChange}
-                type="text"
-                id="email"
-                placeholder="You will use this to log in"
-              />
+              type="text"
+              id="email"
+              placeholder="You will use this to log in"
+              onChange={this.handleChange}
+              value={this.state.email} />
             </p>
+            <div className="validation-prompt">{this.state.emailError}</div>
+
             <p>
               <label htmlFor="name">Name</label>
               <br />
-              <input onChange={this.handleChange} type="text" id="name" />
+              <input 
+              type="text" 
+              id="name" 
+              onChange={this.handleChange} 
+              value={this.state.name} />
             </p>
+            <div className="validation-prompt">{this.state.nameError}</div>
+    
             <p>
               <label htmlFor="password">Password</label>
               <br />
               <input
-                onChange={this.handleChange}
                 type="password"
                 id="password"
-              />
+                onChange={this.handleChange}
+                value={this.state.password} />
             </p>
+            <div className="validation-prompt">{this.state.passwordError}</div>
+
             <p>
               <label htmlFor="role">Role</label>
               <br />
-              <select onChange={this.handleChange} id="role">
+              <select
+              id="role"
+              onChange={this.handleChange}
+              value={this.state.type}>
                 <option>Sales</option>
                 <option>Admin</option>
               </select>
             </p>
+            <div className="validation-prompt">{this.state.typeError}</div>
+
             <p>
               <label htmlFor="phone">Mobile Number</label>
               <br />
-              <input onChange={this.handleChange} type="text" id="phone" />
+              <input 
+              type="text" 
+              id="phone" 
+              onChange={this.handleChange} 
+              value={this.state.phone}/>
             </p>
+            <div className="validation-prompt">{this.state.phoneError}</div>
+
+
           </form>
           <div className="btn-register" onClick={this.handleClick}>
             <p className="button-text">Register</p>

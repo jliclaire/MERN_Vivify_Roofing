@@ -1,15 +1,59 @@
 import React, { Component } from "react";
 import "./newLeadForm.css";
 
+const initialState = {
+  name: "",
+  suburb: "",
+  email: "",
+  phone: "",
+  comments: "",
+  projectType: "",
+  roofFrameType: "",
+  houseLevels: "",
+  sizeOfHome: "",
+  desiredRoofMaterial: "",
+  roofType: "",
+  currentRoofMaterial: "",
+  gutterDownpipeReplacement: "",
+  nameError: "",
+  suburbError:""
+};
+
 class NewLeadForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = initialState;
   }
 
   handleOnChange = e => {
+    const isCheckbox = e.target.type === "checkbox";
     this.setState({ [e.target.id]: e.target.value });
+
+    this.setState({
+      [e.target.name]: isCheckbox
+      ? e.target.checked
+      : e.target.value
+      });
   };
+
+
+  validate= () => {
+    let nameError= "";
+    let suburbError= "";
+
+    if(!this.state.name) {
+      nameError = "* name required";
+    } 
+    if(!this.state.suburb) {
+      suburbError = "* suburb required";
+    }
+    
+    if (nameError || suburbError) {
+      this.setState({ nameError, suburbError});
+      return false;
+    }
+    return true;
+  }
 
   // assign below method to the edit lead button
   handleSaveNewLeadClick = e => {
@@ -27,10 +71,20 @@ class NewLeadForm extends Component {
       desiredRoofMaterial: this.state.desiredRoofMaterial,
       roofType: this.state.roofType,
       currentRoofMaterial: this.state.currentRoofMaterial,
-      gutterDownpipeReplacement: this.state.gutterDownpipeReplacement
+      gutterDownpipeReplacement: this.state.gutterDownpipeReplacement,
+      nameError: this.state.nameError,
+      suburbError: this.state.suburbError
     };
-    this.props.newLead(newLead);
-    this.props.closeNewLeadPopup(e);
+
+    const isValid = this.validate()
+    if (isValid) {
+      console.log(this.state);
+      this.setState(initialState);
+      this.props.addNewLead(newLead);
+      this.props.closeNewLeadPopup(e);
+    }
+
+
   };
 
   render() {
@@ -53,16 +107,22 @@ class NewLeadForm extends Component {
                     <input
                       id="name"
                       type="text"
+                      placeholder="required"
                       onChange={this.handleOnChange}
+                      value={this.state.name}
                     />
+                   <div className="validation-prompt">{this.state.nameError}</div>
                   </label>
                   <label className="p-font" htmlFor="suburb">
                     <span className="comments">Suburb: </span>
                     <input
                       id="suburb"
                       type="text"
+                      placeholder="required"
                       onChange={this.handleOnChange}
+                      value={this.state.suburb}
                     />
+                  <div className="validation-prompt">{this.state.suburbError}</div>
                   </label>
                 </div>
                 <div className="email-phone-date-edit">
@@ -73,6 +133,7 @@ class NewLeadForm extends Component {
                       type="email"
                       onChange={this.handleOnChange}
                     />
+                  <div style={{color: "white" }}>{this.state.nameError}</div>
                   </label>
                   <label className="p-font" htmlFor="phone">
                     <span className="comments">Phone: </span>
@@ -81,6 +142,7 @@ class NewLeadForm extends Component {
                       type="text"
                       onChange={this.handleOnChange}
                     />
+                 <div style={{color: "white"}}>{this.state.suburbError}</div>
                   </label>
                 </div>
               </div>
