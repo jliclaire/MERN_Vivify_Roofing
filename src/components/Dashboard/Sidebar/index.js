@@ -134,7 +134,6 @@ const Sidebar = props => {
           </div>
 
           {/* to add lead from other resources */}
-          <NewLead {...props} newLead={newLead} />
         </div>
       </div>
       <div className="sidebar-bottom">
