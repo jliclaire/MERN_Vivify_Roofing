@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
 import Routes from "./Routes";
+import Loading from './components/Loading/'
 require("dotenv").config();
 
 class App extends Component {
@@ -9,7 +10,7 @@ class App extends Component {
     super(props);
     this.state = {
       data: [],
-      authenticated: true,
+      authenticated: false,
       currentUser: null
     };
   }
@@ -68,7 +69,7 @@ class App extends Component {
       // set state appropriately
       this.setState({
         // AUTHENTICATION IS SET TO TRUE FOR DEVELOPMENT PURPOSES
-        authenticated: true,
+        authenticated: false,
         currentUser: null
       });
     }
@@ -83,7 +84,9 @@ class App extends Component {
     // console.log(this.state);
     const { data, authenticated, currentUser } = this.state;
     if (data.length === 0) {
-      return null;
+      return (
+        <Loading />
+      );
     } else {
       return (
         <Routes
