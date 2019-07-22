@@ -44,7 +44,6 @@ class NewLeadForm extends Component {
     if(!this.state.name) {
       nameError = "* name required";
     } 
-
     if(!this.state.suburb) {
       suburbError = "* suburb required";
     }
@@ -84,7 +83,6 @@ class NewLeadForm extends Component {
       this.props.addNewLead(newLead);
       this.props.closeNewLeadPopup(e);
     }
-
 
   };
 
