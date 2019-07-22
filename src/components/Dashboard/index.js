@@ -107,7 +107,7 @@ class Dashboard extends Component {
 
   progressFilter = data => {
     return data.filter(datum => {
-      return datum.inProgress;
+      return datum.assignedTrade;
     });
   };
 
