@@ -22,12 +22,14 @@ class App extends Component {
         }`,
         creds
       );
+      console.log(authCall)
       const { token } = authCall.data;
       localStorage.setItem("token", token);
       this.setState({
         authenticated: true
       });
     } catch (error) {
+      console.log(error)
       this.setState({
         authenticated: true,
         error: error
@@ -46,7 +48,7 @@ class App extends Component {
       // check if the user has a token and send to the back end to get user info
       const token = localStorage.getItem("token");
       const authCall = await axios.get(
-        `${process.env.REACT_APP_API_URL}/private/current-user`,
+        `${process.env.REACT_APP_API_URL}/identify-me`,
         {
           headers: { token: token }
         }
@@ -55,7 +57,7 @@ class App extends Component {
       // set state appropriately
       this.setState({
         authenticated: true,
-        currentUser: authCall.data.currentUser
+        currentUser: authCall.data.user
       });
     } catch (err) {
       console.log(err);
@@ -71,6 +73,7 @@ class App extends Component {
   async componentDidMount() {
     this.getUser();
     this.getLeads();
+    console.log(this.state)
   }
 
   render() {
