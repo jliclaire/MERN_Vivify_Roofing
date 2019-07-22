@@ -18,7 +18,9 @@ class Enquiry extends Component {
         </button>
         <CustomerInfo data={data} />
         <CustomerComment data={data} />
-        <ProjectInfo data={data} />
+        {
+          data.projectType === "Painting" || <ProjectInfo data={data} />
+        }
       </div>
     );
   }

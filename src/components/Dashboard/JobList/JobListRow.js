@@ -30,7 +30,7 @@ class JobListRow extends Component {
               <div className="jobList-list-left">
                 <h4>{capitaliseMultiple(job.name)}</h4>
                 <h5>{capitaliseMultiple(job.suburb)}</h5>
-                <p>Project Type: {job.projectType} </p>
+                <p>{job.projectType}</p>
               </div>
               <div className="jobList-list-right">
                 <p>{new Date(job.createdTime).toLocaleDateString()}</p>
