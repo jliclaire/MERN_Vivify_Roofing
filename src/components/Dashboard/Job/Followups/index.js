@@ -8,10 +8,11 @@ class FollowupEdit extends Component {
   };
 
   handleClick = () => {
-    const { save, followup, jobId } = this.props;
+    const { save, followup, jobId, showEdit } = this.props;
     const followupId = followup._id;
     const { comment } = this.state;
     save(comment, jobId, followupId);
+    showEdit();
   };
 
   handleChange = event => {
@@ -97,17 +98,6 @@ class Followups extends Component {
     editedFollowup: null
   };
 
-  saveFollowup = async (comment, jobId, followupId) => {
-    const response = await axios.put(
-      `${process.env.REACT_APP_API_URL}/jobs/${jobId}/followups/${followupId}`,
-      {
-        newComment: comment
-      }
-    );
-    console.log(response);
-    this.showEdit();
-  };
-
   showEdit = followupId => {
     this.setState({
       edit: !this.state.edit,
@@ -124,15 +114,16 @@ class Followups extends Component {
     } else {
       return (
         <div className="job-followups">
-          <h1>Follow Ups</h1>
+          <h1>Followups</h1>
           {data.followUps.map((followup, index) => {
             if (edit && editedFollowup === followup._id) {
               return (
                 <FollowupEdit
                   key={index}
-                  save={this.saveFollowup}
+                  save={this.props.handleSaveEditedFollowup}
                   followup={followup}
                   jobId={jobId}
+                  showEdit={this.showEdit}
                 />
               );
             } else {

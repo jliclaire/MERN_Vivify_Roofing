@@ -89,9 +89,9 @@ class EditJob extends Component {
     return (
       <div className="job-enquiry job-enquiry-edit">
         {/* save enquiry info button */}
-        <button className="edit-button" onClick={this.handleSaveClick}>
-          Save
-        </button>
+        <div className="edit-button" onClick={this.handleSaveClick}>
+          <p className='button-text'>Save</p>
+        </div>
         {/* customer info section */}
         <div className="job-enquiry-customer-edit margin-top-bottom">
           <div className="name-suburb-edit">

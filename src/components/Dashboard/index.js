@@ -72,12 +72,29 @@ class Dashboard extends Component {
     this.setActiveJob(id);
   };
 
+  handleSaveEditedFollowup = async (comment, jobId, followupId) => {
+    const response = await axios.put(
+      `${process.env.REACT_APP_API_URL}/jobs/${jobId}/followups/${followupId}`,
+      {
+        newComment: comment
+      }
+    );
+    this.setState({
+      editedEnquiry: response,
+    });
+  };
+
   handleAddNewFollowUps = async newFollowUps => {
     const id = this.state.activeJob._id;
-    await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, {
-      followUps: newFollowUps
+    const newFollowup = await axios.put(
+      `${process.env.REACT_APP_API_URL}/jobs/${id}`,
+      {
+        followUps: newFollowUps
+      }
+    );
+    this.setState({
+      editedEnquiry: newFollowup
     });
-    this.setActiveJob(id);
   };
 
   handleAddUpdatedLead = async updatedLead => {
@@ -89,7 +106,6 @@ class Dashboard extends Component {
     this.setState({
       editedEnquiry: editedEnquiry
     });
-    console.log(this.state.editedEnquiry);
     this.setActiveJob(id);
   };
 
@@ -144,8 +160,15 @@ class Dashboard extends Component {
     });
   };
 
+  authoriseData = (data, user) => {
+    // Filter the data so that only leads assigned to the currentUser are shown
+    data.filter(datum => {
+      return user.name === datum.assignedTrade;
+    });
+  };
+
   render() {
-    const { data, currentUser } = this.props;
+    const { data, currentUser, newLead } = this.props;
     const { activeJob, mobileShowList, activeScreen } = this.state;
     return (
       <div className="dashboard">
@@ -155,6 +178,7 @@ class Dashboard extends Component {
           back={this.back}
           mobileShowList={mobileShowList}
           activeScreen={activeScreen}
+          newLead={newLead}
           currentUser={currentUser}
         />
         <JobList
@@ -177,6 +201,7 @@ class Dashboard extends Component {
             editJob={this.state.editJob}
             editedEnquiry={this.state.editedEnquiry}
             currentUser={currentUser}
+            handleSaveEditedFollowup={this.handleSaveEditedFollowup}
           />
         )}
       </div>

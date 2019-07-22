@@ -18,10 +18,12 @@
 .jobList-row {
   display: flex;
   justify-content: space-between;
-  height: 80px;
+  height: 95px;
   margin-bottom: 5px;
   background: #ffffff;
   cursor: pointer;
+  padding: 10px;
+  border-left: 3px solid #fa4949;
 }
 
 .jobList-row:hover {

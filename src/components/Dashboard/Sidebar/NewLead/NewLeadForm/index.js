@@ -84,6 +84,7 @@ class NewLeadForm extends Component {
       this.props.closeNewLeadPopup(e);
     }
 
+
   };
 
   render() {

@@ -1,22 +1,20 @@
 .job-top-buttons {
   margin-top: 20px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .top-buttons-right {
   display: flex;
   align-items: center;
+  border-left: 1px solid grey;
 }
 
 .top-options {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #ff7e7e;
-  border-radius: 5%;
-  padding: 16px;
-  background: #f7d3d3;
+  padding: 10px;
 }
 
 .edit-lead {
@@ -50,5 +48,9 @@
   
   .top-options {
     margin-bottom: 10px;
+  }
+
+  .top-buttons-right {
+    border: 0;
   }
 }
