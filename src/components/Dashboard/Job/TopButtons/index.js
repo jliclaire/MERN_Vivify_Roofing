@@ -5,14 +5,6 @@ class TopButtons extends React.Component {
   state = {
     assigned: ""
   };
-  // Testing only:
-  users = [
-    { name: "Brett" },
-    { name: "Aaron" },
-    { name: "Luke" },
-    { name: "Kev" },
-    { name: "Spiros" }
-  ];
 
   parseCategory = category => {
     switch (category) {
@@ -38,7 +30,7 @@ class TopButtons extends React.Component {
   };
 
   render() {
-    const { users } = this;
+    const { users, data } = this.props;
     return (
       <div className="job-top-buttons">
         <div className="top-options">
@@ -48,15 +40,26 @@ class TopButtons extends React.Component {
             className="options"
             onChange={this.handleAssignLead}
           >
-            {users.map((user, i) => (
-              <option key={i}>{user.name}</option>
-            ))}
+            <option>---</option>
+          {
+            users &&
+            users.map((user, i) => {
+              console.log(data.assignedTrade)
+              console.log(this.props.currentUser.name)
+              if (data.assignedTrade === user.name) {
+                return <option key={i} selected>{user}</option>
+              } else {
+                return <option key={i}>{user}</option>
+              }
+            })
+          }
           </select>
         </div>
         <div className="top-buttons-right">
           <div className="top-options">
             <p>Mark as:</p>
             <select className='options' onChange={ this.handleMoveLead }>
+              <option>---</option>
               <option>Assigned</option>
               <option>Sold</option>
               <option>Archived</option>

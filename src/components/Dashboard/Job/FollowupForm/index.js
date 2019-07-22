@@ -15,11 +15,15 @@ class FollowupForm extends Component {
     };
   }
 
+  trimDate = (string) => {
+    return string.split(' ').slice(1, 5).join(' ');
+  }
+
   handleAddFollowups = e => {
     e.preventDefault();
     const newFollowup = {
-      followupDate: this.state.followupDate,
-      salesName: this.state.salesName,
+      followupDate: this.trimDate(new Date().toString()),
+      salesName: this.props.currentUser.name,
       tradeComments: this.state.tradeComments,
       quoteAmount: this.state.quoteAmount
     };
@@ -51,20 +55,6 @@ class FollowupForm extends Component {
         <form className="job-followup-form-container">
           <div className="followup-info">
             <p className="mob-only">Leave a followup:</p>
-            <input
-              className="job-followup-date"
-              type="date"
-              id="followupDate"
-              placeholder="Follow up data"
-              onChange={this.handleChange}
-            />
-            <input
-              className="job-followup-by"
-              type="text"
-              id="salesName"
-              placeholder="Follow up by"
-              onChange={this.handleChange}
-            />
             <button className="followup-quote-btn" onClick={this.togglePopup}>
               {this.state.quoteAmount
                 ? "$" + this.state.quoteAmount
