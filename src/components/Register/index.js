@@ -4,12 +4,12 @@ import "./register.css";
 const initialState = {
   name: "",
   password: "",
-  type: "",
+  role: "",
   phone: "",
   email: "",
   nameError: "",
   passwordError: "",
-  tyoeError: "",
+  roleError: "",
   phoneError: "",
   emailError: "",
 };
@@ -17,17 +17,7 @@ const initialState = {
 class Register extends React.Component {
   constructor(props) {
     super(props);
-<<<<<<< HEAD
     this.state = initialState;
-=======
-    this.state = {
-      name: "",
-      password: "",
-      role: "Sales",
-      phone: "",
-      email: ""
-    };
->>>>>>> master
   }
 
   handleChange = e => {
@@ -41,13 +31,12 @@ class Register extends React.Component {
     console.log(this.state);
   };
 
-  validation= () => {
+  validate = () => {
     let nameError = "";
     let passwordError = "";
-    let tyoeError = "";
-    let  phoneError = "";
+    let roleError = "";
+    let phoneError = "";
     let emailError = "";
-
     
     if(!this.state.name) {
       nameError = "* name required";
@@ -56,7 +45,7 @@ class Register extends React.Component {
       passwordError = "* password required";
     }
     if(!this.state.type) {
-      tyoeError = "* type of role required";
+      roleError = "* type of role required";
     }
     if(!this.state.phone) {
       phoneError = "* phone number required";
@@ -65,14 +54,14 @@ class Register extends React.Component {
       emailError = "* email required";
     }
     
-    if (nameError || passwordError || tyoeError || phoneError || emailError) {
-      this.setState({ nameError, passwordError, tyoeError, phoneError, emailError});
+    if (nameError || passwordError || roleError || phoneError || emailError) {
+      this.setState({ nameError, passwordError, roleError, phoneError, emailError});
       return false;
     }
     return true;
   }
 
-  handleClick = e => {
+  handleClick = async(e) => {
     e.preventDefault();
     const isValid = this.validate()
     
@@ -80,8 +69,15 @@ class Register extends React.Component {
     if (isValid) {
       console.log(this.state);
       this.setState(initialState);
-
-      this.props.authCall(this.state);
+      const { email, password, role, name, phone } = this.state;
+      const res = await this.props.authCall({
+        email,
+        password,
+        role,
+        name,
+        phone,
+      });
+      console.log(res);
     }
   };
 
@@ -130,14 +126,10 @@ class Register extends React.Component {
             <p>
               <label htmlFor="role">Role</label>
               <br />
-<<<<<<< HEAD
               <select
-              id="type"
+              id="role"
               onChange={this.handleChange}
               value={this.state.type}>
-=======
-              <select onChange={this.handleChange} id="role">
->>>>>>> master
                 <option>Sales</option>
                 <option>Admin</option>
               </select>
