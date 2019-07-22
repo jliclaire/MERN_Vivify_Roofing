@@ -52,3 +52,9 @@
 #new-lead-customer-comment {
   height: 2rem;
 }
+
+.validation-prompt{
+  margin-bottom: 20;
+  font-size: 12;
+  color: red;
+}
