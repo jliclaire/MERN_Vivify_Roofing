@@ -7,7 +7,14 @@ import Admin from "./components/Admin";
 
 class Routes extends Component {
   render() {
-    const { data, authenticated, currentUser, authCall, users } = this.props;
+    const {
+      data,
+      authenticated,
+      currentUser,
+      authCall,
+      users,
+      newLead
+    } = this.props;
     return (
       <Switch>
         <Route
