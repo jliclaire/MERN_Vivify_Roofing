@@ -135,11 +135,14 @@ const Sidebar = props => {
         </div>
       </div>
       <div className="sidebar-bottom">
-        <div className="sidebar-bottom-button">
-          <Link to="/admin" className="button-text">
-            Admin
-          </Link>
-        </div>
+        {
+          currentUser.role === 'Admin' &&
+          <div className="sidebar-bottom-button">
+            <Link to="/admin" className="button-text">
+              Admin
+            </Link>
+          </div>
+        }
         <div className="sidebar-bottom-button" onClick={deleteToken}>
           <p className="button-text">Logout</p>
         </div>
