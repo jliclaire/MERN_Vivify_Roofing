@@ -29,7 +29,7 @@ class ImageUpload extends React.Component {
   render() {
     return (
       <>
-        <input className="input-btn" type="file" name="image-upload" id="image-upload" onChange={this.handleUpload}/>
+        <input className="button" type="file" name="image-upload" id="image-upload" onChange={this.handleUpload}/>
       </>
     )
   }

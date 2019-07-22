@@ -56,9 +56,11 @@ class FollowupForm extends Component {
           <div className="followup-info">
             <p className="mob-only">Leave a followup:</p>
             <button className="followup-quote-btn" onClick={this.togglePopup}>
+              <p className=''>
               {this.state.quoteAmount
                 ? "$" + this.state.quoteAmount
                 : "Add Quote"}
+              </p>
             </button>
             {this.state.showPopup ? (
               <CheckList

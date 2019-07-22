@@ -136,7 +136,7 @@ is more straightforward to use than the native fetch.
 * Testing libraries: we use Jest and react-testing-library to test our UI. We
 use Jest because it is intended specifically for DOM testing with React and we
 use react-testing-library because its API is more straightforward and offers
-less opportunity for errors of inexperienced than does Enzyme.
+less opportunity for errors of inexperience than does Enzyme.
 
 * Dotenv: to store secrets in the environmental variables.
 
@@ -182,5 +182,15 @@ be required to use some sort of database technology, such as MongoDB or
 PostgreSQL.
 
 4. Within your own project what knowledge or skills were required to complete the project, and overcome challenges?
+
+As above, we required to draw upon both technical and organisational knowledge
+and skills. Firstly, we needed to apply what we had learned about producing a
+MERN stack application. This included knowing how to write code and solve
+problems in Javascript, but also specific knowledge about APIs, authentication
+and authorisation, databases, and Web/Browser APIs.
+
+Organisation-wise, we needed to know how to effectively delegate tasks in order
+to take advantage of our strengths and weaknesses and complete the work to a
+high standard in the time alotted.
 
 5. Evaluate how effective your knowledge and skills were this project, using examples, and suggest changes or improvements for future projects of a similar nature.
