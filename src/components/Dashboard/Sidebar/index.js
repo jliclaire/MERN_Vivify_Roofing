@@ -45,6 +45,7 @@ const isActive = (box, prop) => {
 const deleteToken = () => {
   localStorage.removeItem("token");
   sessionStorage.removeItem("token");
+  document.location.reload();
 };
 
 const Sidebar = props => {

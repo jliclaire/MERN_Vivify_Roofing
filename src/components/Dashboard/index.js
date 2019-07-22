@@ -166,6 +166,7 @@ class Dashboard extends Component {
         />
         {(this.state.mobileShowList && window.innerWidth < 767) || (
           <Job
+            users={this.props.users}
             data={activeJob}
             addNewFollowUps={this.handleAddNewFollowUps}
             addUpdatedLead={this.handleAddUpdatedLead}

@@ -74,13 +74,26 @@ class App extends Component {
     }
   };
 
+  getUsernames = async () => {
+    try {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/users`)
+      const users = response.data.map((user) => user.name)
+      this.setState({
+        usernames: users,
+      })
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async componentDidMount() {
     this.getUser();
+    this.getUsernames();
     this.getLeads();
   }
 
   render() {
-    const { data, authenticated, currentUser } = this.state;
+    const { data, authenticated, currentUser, usernames } = this.state;
     if (data.length === 0) {
       return (
         <Loading />
@@ -91,6 +104,7 @@ class App extends Component {
           data={data}
           authenticated={authenticated}
           currentUser={currentUser}
+          users={usernames}
           authCall={this.authCall}
         />
       );
