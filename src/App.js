@@ -77,8 +77,10 @@ class App extends Component {
     this.getLeads();
   }
 
-  componentDidUpdate() {
-    this.getLeads();
+  componentDidUpdate(prevState) {
+    if (prevState.data !== this.state.data) {
+      this.getLeads();
+    }
   }
   render() {
     const { data, authenticated, currentUser } = this.state;

@@ -104,7 +104,6 @@ class Followups extends Component {
         newComment: comment
       }
     );
-    console.log(response);
     this.showEdit();
   };
 
@@ -130,7 +129,7 @@ class Followups extends Component {
               return (
                 <FollowupEdit
                   key={index}
-                  save={this.saveFollowup}
+                  save={this.handleSaveFollowup}
                   followup={followup}
                   jobId={jobId}
                 />
