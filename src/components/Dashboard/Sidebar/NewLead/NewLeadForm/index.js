@@ -265,13 +265,10 @@ class NewLeadForm extends Component {
             </div>
 
             {/* save enquiry info button */}
-            <button
-              className="edit-button"
-              onClick={this.handleSaveNewLeadClick}
-            >
-              Save
-            </button>
           </form>
+          <div className="button"onClick={this.handleSaveNewLeadClick}>
+            <p className='button-text'>Save</p>
+          </div>
         </div>
       </div>
     );
