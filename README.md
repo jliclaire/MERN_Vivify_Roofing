@@ -36,7 +36,7 @@ place, we want the software to centralise information regarding customer leads
 and the development of these over the sales lifecycle, as well as to standardise
 interactions and processes concerning the potential customer.
 
-This functionality is covered in the **Dashboard** of the software. An **Admin User** on the dashboard can see all the sales **Leads** and sorted them by their current status in the sales lifecycle, allowing **Admin Users**  to have the full access to the app . 
+This functionality is covered in the **Dashboard** of the software. An **Admin User** on the dashboard can see all the sales **Leads** and sorted them by their current status in the sales lifecycle, allowing **Admin Users**  to have the complete control. 
 
 Clicking on a **Lead** will display contact information for the potential customer and the details of the job.
 
