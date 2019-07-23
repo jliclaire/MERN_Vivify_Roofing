@@ -12,7 +12,7 @@ const SideMenu = props => {
   return (
     <>
       <div className="sidemenu-mob">
-        <NewLead {...props} newLead={newLead} />
+        <NewLead {...props} />
         {
           currentUser.role === "Admin" &&
           <div
@@ -130,7 +130,7 @@ const Sidebar = props => {
           {
             currentUser.role === "Admin" &&
             <div
-              className={isActive("inbox", activeScreen)}
+              className={isActive("inbox", activeScreen) + ' m-2'}
               onClick={() => changeScreen("inbox")}
             >
               <p>Unassigned ({
