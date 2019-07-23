@@ -8,7 +8,6 @@ import EditJob from "./EditJob";
 import "./job.css";
 
 class Job extends Component {
-
   handleAddNewFollowup = newFollowup => {
     this.props.data.followUps.push(newFollowup);
     this.props.addNewFollowUps(this.props.data.followUps);
@@ -19,22 +18,8 @@ class Job extends Component {
     this.props.toggleEdit();
   };
 
-  // handleSaveUpdatedLead = async updatedLead => {
-  //   const id = this.props.data._id;
-  //   const editedEnquiry = await axios.put(
-  //     `${process.env.REACT_APP_API_URL}/jobs/${id}`,
-  //     updatedLead
-  //   );
-  //   this.props.addUpdatedLead(id);
-  //   this.setState({
-  //     editedEnquiry: editedEnquiry
-  //   });
-  //   this.props.toggleEdit();
-  // };
-
   render() {
     const { data, assignLead, moveLead, back, toggleEdit } = this.props;
-    console.log(data)
 
     return (
       <div className="job">
@@ -69,9 +54,21 @@ class Job extends Component {
             <Enquiry data={data} showEditForm={toggleEdit} />
           )}
 
-          <ImageDisplay data={data} />
+          {this.props.editedEnquiry ? (
+            <ImageDisplay data={this.props.editedEnquiry.data} />
+          ) : (
+            <ImageDisplay data={data} />
+          )}
 
-          <Followups data={data} />
+          {this.props.editedEnquiry ? (
+            <Followups
+              data={this.props.editedEnquiry.data}
+              handleSaveEditedFollowup={this.props.handleSaveEditedFollowup} />
+          ) : (
+            <Followups 
+              data={data}
+              handleSaveEditedFollowup={this.props.handleSaveEditedFollowup} />
+          )}
 
           <FollowupForm
             data={data}

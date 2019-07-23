@@ -7,7 +7,14 @@ import Admin from "./components/Admin";
 
 class Routes extends Component {
   render() {
-    const { data, authenticated, currentUser, authCall, users } = this.props;
+    const {
+      data,
+      authenticated,
+      currentUser,
+      authCall,
+      users,
+      newLead
+    } = this.props;
     return (
       <Switch>
         <Route
@@ -25,10 +32,11 @@ class Routes extends Component {
           path="/"
           render={props =>
             authenticated ? (
-              <Dashboard 
-                {...props} 
-                data={data} 
-                currentUser={currentUser} 
+              <Dashboard
+                {...props}
+                data={data}
+                newLead={newLead}
+                currentUser={currentUser}
                 users={users}
               />
             ) : (

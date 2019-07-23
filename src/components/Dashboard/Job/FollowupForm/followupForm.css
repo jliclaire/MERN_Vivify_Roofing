@@ -25,9 +25,14 @@
 
 .followup-quote-btn {
   border: none;
-  background: #c1f7f7;
+  border-radius: 5%;
+  border: 1px solid #ff7e7e;
   font-weight: 600;
   cursor: pointer;
+}
+
+.followup-quote-btn:hover {
+  background: #ff7e7e;
 }
 
 .followup-comment {

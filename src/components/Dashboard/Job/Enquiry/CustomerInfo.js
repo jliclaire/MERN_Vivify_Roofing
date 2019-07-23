@@ -16,10 +16,10 @@ class CustomerInfo extends Component {
         </div>
         <div className="email-phone-date">
           <a href={'mailto:' + data.email}>
-            <h5><FaEnvelope /> {data.email}</h5>
+            <h5><FaEnvelope size='2em' className='contact-icon'/> {data.email}</h5>
           </a>
           <a href={'tel:' + data.phone}>
-            <h5><FaPhone /> {data.phone}</h5>
+            <h5><FaPhone size='2em' className='contact-icon'/> {data.phone}</h5>
           </a>
           <h5>Received {new Date(data.createdTime).toLocaleDateString()}</h5>
         </div>
