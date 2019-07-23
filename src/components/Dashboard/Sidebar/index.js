@@ -130,7 +130,7 @@ const Sidebar = props => {
           {
             currentUser.role === "Admin" &&
             <div
-              className={isActive("inbox", activeScreen) + ' m-2'}
+              className={isActive("inbox", activeScreen)}
               onClick={() => changeScreen("inbox")}
             >
               <p>Unassigned ({
@@ -145,7 +145,7 @@ const Sidebar = props => {
             onClick={() => changeScreen("in progress")}
           >
             <p>
-              {currentUser.admin ? 'Assigned' : 'New Leads'} (
+              {currentUser.role === "Admin" ? 'Assigned' : 'New Leads'} (
               {
                 data.filter(datum => {
                   return datum.assignedTrade && !datum.sold && !datum.archived;
