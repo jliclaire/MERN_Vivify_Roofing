@@ -47,12 +47,13 @@ this stage the Lead is marked as **"in progress."**
 The **Sale User** contacts the **Lead** and is required to submit a **Followups** using
 the HTML forms which are attached to the **Lead** as a record of securing the job. The **Sales Users** can also provide more unforseen details about the job, photos and sets a quote of which they have sold it. Once this occurs the job is marked as "sold."
 
+<img src="./docs/dashboard.gif">
+
 The second piece of functionality, the analytics, is covered in the **Admin**
 section of the software. Here an Admin User can find information about what kinds
 of jobs they have been able to sell, who has been selling them, how much they
 have been sold for, and where they have been sold.
 
-<img src="./docs/dashboard.gif">
 
 ### Technology Stack
 
