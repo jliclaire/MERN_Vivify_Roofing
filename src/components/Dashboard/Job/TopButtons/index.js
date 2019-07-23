@@ -42,6 +42,7 @@ class TopButtons extends React.Component {
               className="options"
               onChange={this.handleAssignLead}
             >
+              <option selected>Select a user</option>
             {
               users &&
               users.map((user, i) => {
