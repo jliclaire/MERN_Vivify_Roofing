@@ -29,6 +29,10 @@ class TopButtons extends React.Component {
     this.props.moveLead(category);
   };
 
+  handleFocus = e => {
+    e.target.value = ''
+  }
+
   render() {
     const { users, data } = this.props;
     console.log(data)
@@ -41,8 +45,9 @@ class TopButtons extends React.Component {
               id="assigned"
               className="options"
               onChange={this.handleAssignLead}
+              onFocus={this.handleFocus}
             >
-              <option selected>Select a user</option>
+              <option value=''>Select a user</option>
             {
               users &&
               users.map((user, i) => {
