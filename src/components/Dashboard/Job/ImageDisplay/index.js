@@ -20,8 +20,6 @@ class ImageDisplay extends React.Component {
 
   render() {
     const { data } = this.props;
-    console.log("!!!!!!!!!!!!!!!!");
-    console.log(data);
     const links = data.imageUrls;
 
     if (links === undefined || links.length === 0) {
@@ -34,6 +32,7 @@ class ImageDisplay extends React.Component {
               <img
                 className="photo-frame"
                 id={i}
+                key={i}
                 src={url}
                 alt=""
                 width="90"
