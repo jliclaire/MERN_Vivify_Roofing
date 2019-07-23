@@ -81,7 +81,7 @@ class App extends Component {
       const response = await axios.get(
         `${process.env.REACT_APP_API_URL}/users`
       );
-      const users = response.data.map(user => user.name);
+      const users = response.data
       this.setState({
         usernames: users
       });
