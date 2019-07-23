@@ -12,7 +12,7 @@ const SideMenu = props => {
   return (
     <>
       <div className="sidemenu-mob">
-        {/* <NewLead {...props} newLead={newLead} /> */}
+        <NewLead {...props} newLead={newLead} />
         {
           currentUser.role === "Admin" &&
           <div
