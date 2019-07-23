@@ -5,33 +5,72 @@ import { capitaliseMultiple } from "../../../utils/capitalise";
 import { FaAngleDown, FaAngleLeft } from "react-icons/fa";
 
 const SideMenu = props => {
-  let { changeScreen } = props;
+  let { changeScreen, currentUser, data, activeScreen, newLead } = props;
   // function to toggle classname
+  console.log(currentUser)
 
   return (
     <>
       <div className="sidemenu-mob">
-        <div className="sidemenu-option" onClick={() => changeScreen("inbox")}>
-          <p>Unassigned</p>
-        </div>
+        {/* <NewLead {...props} newLead={newLead} /> */}
+        {
+          currentUser.role === "Admin" &&
+          <div
+            className={isActive("inbox", activeScreen)}
+            onClick={() => changeScreen("inbox")}
+          >
+            <p>Unassigned ({
+              data.filter(datum => {
+                return (!datum.assignedTrade && !datum.sold && !datum.archived)
+              }).length
+            })</p>
+          </div>
+        }
         <div
-          className="sidemenu-option"
-          onClick={() => changeScreen("in progress")}
-        >
-          <p>Assigned</p>
-        </div>
-        <div className="sidemenu-option" onClick={() => changeScreen("sold")}>
-          <p>Sold</p>
-        </div>
-        <div
-          className="sidemenu-option"
-          onClick={() => changeScreen("archive")}
-        >
-          <p>Archived</p>
-        </div>
-        <div className="sidemenu-option" onClick={deleteToken}>
-          <p className="">Logout</p>
-        </div>
+            className={isActive("in progress", activeScreen)}
+            onClick={() => changeScreen("in progress")}
+          >
+            <p>
+              {currentUser.admin ? 'Assigned' : 'New Leads'} (
+              {
+                data.filter(datum => {
+                  return datum.assignedTrade && !datum.sold && !datum.archived;
+                }).length
+              }
+              )
+            </p>
+          </div>
+          <div
+            className={isActive("sold", activeScreen)}
+            onClick={() => changeScreen("sold")}
+          >
+            <p>
+              Sold (
+              {
+                data.filter(datum => {
+                  return datum.sold;
+                }).length
+              }
+              )
+            </p>
+          </div>
+          <div
+            className={isActive("archive", activeScreen)}
+            onClick={() => changeScreen("archive")}
+          >
+            <p>
+              Archived (
+              {
+                data.filter(datum => {
+                  return datum.archived;
+                }).length
+              }
+              )
+            </p>
+          </div>
+          <div className="button" onClick={deleteToken}>
+            <p>Logout</p>
+          </div>
       </div>
     </>
   );
@@ -80,11 +119,16 @@ const Sidebar = props => {
             )}
           </div>
         </div>
-        {hamburgerActive ? <SideMenu {...props} /> : null}
+        {hamburgerActive ? 
+        <SideMenu 
+          {...props}
+          currentUser={currentUser} 
+        /> 
+        : null}
         <div className="sidebar-leadboxes">
           <NewLead {...props} newLead={newLead} />
           {
-            currentUser.admin &&
+            currentUser.role === "Admin" &&
             <div
               className={isActive("inbox", activeScreen)}
               onClick={() => changeScreen("inbox")}
@@ -138,8 +182,6 @@ const Sidebar = props => {
               )
             </p>
           </div>
-
-          {/* to add lead from other resources */}
         </div>
       </div>
       <div className="sidebar-bottom">

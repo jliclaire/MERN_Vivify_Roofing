@@ -61,6 +61,10 @@ class Register extends React.Component {
     return true;
   }
 
+  toLogin = (e) => {
+    window.location='/login'
+  }
+
   handleClick = async (e) => {
     e.preventDefault();
     const isValid = this.validate()
@@ -96,18 +100,7 @@ class Register extends React.Component {
           <h1>Sign Up User</h1>
           <h3>{this.state.loginError}</h3>
           <form className="register-form">
-            <p>
-              <label htmlFor="email">E-mail</label>
-              <br />
-              <input
-              type="text"
-              id="email"
-              placeholder="You will use this to log in"
-              onChange={this.handleChange}
-              value={this.state.email} />
-            </p>
-            <div className="validation-prompt">{this.state.emailError}</div>
-
+            
             <p>
               <label htmlFor="name">Name</label>
               <br />
@@ -118,6 +111,18 @@ class Register extends React.Component {
               value={this.state.name} />
             </p>
             <div className="validation-prompt">{this.state.nameError}</div>
+
+            <p>
+              <label htmlFor="email">E-mail</label>
+              <br />
+              <input
+              type="text"
+              id="email"
+              placeholder="Use this to log in"
+              onChange={this.handleChange}
+              value={this.state.email} />
+            </p>
+            <div className="validation-prompt">{this.state.emailError}</div>
     
             <p>
               <label htmlFor="password">Password</label>
@@ -158,6 +163,9 @@ class Register extends React.Component {
           </form>
           <div className="btn-register" onClick={this.handleClick}>
             <p>Register</p>
+          </div>
+          <div className="minor-button" onClick={this.toLogin}>
+            <p>Login</p>
           </div>
         </div>
       </div>
