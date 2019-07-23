@@ -14,13 +14,12 @@ class Enquiry extends Component {
     return (
       <div className="job-enquiry">
         <div className="edit-button" onClick={this.handleEditClick}>
-          <p className='button-text'>Edit</p>
+          {/* <h1>Enquiry</h1> */}
+          <p className="button-text">Edit</p>
         </div>
         <CustomerInfo data={data} />
         <CustomerComment data={data} />
-        {
-          data.projectType === "Painting" || <ProjectInfo data={data} />
-        }
+        {data.projectType === "Painting" || <ProjectInfo data={data} />}
       </div>
     );
   }
