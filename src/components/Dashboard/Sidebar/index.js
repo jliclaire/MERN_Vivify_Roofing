@@ -103,9 +103,8 @@ const Sidebar = props => {
             <p>
               {currentUser.admin ? 'Assigned' : 'New Leads'} (
               {
-                // awaiting for assinged parts to be setup for the sales team
                 data.filter(datum => {
-                  return datum.assignedTrade;
+                  return datum.assignedTrade && !datum.sold && !datum.archived;
                 }).length
               }
               )
