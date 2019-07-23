@@ -55,7 +55,6 @@ class App extends Component {
           headers: { token: token }
         }
       );
-      console.log(authCall);
       // set state appropriately
       this.setState({
         authenticated: true,
@@ -65,7 +64,6 @@ class App extends Component {
           role: authCall.data.role
         }
       });
-      console.log(this.state);
     } catch (err) {
       console.log(err);
       // set state appropriately
