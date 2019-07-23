@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import NewLead from "./NewLead";
 import "./sidebar.css";
 import { capitaliseMultiple } from "../../../utils/capitalise";
@@ -142,13 +141,6 @@ const Sidebar = props => {
         </div>
       </div>
       <div className="sidebar-bottom">
-        {currentUser.role === "Admin" && (
-          <div className="sidebar-bottom-button">
-            <Link to="/admin" className="button-text">
-              Admin
-            </Link>
-          </div>
-        )}
         <div className="sidebar-bottom-button" onClick={deleteToken}>
           <p className="button-text">Logout</p>
         </div>
