@@ -38,7 +38,7 @@ interactions and processes concerning the potential customer.
 
 This functionality is covered in the **Dashboard** of the software. An **Admin User** on the dashboard can see all the sales **Leads** and sorted them by their current status in the sales lifecycle, allowing **Admin Users**  to have the full access to the app . 
 
-Clicking on a **lead** will display contact information for the potential customer and the details of the job.
+Clicking on a **Lead** will display contact information for the potential customer and the details of the job.
 
 Sales leads can be assigned to **Sales Users** whose responsiblity it then is
 to follow up with the lead in order to quote and potentially sell the job. At
