@@ -29,45 +29,48 @@ class TopButtons extends React.Component {
     this.props.moveLead(category);
   };
 
+  handleFocus = e => {
+    e.target.value = "";
+  };
+
   render() {
     const { users, data } = this.props;
+    console.log(data);
     return (
-      <div className="job-top-buttons">
-        <div className="top-options">
-          <p>Assigned to:</p>
-          <select
-            id="assigned"
-            className="options"
-            onChange={this.handleAssignLead}
-          >
-            <option>---</option>
-            {users &&
-              users.map((user, i) => {
-                // console.log(data.assignedTrade)
-                // console.log(this.props.currentUser.name)
-                if (data.assignedTrade === user.name) {
-                  return (
-                    <option key={i} selected>
-                      {user}
-                    </option>
-                  );
-                } else {
-                  return <option key={i}>{user}</option>;
-                }
-              })}
-          </select>
-        </div>
-        <div className="top-buttons-right">
+      <>
+        <div className="job-top-buttons">
           <div className="top-options">
-            <p>Mark as:</p>
-            <select className="options" onChange={this.handleMoveLead}>
-              <option>---</option>
-              <option>Sold</option>
-              <option>Archived</option>
+            <p>Assign to:</p>
+            <select
+              id="assigned"
+              className="options"
+              onChange={this.handleAssignLead}
+              onFocus={this.handleFocus}
+            >
+              <option value="">Select a user</option>
+              {users &&
+                users.map((user, i) => {
+                  console.log(data.assignedTrade);
+                  if (data.assignedTrade === user.name) {
+                    return <option key={i}>{user}</option>;
+                  } else {
+                    return <option key={i}>{user}</option>;
+                  }
+                })}
             </select>
           </div>
+          <div className="top-buttons-right">
+            <div className="top-options">
+              <p>Mark as:</p>
+              <select className="options" onChange={this.handleMoveLead}>
+                <option>---</option>
+                <option>Sold</option>
+                <option>Archived</option>
+              </select>
+            </div>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }

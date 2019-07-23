@@ -1,59 +1,39 @@
-.login-form form {
-  margin: 1rem;
-  padding: 2rem;
+.login-form {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  font-size: 1rem;
-}
-
-.inner-form-login button {
-  margin: auto;
-  width: 18rem;
-  padding: 15px;
-  font-size: 1.2rem;
-  background-color: #ef8582;
-  margin: 40px;
-  color: white;
-}
-
-.inner-form-login input {
-  width: 18rem;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-.login-form button:hover {
-  background-color: #ffdbda;
-  color: grey;
-
+  width: 100vw;
 }
 
 .inner-form-login {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  width: 60%;
+  padding: 30px;
 }
 
 .inner-form-login input {
-  border-radius: 3%;
-  flex-direction: column;
   padding: 10px;
-  width: 70%;
+  margin-bottom: 30px;
+  width: 100%;
   font-size: 1.2rem;
 }
 
 .login-logo {
-  display: flex;
-  justify-content: center;
-  margin-top: 10vh;
-  font-size: 16vw;
+  margin-top: 50px;
+  text-align: center;
+  font-size: 12vw;
   color: #ef8582;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (max-width: 767px) {
   .login-logo {
-     font-size: 10rem;
+    margin-top: 20vh;
+    font-size: 4em;
+  }
+
+  .inner-form-login {
+    width: 70%;
+    padding: 10px;;
   }
 }
 
@@ -69,4 +49,12 @@
 
 .btn-login:hover > p {
   color: #fff;
+}
+
+.login-error {
+  text-align: center;
+}
+
+.login-error > h3 {
+  color: red;
 }

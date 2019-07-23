@@ -88,7 +88,11 @@ const Sidebar = props => {
             className={isActive("inbox", activeScreen)}
             onClick={() => changeScreen("inbox")}
           >
-            <p>Unassigned ({data.length})</p>
+            <p>Unassigned ({
+              data.filter(datum => {
+                return (!datum.assignedTrade && !datum.sold && !datum.archived)
+              }).length
+            })</p>
           </div>
           <div
             className={isActive("in progress", activeScreen)}

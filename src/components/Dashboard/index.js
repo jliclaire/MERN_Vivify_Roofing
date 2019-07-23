@@ -12,7 +12,7 @@ class Dashboard extends Component {
     this.state = {
       mobileShowList: true,
       activeScreen: "inbox",
-      activeJob: this.props.data[0],
+      activeJob: this.newFilter(this.authoriseData(this.props.data))[0],
       editJob: false,
       editedEnquiry: ""
     };
@@ -55,6 +55,7 @@ class Dashboard extends Component {
 
   handleMoveLead = async category => {
     const id = this.state.activeJob._id;
+  
     const job = await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, {
       // Set the existing status to false.
       [category]: true
@@ -64,12 +65,13 @@ class Dashboard extends Component {
   };
 
   handleAssignLead = async name => {
-    const id = this.state.activeJob._id;
-    const res = await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, {
-      assignedTrade: name
-    });
-    console.log(res);
-    this.setActiveJob(id);
+    const { users } = this.props
+    if (users.includes(name)) {
+      const id = this.state.activeJob._id;
+      const res = await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, {
+        assignedTrade: name
+      });
+    }
   };
 
   handleSaveEditedFollowup = async (comment, jobId, followupId) => {
@@ -117,13 +119,9 @@ class Dashboard extends Component {
     }
   };
 
-  // handleAddUpdatedLead = id => {
-  //   this.setActiveJob(id);
-  // };
-
   progressFilter = data => {
     return data.filter(datum => {
-      return datum.assignedTrade;
+      return (datum.assignedTrade && !datum.sold && !datum.archived);
     });
   };
 
@@ -139,10 +137,16 @@ class Dashboard extends Component {
     });
   };
 
+  newFilter = data => {
+    return data.filter(datum => {
+      return (!datum.assignedTrade && !datum.sold && !datum.archived)
+    })
+  }
+
   filterData = data => {
     const { activeScreen } = this.state;
     if (activeScreen === "inbox") {
-      return data;
+      return this.newFilter(data);
     } else if (activeScreen === "in progress") {
       return this.progressFilter(data);
     } else if (activeScreen === "sold") {
@@ -160,15 +164,22 @@ class Dashboard extends Component {
     });
   };
 
-  authoriseData = (data, user) => {
+  authoriseData = (data) => {
     // Filter the data so that only leads assigned to the currentUser are shown
-    data.filter(datum => {
-      return user.name === datum.assignedTrade;
-    });
+    const { currentUser } = this.props;
+    if (currentUser.role === 'Admin') {
+      return data;
+    } else {
+      const authData = data.filter(datum => {
+        return currentUser.name === datum.assignedTrade;
+      });
+      return authData;
+    }
   };
 
   render() {
-    const { data, currentUser, newLead } = this.props;
+    let { data, currentUser, newLead } = this.props;
+    data = this.authoriseData(data);
     const { activeJob, mobileShowList, activeScreen } = this.state;
     return (
       <div className="dashboard">
