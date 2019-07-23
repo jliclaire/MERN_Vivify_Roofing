@@ -24,7 +24,7 @@ mistakes were often made and jobs misquoted. This is a risk and an opportunity t
 reputation and bottom line of the business.
 
 A significant aspect of this problem was that communication and record-keeping
-was done on an ad hoc basis. Therefore, Having all of the information regarding
+was done on an ad hoc basis. Therefore, having all the information regarding
 the customer and their particular needs in a centralised hub was meant to
 improve this situation and improve communication between the trades and the
 sales team more generally.
