@@ -28,7 +28,6 @@ class Register extends React.Component {
       ? e.target.checked
       : e.target.value
     });
-    console.log(this.state);
   };
 
   validate = () => {
@@ -44,7 +43,7 @@ class Register extends React.Component {
     if(!this.state.password) {
       passwordError = "* password required";
     }
-    if(!this.state.type) {
+    if(!this.state.role) {
       roleError = "* type of role required";
     }
     if(!this.state.phone) {
@@ -69,10 +68,8 @@ class Register extends React.Component {
     e.preventDefault();
     const isValid = this.validate()
     
-
+    console.log(isValid)
     if (isValid) {
-      console.log(this.state);
-      this.setState(initialState);
       const { email, password, role, name, phone } = this.state;
       const res = await this.props.authCall({
         email,
@@ -81,6 +78,7 @@ class Register extends React.Component {
         name,
         phone,
       });
+      console.log(res)
       if (res) {
         window.location = '/'
       } else {
