@@ -32,15 +32,8 @@
 }
 
 @media only screen and (max-width: 767px) {
-
   .job-enquiry-customer {
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  .email-phone-date {
-    align-items: flex-start;
-  }
-
-  
+  }  
 }

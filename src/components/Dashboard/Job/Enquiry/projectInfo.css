@@ -27,4 +27,10 @@
     width: 100%;
     font-size: 1.3em;
   }
+
+  .p-font {
+    font-size: 0.8em !important;
+    margin-bottom: 10px;
+    width: 90vw;
+  }
 }
