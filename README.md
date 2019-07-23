@@ -44,11 +44,8 @@ Sales leads can be assigned to **Sales Users** whose responsiblity is then
 to follow up the the **Lead** in order to quote and potentially sale of the job. At
 this stage the Lead is marked as **"in progress."**
 
-The **Sale User** contacts the **Lead** and is required to submit **Followups** using
-the HTML forms which are attached to the **Lead** as a record of the sales
-attempt. The Sales Users can also provide more unforseen details about the job
-and provide the price for which they have sold it. Once this occurs the job is
-marked as "sold."
+The **Sale User** contacts the **Lead** and is required to submit a **Followups** using
+the HTML forms which are attached to the **Lead** as a record of securing the job. The **Sales Users** can also provide more unforseen details about the job, photos and sets a quote of which they have sold it. Once this occurs the job is marked as "sold."
 
 The second piece of functionality, the analytics, is covered in the **Admin**
 section of the software. Here an Admin User can find information about what kinds
