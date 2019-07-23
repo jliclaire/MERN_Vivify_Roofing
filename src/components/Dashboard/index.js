@@ -67,7 +67,9 @@ class Dashboard extends Component {
       [category]: true
     });
     console.log(job);
-    this.setActiveJob(id);
+    this.setState({
+      editedEnquiry: job,
+    })
   };
 
   handleAssignLead = async name => {
