@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   width: 75vw;
-  border: 1px solid rgb(216, 213, 213);
+  border: 1px solid #d8d5d5;
   margin: 30px auto;
   padding: 25px;
   border-radius: 2%;
@@ -38,7 +38,7 @@
 
 .btn-register {
   padding: 10px;
-  margin: auto;
+  text-align: center;
   width: 85px;
   border-radius: 10%;
   background: #ff7e7e;
@@ -49,6 +49,6 @@
   text-align: center;
 }
 
-.btn-register:hover {
+.btn-register:hover p {
   color: #fff;
 }

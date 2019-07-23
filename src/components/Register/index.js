@@ -157,7 +157,7 @@ class Register extends React.Component {
 
           </form>
           <div className="btn-register" onClick={this.handleClick}>
-            <p className="button-text">Register</p>
+            <p>Register</p>
           </div>
         </div>
       </div>
