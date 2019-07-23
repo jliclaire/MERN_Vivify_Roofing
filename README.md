@@ -56,7 +56,7 @@ section of the software. Here an Admin User can find information about what kind
 of jobs they have been able to sell, who has been selling them, how much they
 have been sold for, and where they have been sold.
 
-(Screenshots should be placed between the paragraphs above.)
+<img src="./docs/dashboard.gif">
 
 ### Technology Stack
 
@@ -155,9 +155,19 @@ NodeJS and ExpressJS backend is deployed with Now. run below command to deploy t
 2. User to login to their account to view the dashboard.
 3. The dashboard has three section. A side bar to categorize different leads according to the status of it. A lead list to show all the leads in that category and an individual lead section to show the lead that has been set to active by clicking the item on the lead list.
 
+<img src="./docs/Capture-dashboard.JPG">
+<img src="./docs/Capture-individual-lead.JPG">
+<p>
+<img src="./docs/Capture-lead-list.JPG">
+<img src="./docs/Capture-sidebar.JPG">
+<img src="./docs/Capture-with-followup.JPG">
+</p>
+
 #### Add new lead
 
 1. User can create new lead by clicking the "Add New Lead" button from the side bar. A popup window with a new lead form will show and prompt the user to fill related field with customer information. Click Save button to save the new lead or click X button to close the form. After form saved, new lead information will be added and showed on top of the lead list view.
+
+<img src="./docs/Capture-add-new-lead-form.JPG">
 
 #### Add follow up
 
@@ -165,6 +175,9 @@ NodeJS and ExpressJS backend is deployed with Now. run below command to deploy t
 2. User can use "Add Follow Up" form to add comments. A checklist popup window will show after clicking "Add Quote" button. A user has to choose a roof type to see the correspond checklist. after all checklist items are checked, a user will be able to input the quotation amount and proceed to the next field of the follow up form.
 3. A user can upload photos by clicking the "choose file" button to choose images from local image storage.
 4. Click the "Add Follow Up" button to add the follow up information to show in the follow up section of the individual lead show view.
+
+<img src="./docs/Capture-add-followup-form.JPG">
+<img src="./docs/Capture-add-quote-popup.JPG">
 
 #### Edit lead info
 
@@ -174,14 +187,20 @@ Part 1: Lead info filled by customer enquiry
 
 1. Click the "Edit" button on the top of customer information section. A form populated with data sent from the customer can be edited by the user. After clicking the "Save" button when finalized editing, the screen will show the updated information.
 
+<img src="./docs/Capture-edit-enquiry-form.JPG">
+
 Part 2: Followup info filled by sales trade
 
 1. Click the "Edit" button on the bottom of the followup that need to be edited. A form will be show which enables the user to edit the followup comment. After editing the comment, click "Save" to show the updated followup.
+
+<img src="./docs/Capture-edit-followup.JPG">
 
 #### Assign lead
 
 1. An admin user can select a trade person from the "Assign to" drop list to assign a lead to a sales person. By doing so, the sales person can login to their account and view this lead info, however, other sales person will not see this lead info from their dashboard.
 2. A lead's status can be changed by choose a category from the "Mark as" drop list. By doing so, a lead can be moved to the its category and can be found and viewed from the side bar menu.
+
+<img src="./docs/Capture-assignto-markas.JPG">
 
 ## Design documentation
 
