@@ -55,6 +55,7 @@ class Dashboard extends Component {
 
   handleMoveLead = async category => {
     const id = this.state.activeJob._id;
+  
     const job = await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, {
       // Set the existing status to false.
       [category]: true
@@ -117,10 +118,6 @@ class Dashboard extends Component {
     }
   };
 
-  // handleAddUpdatedLead = id => {
-  //   this.setActiveJob(id);
-  // };
-
   progressFilter = data => {
     return data.filter(datum => {
       return datum.assignedTrade;
@@ -160,15 +157,22 @@ class Dashboard extends Component {
     });
   };
 
-  authoriseData = (data, user) => {
+  authoriseData = (data) => {
     // Filter the data so that only leads assigned to the currentUser are shown
-    data.filter(datum => {
-      return user.name === datum.assignedTrade;
-    });
+    const { currentUser } = this.props;
+    if (currentUser.role === 'Admin') {
+      return data;
+    } else {
+      const authData = data.filter(datum => {
+        return currentUser.name === datum.assignedTrade;
+      });
+      return authData;
+    }
   };
 
   render() {
-    const { data, currentUser, newLead } = this.props;
+    let { data, currentUser, newLead } = this.props;
+    data = this.authoriseData(data);
     const { activeJob, mobileShowList, activeScreen } = this.state;
     return (
       <div className="dashboard">

@@ -29,7 +29,7 @@ class NewLead extends Component {
         {this.state.showNewLeadPopup ? (
           <NewLeadForm
             closeNewLeadPopup={this.toggleNewLeadPopup}
-            newLead={this.props.newLead}
+            addNewLead={this.props.newLead}
           />
         ) : null}
       </div>
