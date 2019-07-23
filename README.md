@@ -20,7 +20,7 @@ the sales procedure.
 
 Irregularities and lack of system around the sales procedure and
 communication between the trades and sales staff had meant that
-mistakes were often made and jobs misquoted. This is a risk to both the
+mistakes were often made and jobs misquoted. This is a risk and an opportunity to both the
 reputation and bottom line of the business.
 
 A significant aspect of this problem was that communication and record-keeping
