@@ -1,12 +1,12 @@
 import React from 'react';
 import './imageUpload.css'
-import axios from 'axios';
 
 
 class ImageUpload extends React.Component {
   state = {image: null}
 
-  handleUpload = (e) => {
+  handleClick = async (e) => {
+    const { handleUpload, id } = this.props;
     const file = e.target.files[0]
     const formData = new FormData()
     formData.append('file', file)
@@ -15,21 +15,14 @@ class ImageUpload extends React.Component {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     }
-    console.log(this.props.id)
-    axios.post(`${process.env.REACT_APP_API_URL}/jobs/${this.props.id}/image`, formData, config)
-    .then((res) => {
-      console.log(res)
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+    await handleUpload(id, formData, config)
   }
 
   
   render() {
     return (
       <>
-        <input className="input-btn" type="file" name="image-upload" id="image-upload" onChange={this.handleUpload}/>
+        <input className="input-btn" type="file" name="image-upload" id="image-upload" onChange={this.handleClick}/>
       </>
     )
   }

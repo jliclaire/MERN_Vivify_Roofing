@@ -61,17 +61,27 @@ class Dashboard extends Component {
 
   handleMoveLead = async category => {
     const id = this.state.activeJob._id;
-  
     const job = await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, {
       // Set the existing status to false.
       [category]: true
     });
-    console.log(job);
     this.setState({
       editedEnquiry: job,
     })
   };
 
+  handleUpload = async (jobId, formData, config) => {
+    const res = await axios.post(
+      `${process.env.REACT_APP_API_URL}/jobs/${jobId}/image`, 
+      formData, 
+      config
+    )
+    console.log(res)
+    this.setState({
+      editedEnquiry: res
+    })
+  }
+  
   handleAssignLead = async name => {
     const { users } = this.props
     if (users.includes(name)) {
@@ -231,6 +241,7 @@ class Dashboard extends Component {
             editedEnquiry={this.state.editedEnquiry}
             currentUser={currentUser}
             handleSaveEditedFollowup={this.handleSaveEditedFollowup}
+            handleUpload={this.handleUpload}
           />
         )}
       </div>
