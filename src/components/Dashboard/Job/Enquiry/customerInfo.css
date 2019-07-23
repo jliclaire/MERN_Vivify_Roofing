@@ -14,7 +14,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: flex-start;
+  align-items: flex-end;
 }
 
 .email-phone-date > a > h5 {
@@ -35,5 +35,9 @@
   .job-enquiry-customer {
     flex-direction: column;
     align-items: flex-start;
-  }  
+  }
+
+  .email-phone-date {
+    align-items: flex-start;
+  }
 }
