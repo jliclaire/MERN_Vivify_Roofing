@@ -36,19 +36,18 @@ class TopButtons extends React.Component {
       <>
         <div className="job-top-buttons">
           <div className="top-options">
-            <p>Assigned to:</p>
+            <p>Assign to:</p>
             <select
               id="assigned"
               className="options"
               onChange={this.handleAssignLead}
             >
-              <option>---</option>
             {
               users &&
               users.map((user, i) => {
                 console.log(data.assignedTrade)
                 if (data.assignedTrade === user.name) {
-                  return <option key={i} selected>{user}</option>
+                  return <option key={i}>{user}</option>
                 } else {
                   return <option key={i}>{user}</option>
                 }

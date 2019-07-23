@@ -120,7 +120,7 @@ class Dashboard extends Component {
 
   progressFilter = data => {
     return data.filter(datum => {
-      return datum.assignedTrade;
+      return (datum.assignedTrade && !datum.sold && !datum.archived);
     });
   };
 
@@ -136,10 +136,16 @@ class Dashboard extends Component {
     });
   };
 
+  newFilter = data => {
+    return data.filter(datum => {
+      return (!datum.assignedTrade && !datum.sold && !datum.archived)
+    })
+  }
+
   filterData = data => {
     const { activeScreen } = this.state;
     if (activeScreen === "inbox") {
-      return data;
+      return this.newFilter(data);
     } else if (activeScreen === "in progress") {
       return this.progressFilter(data);
     } else if (activeScreen === "sold") {
