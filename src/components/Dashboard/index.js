@@ -18,6 +18,12 @@ class Dashboard extends Component {
     };
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.editedEnquiry !== this.state.editedEnquiry) {
+      this.props.getLeads();
+    }
+  }
+
   setActiveJob = async jobId => {
     const foundJob = await this.props.data.find(datum => {
       return datum._id === jobId;
@@ -55,15 +61,27 @@ class Dashboard extends Component {
 
   handleMoveLead = async category => {
     const id = this.state.activeJob._id;
-  
     const job = await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, {
       // Set the existing status to false.
       [category]: true
     });
-    console.log(job);
-    this.setActiveJob(id);
+    this.setState({
+      editedEnquiry: job,
+    })
   };
 
+  handleUpload = async (jobId, formData, config) => {
+    const res = await axios.post(
+      `${process.env.REACT_APP_API_URL}/jobs/${jobId}/image`, 
+      formData, 
+      config
+    )
+    console.log(res)
+    this.setState({
+      editedEnquiry: res
+    })
+  }
+  
   handleAssignLead = async name => {
     const { users } = this.props
     if (users.includes(name)) {
@@ -71,6 +89,9 @@ class Dashboard extends Component {
       const res = await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, {
         assignedTrade: name
       });
+      this.setState({
+        editedEnquiry: res,
+      })
     }
   };
 
@@ -109,6 +130,13 @@ class Dashboard extends Component {
       editedEnquiry: editedEnquiry
     });
     this.setActiveJob(id);
+  };
+
+  updateNewLeads = async lead => {
+    const edited = await axios.post(`${process.env.REACT_APP_API_URL}/jobs`, lead);
+    this.setState({
+      editedEnquiry: edited
+    })
   };
 
   handleClearEditData = () => {
@@ -178,7 +206,7 @@ class Dashboard extends Component {
   };
 
   render() {
-    let { data, currentUser, newLead } = this.props;
+    let { data, currentUser } = this.props;
     data = this.authoriseData(data);
     const { activeJob, mobileShowList, activeScreen } = this.state;
     return (
@@ -189,7 +217,7 @@ class Dashboard extends Component {
           back={this.back}
           mobileShowList={mobileShowList}
           activeScreen={activeScreen}
-          newLead={newLead}
+          newLead={this.updateNewLeads}
           currentUser={currentUser}
         />
         <JobList
@@ -213,6 +241,7 @@ class Dashboard extends Component {
             editedEnquiry={this.state.editedEnquiry}
             currentUser={currentUser}
             handleSaveEditedFollowup={this.handleSaveEditedFollowup}
+            handleUpload={this.handleUpload}
           />
         )}
       </div>

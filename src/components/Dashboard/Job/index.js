@@ -19,7 +19,13 @@ class Job extends Component {
   };
 
   render() {
-    const { data, assignLead, moveLead, back, toggleEdit } = this.props;
+    const { 
+      data, 
+      assignLead, 
+      moveLead, 
+      back, 
+      toggleEdit,
+      handleUpload } = this.props;
 
     return (
       <div className="job">
@@ -74,6 +80,7 @@ class Job extends Component {
             data={data}
             addNewFollowup={this.handleAddNewFollowup}
             currentUser={this.props.currentUser}
+            handleUpload={handleUpload}
           />
         </div>
       </div>
