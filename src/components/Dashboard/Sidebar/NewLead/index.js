@@ -21,7 +21,7 @@ class NewLead extends Component {
     return (
       <div className="sidebar-add-lead">
         <div
-          className="sidebar-bottom-button m-2"
+          className="sidebar-bottom-button"
           onClick={this.toggleNewLeadPopup}
         >
           <p className="button-text">Add New Lead</p>

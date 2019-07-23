@@ -86,6 +86,10 @@
   font-weight: 700;
 }
 
+.sidebar-add-lead {
+  margin-bottom: 25px;
+}  
+
 @media only screen and (max-width: 767px) {
   .sidebar {
     width: 100%;
@@ -93,6 +97,10 @@
     position: sticky;
     top: 0;
   }
+
+  .sidebar-add-lead {
+    margin-bottom: 0;
+  } 
 
   .sidebar-info {
     width: 95%;
@@ -159,6 +167,8 @@
     border-radius: 5%;
     text-align: center;
   }
+
+
 }
 
 .sidebar-add-lead-button {

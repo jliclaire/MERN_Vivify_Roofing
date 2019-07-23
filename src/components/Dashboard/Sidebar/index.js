@@ -12,7 +12,7 @@ const SideMenu = props => {
   return (
     <>
       <div className="sidemenu-mob">
-        <NewLead {...props} newLead={newLead} />
+        <NewLead {...props} />
         {
           currentUser.role === "Admin" &&
           <div
@@ -145,7 +145,7 @@ const Sidebar = props => {
             onClick={() => changeScreen("in progress")}
           >
             <p>
-              {currentUser.admin ? 'Assigned' : 'New Leads'} (
+              {currentUser.role === "Admin" ? 'Assigned' : 'New Leads'} (
               {
                 data.filter(datum => {
                   return datum.assignedTrade && !datum.sold && !datum.archived;
