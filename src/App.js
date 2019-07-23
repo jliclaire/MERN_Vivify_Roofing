@@ -106,11 +106,6 @@ class App extends Component {
   //   }
   // }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.state.data != nextState.data;
-    // return false;
-  }
-
   render() {
     const { data, authenticated, currentUser, usernames } = this.state;
     if (data.length === 0) {
@@ -124,6 +119,7 @@ class App extends Component {
           users={usernames}
           authCall={this.authCall}
           newLead={this.updateNewLeads}
+          getLeads={this.getLeads}
         />
       );
     }

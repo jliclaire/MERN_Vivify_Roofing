@@ -13,7 +13,8 @@ class Routes extends Component {
       currentUser,
       authCall,
       users,
-      newLead
+      newLead,
+      getLeads
     } = this.props;
     return (
       <Switch>
@@ -38,6 +39,7 @@ class Routes extends Component {
                 newLead={newLead}
                 currentUser={currentUser}
                 users={users}
+                getLeads={getLeads}
               />
             ) : (
               <Redirect to="/login" />

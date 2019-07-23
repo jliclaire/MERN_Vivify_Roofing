@@ -18,6 +18,12 @@ class Dashboard extends Component {
     };
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.editedEnquiry !== this.state.editedEnquiry) {
+      this.props.getLeads();
+    }
+  }
+
   setActiveJob = async jobId => {
     const foundJob = await this.props.data.find(datum => {
       return datum._id === jobId;
