@@ -40,10 +40,11 @@ This functionality is covered in the **Dashboard** of the software. An **Admin U
 
 Clicking on a **Lead** will display contact information for the potential customer and the details of the job.
 
-Sales leads can be assigned to **Sales Users** whose responsiblity it then is
-to follow up with the lead in order to quote and potentially sell the job. At
-this stage the Lead is marked as "in progress."
-Once in contact with the customers they are required to submit **Followups** using
+Sales leads can be assigned to **Sales Users** whose responsiblity is then
+to follow up the the **Lead** in order to quote and potentially sale of the job. At
+this stage the Lead is marked as **"in progress."**
+
+The **Sale User** contacts the **Lead** and is required to submit **Followups** using
 the HTML forms which are attached to the **Lead** as a record of the sales
 attempt. The Sales Users can also provide more unforseen details about the job
 and provide the price for which they have sold it. Once this occurs the job is
