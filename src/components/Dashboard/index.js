@@ -77,6 +77,9 @@ class Dashboard extends Component {
       const res = await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, {
         assignedTrade: name
       });
+      this.setState({
+        editedEnquiry: res,
+      })
     }
   };
 
