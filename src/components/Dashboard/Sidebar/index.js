@@ -83,7 +83,7 @@ const Sidebar = props => {
         </div>
         {hamburgerActive ? <SideMenu {...props} /> : null}
         <div className="sidebar-leadboxes">
-          <NewLead {...props} />
+          <NewLead {...props} newLead={newLead} />
           <div
             className={isActive("inbox", activeScreen)}
             onClick={() => changeScreen("inbox")}

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./followups.css";
-import axios from "axios";
 
 class FollowupEdit extends Component {
   state = {
