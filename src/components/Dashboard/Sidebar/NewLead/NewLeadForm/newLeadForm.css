@@ -3,17 +3,20 @@
   justify-content: center;
   align-items: center;
   position: fixed;
-  width: 100%;
-  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   margin: auto;
   background-color: rgba(0, 0, 0, 0.5);
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .new-lead-popupinner {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -27,6 +30,7 @@
 .new-lead-popupinner .checkbox-close-icon {
   display: flex;
   justify-content: flex-end;
+  margin-top: 20px;
 }
 .new-lead-popupinner .far {
   cursor: pointer;
@@ -47,14 +51,30 @@
 
 .new-lead-popupinner button {
   float: right;
+  height: 2.5rem;
+  width: 100px;
+  color: #111;
+  margin-bottom: 20px;
+}
+
+.new-lead-popupinner button:hover {
+  color: #fff;
 }
 
 #new-lead-customer-comment {
   height: 2rem;
 }
 
-.validation-prompt{
+.validation-prompt {
   margin-bottom: 20;
   font-size: 12;
   color: red;
+}
+
+@media only screen and (max-width: 767px) {
+  .new-lead-popupinner {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+  }
 }

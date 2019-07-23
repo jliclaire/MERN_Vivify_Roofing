@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import "./login.css";
 
 const initialState = {
@@ -97,6 +98,9 @@ class Login extends React.Component {
             <p className="btn-text">Log In</p>
           </div>
         </form>
+        <Link className='minor-button' to='/register'>
+          <p className='btn-text'>Register</p>
+        </Link>
       </div>
     );
   }

@@ -28,7 +28,6 @@ class Register extends React.Component {
       ? e.target.checked
       : e.target.value
     });
-    console.log(this.state);
   };
 
   validate = () => {
@@ -44,7 +43,7 @@ class Register extends React.Component {
     if(!this.state.password) {
       passwordError = "* password required";
     }
-    if(!this.state.type) {
+    if(!this.state.role) {
       roleError = "* type of role required";
     }
     if(!this.state.phone) {
@@ -61,14 +60,16 @@ class Register extends React.Component {
     return true;
   }
 
+  toLogin = (e) => {
+    window.location='/login'
+  }
+
   handleClick = async (e) => {
     e.preventDefault();
     const isValid = this.validate()
     
-
+    console.log(isValid)
     if (isValid) {
-      console.log(this.state);
-      this.setState(initialState);
       const { email, password, role, name, phone } = this.state;
       const res = await this.props.authCall({
         email,
@@ -77,6 +78,7 @@ class Register extends React.Component {
         name,
         phone,
       });
+      console.log(res)
       if (res) {
         window.location = '/'
       } else {
@@ -96,18 +98,7 @@ class Register extends React.Component {
           <h1>Sign Up User</h1>
           <h3>{this.state.loginError}</h3>
           <form className="register-form">
-            <p>
-              <label htmlFor="email">E-mail</label>
-              <br />
-              <input
-              type="text"
-              id="email"
-              placeholder="You will use this to log in"
-              onChange={this.handleChange}
-              value={this.state.email} />
-            </p>
-            <div className="validation-prompt">{this.state.emailError}</div>
-
+            
             <p>
               <label htmlFor="name">Name</label>
               <br />
@@ -118,6 +109,18 @@ class Register extends React.Component {
               value={this.state.name} />
             </p>
             <div className="validation-prompt">{this.state.nameError}</div>
+
+            <p>
+              <label htmlFor="email">E-mail</label>
+              <br />
+              <input
+              type="text"
+              id="email"
+              placeholder="Use this to log in"
+              onChange={this.handleChange}
+              value={this.state.email} />
+            </p>
+            <div className="validation-prompt">{this.state.emailError}</div>
     
             <p>
               <label htmlFor="password">Password</label>
@@ -157,7 +160,10 @@ class Register extends React.Component {
 
           </form>
           <div className="btn-register" onClick={this.handleClick}>
-            <p className="button-text">Register</p>
+            <p>Register</p>
+          </div>
+          <div className="minor-button" onClick={this.toLogin}>
+            <p>Login</p>
           </div>
         </div>
       </div>

@@ -25,7 +25,7 @@
   color: #ef8582;
 }
 
-@media screen and (max-width: 767px) {
+@media only screen and (max-width: 767px) {
   .login-logo {
     margin-top: 20vh;
     font-size: 4em;
@@ -57,4 +57,28 @@
 
 .login-error > h3 {
   color: red;
+}
+
+.bottom-buttons-login {
+  display: flex;
+  justify-content: space-between
+}
+
+.minor-button {
+  padding: 10px;
+  margin: auto;
+  width: 85px;
+  border-radius: 10%;
+  background: #fff;
+  border: 1px solid #ff7e7e;
+  cursor: pointer;
+  text-align: center;
+}
+
+.minor-button:hover {
+  background: #ff7e7e;
+}
+
+.minor-button:hover p {
+  color: white;
 }

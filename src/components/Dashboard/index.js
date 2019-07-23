@@ -12,7 +12,7 @@ class Dashboard extends Component {
     this.state = {
       mobileShowList: true,
       activeScreen: "inbox",
-      activeJob: this.newFilter(this.authoriseData(this.props.data))[0],
+      activeJob: this.authoriseData(this.props.data)[0],
       editJob: false,
       editedEnquiry: ""
     };
