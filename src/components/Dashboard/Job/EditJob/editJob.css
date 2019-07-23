@@ -22,13 +22,14 @@
   background: #ff7e7e;
   border: none;
   border-radius: 5px;
-  height: 1.5rem;
+  height: 2rem;
   margin-top: 10px;
   cursor: pointer;
   color: #fff;
   font-weight: 700;
   font-size: 1rem;
 }
+
 .job-enquiry-customer-edit {
   width: 100%;
   display: flex;
