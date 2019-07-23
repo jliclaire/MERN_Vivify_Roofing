@@ -204,27 +204,70 @@ Part 2: Followup info filled by sales trade
 
 ## Design documentation
 
-Design process
+### Design process
 
-User stories
+### User stories
 
-Workflow diagram
+### Workflow diagram
 
-Wireframes
+### Wireframes
 
-ERDs
+### ERDs
 
-Data flow diagram
+<img src="./docs/database.png">
 
-OO design documentation
+### Data flow diagram
+
+### OO design documentation
 
 ## Project Management and Planning process
 
-Project plan and timeline
+### Project plan and timeline
 
-Client communications
+Week 1:
 
-Trello screenshots
+- Design wireframes and mockups, color scheme, fonts
+- Mongoose data structure design, build
+- GitHub frontend and backend, install dependencies
+- MongoDB Atlas setup
+- Assign tasks
+- Interview with client
+- Setup backend CRUD end points
+- Frontend routes setup
+
+Week 2:
+
+- Setup Authentication endpoint
+- Create login and register account pages
+- Frontend token connect to backend authentication
+- React frontend for dashboard
+- Divide dashboard sections
+- show sidebar, lead list and lead view
+- Sidebar category
+- Add followup form, edit enquiry and followup function
+- Add upload images function
+- Backend testing
+- Mobile responsive design
+
+Week 3:
+
+- Create add new lead function
+- Update dashboard after editing form submitted
+- Assign lead to different users
+- Move leads to different sidebar category after marking lead status
+- Frontend testing
+- Write README
+- Submission
+- Presentation
+
+### Client communications
+
+<img src="./docs/interview-notes.PNG">
+
+### Trello screenshots
+
+<img src="./docs/Capture-trello-1.JPG">
+<img src="./docs/Capture-trello-2.JPG">
 
 ## Short answer questions
 
