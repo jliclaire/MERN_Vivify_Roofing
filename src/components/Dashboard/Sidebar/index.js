@@ -83,22 +83,25 @@ const Sidebar = props => {
         {hamburgerActive ? <SideMenu {...props} /> : null}
         <div className="sidebar-leadboxes">
           <NewLead {...props} newLead={newLead} />
-          <div
-            className={isActive("inbox", activeScreen)}
-            onClick={() => changeScreen("inbox")}
-          >
-            <p>Unassigned ({
-              data.filter(datum => {
-                return (!datum.assignedTrade && !datum.sold && !datum.archived)
-              }).length
-            })</p>
-          </div>
+          {
+            currentUser.admin &&
+            <div
+              className={isActive("inbox", activeScreen)}
+              onClick={() => changeScreen("inbox")}
+            >
+              <p>Unassigned ({
+                data.filter(datum => {
+                  return (!datum.assignedTrade && !datum.sold && !datum.archived)
+                }).length
+              })</p>
+            </div>
+          }
           <div
             className={isActive("in progress", activeScreen)}
             onClick={() => changeScreen("in progress")}
           >
             <p>
-              Assigned (
+              {currentUser.admin ? 'Assigned' : 'New Leads'} (
               {
                 // awaiting for assinged parts to be setup for the sales team
                 data.filter(datum => {
