@@ -61,7 +61,7 @@ class Register extends React.Component {
     return true;
   }
 
-  handleClick = async(e) => {
+  handleClick = async (e) => {
     e.preventDefault();
     const isValid = this.validate()
     
@@ -77,7 +77,13 @@ class Register extends React.Component {
         name,
         phone,
       });
-      console.log(res);
+      if (res) {
+        window.location = '/'
+      } else {
+        this.setState({
+          loginError: 'There was a problem signing you up'
+        })
+      }
     }
   };
 
@@ -88,6 +94,7 @@ class Register extends React.Component {
       <div className="container-register">
         <div className="register">
           <h1>Sign Up User</h1>
+          <h3>{this.state.loginError}</h3>
           <form className="register-form">
             <p>
               <label htmlFor="email">E-mail</label>
