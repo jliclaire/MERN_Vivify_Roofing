@@ -8,6 +8,17 @@
   height: 100vh;
 }
 
+.assigned-badge {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  border: 1px solid black;
+  background: #e3e3e3;
+  padding: 4px;
+  border-radius: 10%;
+  text-align: center;
+}
+
 @media only screen and (max-width: 767px) {
   .jobList-container {
     width: 100%;
@@ -36,7 +47,11 @@
 }
 
 .jobList-list-right {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
   padding-right: 10px;
+  justify-content: space-evenly;
 }
 
 .jobList-row h4,

@@ -34,6 +34,12 @@ class JobListRow extends Component {
               </div>
               <div className="jobList-list-right">
                 <p>{new Date(job.createdTime).toLocaleDateString()}</p>
+                {
+                  (job.assignedTrade && job.assignedTrade.length > 3) &&
+                  <div className='assigned-badge'>
+                    {job.assignedTrade}
+                  </div>
+                }
               </div>
             </div>
           );

@@ -5,7 +5,8 @@ const initialState = {
   email: "",
   password: "",
   emailError: "",
-  passwordError: ""
+  passwordError: "",
+  loginError: ""
 };
 
 class Login extends React.Component {
@@ -46,10 +47,10 @@ class Login extends React.Component {
     return true;
   }
 
-  handleClick = e => {
+  handleClick = async(e) => {
     const { authCall } = this.props;
     e.preventDefault();
-    authCall({
+    const response = await authCall({
       email: this.state.email,
       password: this.state.password
     });
@@ -57,30 +58,41 @@ class Login extends React.Component {
     if (isValid) {
       this.setState(initialState);
     }
-
+    if (response) {
+      window.location='/';
+    } else {
+      this.setState({
+        loginError: 'Invalid credentials'
+      })
+    }
   };
 
   render() {
     return (
       <div className="login-form">
         <h1 className="login-logo">VIVIFY</h1>
+        <div className='login-error'>
+          <h3>{this.state.loginError}</h3>
+        </div>
         <form className="inner-form-login">
-          <input
-            value={this.state.email}
-            onChange={this.handleChange}
-            type="text"
-            id="email"
-            placeholder="Email"
-          />
-          <div style={{ marginBottom: 20,fontSize: 12,color: "red" }}>{this.state.emailError}</div>
-          <input
-            value={this.state.password}
-            onChange={this.handleChange}
-            type="password"
-            id="password"
-            placeholder="Password"
-          />
-          <div style={{ fontSize: 12,color: "red" }}>{this.state.passwordError}</div>
+          <p>
+            <label>Email</label><br />
+            <input
+              value={this.state.email}
+              onChange={this.handleChange}
+              type="text"
+              id="email"
+            />
+          </p>
+          <p>
+            <label>Password</label><br />
+            <input
+              value={this.state.password}
+              onChange={this.handleChange}
+              type="password"
+              id="password"
+            />
+          </p>
           <div className="btn-login" onClick={this.handleClick}>
             <p className="btn-text">Log In</p>
           </div>

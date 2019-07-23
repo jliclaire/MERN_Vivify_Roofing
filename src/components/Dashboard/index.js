@@ -12,10 +12,16 @@ class Dashboard extends Component {
     this.state = {
       mobileShowList: true,
       activeScreen: "inbox",
-      activeJob: this.props.data[0],
+      activeJob: this.newFilter(this.authoriseData(this.props.data))[0],
       editJob: false,
       editedEnquiry: ""
     };
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.editedEnquiry !== this.state.editedEnquiry) {
+      this.props.getLeads();
+    }
   }
 
   setActiveJob = async jobId => {
@@ -59,17 +65,34 @@ class Dashboard extends Component {
       // Set the existing status to false.
       [category]: true
     });
-    console.log(job);
-    this.setActiveJob(id);
+    this.setState({
+      editedEnquiry: job,
+    })
   };
 
+  handleUpload = async (jobId, formData, config) => {
+    const res = await axios.post(
+      `${process.env.REACT_APP_API_URL}/jobs/${jobId}/image`, 
+      formData, 
+      config
+    )
+    console.log(res)
+    this.setState({
+      editedEnquiry: res
+    })
+  }
+  
   handleAssignLead = async name => {
-    const id = this.state.activeJob._id;
-    const res = await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, {
-      assignedTrade: name
-    });
-    console.log(res);
-    this.setActiveJob(id);
+    const { users } = this.props
+    if (users.includes(name)) {
+      const id = this.state.activeJob._id;
+      const res = await axios.put(`${process.env.REACT_APP_API_URL}/jobs/${id}`, {
+        assignedTrade: name
+      });
+      this.setState({
+        editedEnquiry: res,
+      })
+    }
   };
 
   handleSaveEditedFollowup = async (comment, jobId, followupId) => {
@@ -109,6 +132,13 @@ class Dashboard extends Component {
     this.setActiveJob(id);
   };
 
+  updateNewLeads = async lead => {
+    const edited = await axios.post(`${process.env.REACT_APP_API_URL}/jobs`, lead);
+    this.setState({
+      editedEnquiry: edited
+    })
+  };
+
   handleClearEditData = () => {
     if (this.state.editedEnquiry_id !== this.state.activeJob._id) {
       this.setState({
@@ -117,13 +147,9 @@ class Dashboard extends Component {
     }
   };
 
-  // handleAddUpdatedLead = id => {
-  //   this.setActiveJob(id);
-  // };
-
   progressFilter = data => {
     return data.filter(datum => {
-      return datum.assignedTrade;
+      return (datum.assignedTrade && !datum.sold && !datum.archived);
     });
   };
 
@@ -139,10 +165,16 @@ class Dashboard extends Component {
     });
   };
 
+  newFilter = data => {
+    return data.filter(datum => {
+      return (!datum.assignedTrade && !datum.sold && !datum.archived)
+    })
+  }
+
   filterData = data => {
     const { activeScreen } = this.state;
     if (activeScreen === "inbox") {
-      return data;
+      return this.newFilter(data);
     } else if (activeScreen === "in progress") {
       return this.progressFilter(data);
     } else if (activeScreen === "sold") {
@@ -160,15 +192,22 @@ class Dashboard extends Component {
     });
   };
 
-  authoriseData = (data, user) => {
+  authoriseData = (data) => {
     // Filter the data so that only leads assigned to the currentUser are shown
-    data.filter(datum => {
-      return user.name === datum.assignedTrade;
-    });
+    const { currentUser } = this.props;
+    if (currentUser.role === 'Admin') {
+      return data;
+    } else {
+      const authData = data.filter(datum => {
+        return currentUser.name === datum.assignedTrade;
+      });
+      return authData;
+    }
   };
 
   render() {
-    const { data, currentUser, newLead } = this.props;
+    let { data, currentUser } = this.props;
+    data = this.authoriseData(data);
     const { activeJob, mobileShowList, activeScreen } = this.state;
     return (
       <div className="dashboard">
@@ -178,7 +217,7 @@ class Dashboard extends Component {
           back={this.back}
           mobileShowList={mobileShowList}
           activeScreen={activeScreen}
-          newLead={newLead}
+          newLead={this.updateNewLeads}
           currentUser={currentUser}
         />
         <JobList
@@ -202,6 +241,7 @@ class Dashboard extends Component {
             editedEnquiry={this.state.editedEnquiry}
             currentUser={currentUser}
             handleSaveEditedFollowup={this.handleSaveEditedFollowup}
+            handleUpload={this.handleUpload}
           />
         )}
       </div>

@@ -16,7 +16,7 @@ const initialState = {
   currentRoofMaterial: "",
   gutterDownpipeReplacement: "",
   nameError: "",
-  suburbError:""
+  suburbError: ""
 };
 
 class NewLeadForm extends Component {
@@ -30,30 +30,27 @@ class NewLeadForm extends Component {
     this.setState({ [e.target.id]: e.target.value });
 
     this.setState({
-      [e.target.name]: isCheckbox
-      ? e.target.checked
-      : e.target.value
-      });
+      [e.target.name]: isCheckbox ? e.target.checked : e.target.value
+    });
   };
 
+  validate = () => {
+    let nameError = "";
+    let suburbError = "";
 
-  validate= () => {
-    let nameError= "";
-    let suburbError= "";
-
-    if(!this.state.name) {
+    if (!this.state.name) {
       nameError = "* name required";
-    } 
-    if(!this.state.suburb) {
+    }
+    if (!this.state.suburb) {
       suburbError = "* suburb required";
     }
-    
+
     if (nameError || suburbError) {
-      this.setState({ nameError, suburbError});
+      this.setState({ nameError, suburbError });
       return false;
     }
     return true;
-  }
+  };
 
   // assign below method to the edit lead button
   handleSaveNewLeadClick = e => {
@@ -76,14 +73,13 @@ class NewLeadForm extends Component {
       suburbError: this.state.suburbError
     };
 
-    const isValid = this.validate()
+    const isValid = this.validate();
     if (isValid) {
       console.log(this.state);
       this.setState(initialState);
       this.props.addNewLead(newLead);
       this.props.closeNewLeadPopup(e);
     }
-
   };
 
   render() {
@@ -110,7 +106,9 @@ class NewLeadForm extends Component {
                       onChange={this.handleOnChange}
                       value={this.state.name}
                     />
-                   <div className="validation-prompt">{this.state.nameError}</div>
+                    <div className="validation-prompt">
+                      {this.state.nameError}
+                    </div>
                   </label>
                   <label className="p-font" htmlFor="suburb">
                     <span className="comments">Suburb: </span>
@@ -121,7 +119,9 @@ class NewLeadForm extends Component {
                       onChange={this.handleOnChange}
                       value={this.state.suburb}
                     />
-                  <div className="validation-prompt">{this.state.suburbError}</div>
+                    <div className="validation-prompt">
+                      {this.state.suburbError}
+                    </div>
                   </label>
                 </div>
                 <div className="email-phone-date-edit">
@@ -132,7 +132,7 @@ class NewLeadForm extends Component {
                       type="email"
                       onChange={this.handleOnChange}
                     />
-                  <div style={{color: "white" }}>{this.state.nameError}</div>
+                    <div style={{ color: "white" }}>{this.state.nameError}</div>
                   </label>
                   <label className="p-font" htmlFor="phone">
                     <span className="comments">Phone: </span>
@@ -141,7 +141,9 @@ class NewLeadForm extends Component {
                       type="text"
                       onChange={this.handleOnChange}
                     />
-                 <div style={{color: "white"}}>{this.state.suburbError}</div>
+                    <div style={{ color: "white" }}>
+                      {this.state.suburbError}
+                    </div>
                   </label>
                 </div>
               </div>

@@ -32,6 +32,7 @@ class ImageDisplay extends React.Component {
               <img
                 className="photo-frame"
                 id={i}
+                key={i}
                 src={url}
                 alt=""
                 width="90"
