@@ -30,12 +30,12 @@ class TopButtons extends React.Component {
   };
 
   handleFocus = e => {
-    e.target.value = ''
-  }
+    e.target.value = "";
+  };
 
   render() {
     const { users, data } = this.props;
-    console.log(data)
+    console.log(data);
     return (
       <>
         <div className="job-top-buttons">
@@ -47,24 +47,22 @@ class TopButtons extends React.Component {
               onChange={this.handleAssignLead}
               onFocus={this.handleFocus}
             >
-              <option value=''>Select a user</option>
-            {
-              users &&
-              users.map((user, i) => {
-                console.log(data.assignedTrade)
-                if (data.assignedTrade === user.name) {
-                  return <option key={i}>{user}</option>
-                } else {
-                  return <option key={i}>{user}</option>
-                }
-              })
-            }
+              <option value="">Select a user</option>
+              {users &&
+                users.map((user, i) => {
+                  console.log(data.assignedTrade);
+                  if (data.assignedTrade === user.name) {
+                    return <option key={i}>{user}</option>;
+                  } else {
+                    return <option key={i}>{user}</option>;
+                  }
+                })}
             </select>
           </div>
           <div className="top-buttons-right">
             <div className="top-options">
               <p>Mark as:</p>
-              <select className='options' onChange={ this.handleMoveLead }>
+              <select className="options" onChange={this.handleMoveLead}>
                 <option>---</option>
                 <option>Sold</option>
                 <option>Archived</option>
