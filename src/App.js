@@ -28,12 +28,14 @@ class App extends Component {
       this.setState({
         authenticated: true
       });
+      return true;
     } catch (error) {
       console.log(error);
       this.setState({
         authenticated: true,
         error: error
       });
+      return false;
     }
   };
 
