@@ -117,6 +117,13 @@ class Dashboard extends Component {
     this.setActiveJob(id);
   };
 
+  updateNewLeads = async lead => {
+    const edited = await axios.post(`${process.env.REACT_APP_API_URL}/jobs`, lead);
+    this.setState({
+      editedEnquiry: edited
+    })
+  };
+
   handleClearEditData = () => {
     if (this.state.editedEnquiry_id !== this.state.activeJob._id) {
       this.setState({
@@ -184,7 +191,7 @@ class Dashboard extends Component {
   };
 
   render() {
-    let { data, currentUser, newLead } = this.props;
+    let { data, currentUser } = this.props;
     data = this.authoriseData(data);
     const { activeJob, mobileShowList, activeScreen } = this.state;
     return (
@@ -195,7 +202,7 @@ class Dashboard extends Component {
           back={this.back}
           mobileShowList={mobileShowList}
           activeScreen={activeScreen}
-          newLead={newLead}
+          newLead={this.updateNewLeads}
           currentUser={currentUser}
         />
         <JobList

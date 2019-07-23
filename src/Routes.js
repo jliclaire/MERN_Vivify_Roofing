@@ -13,7 +13,6 @@ class Routes extends Component {
       currentUser,
       authCall,
       users,
-      newLead,
       getLeads
     } = this.props;
     return (
@@ -36,7 +35,6 @@ class Routes extends Component {
               <Dashboard
                 {...props}
                 data={data}
-                newLead={newLead}
                 currentUser={currentUser}
                 users={users}
                 getLeads={getLeads}

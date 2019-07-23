@@ -45,10 +45,6 @@ class App extends Component {
     this.setState({ data: data });
   };
 
-  updateNewLeads = async lead => {
-    await axios.post(`${process.env.REACT_APP_API_URL}/jobs`, lead);
-  };
-
   getUser = async () => {
     try {
       // check if the user has a token and send to the back end to get user info
@@ -100,12 +96,6 @@ class App extends Component {
     this.getLeads();
   }
 
-  // componentDidUpdate(prevState) {
-  //   if (prevState.data !== this.state.data) {
-  //     this.getLeads();
-  //   }
-  // }
-
   render() {
     const { data, authenticated, currentUser, usernames } = this.state;
     if (data.length === 0) {
@@ -118,7 +108,6 @@ class App extends Component {
           currentUser={currentUser}
           users={usernames}
           authCall={this.authCall}
-          newLead={this.updateNewLeads}
           getLeads={this.getLeads}
         />
       );
