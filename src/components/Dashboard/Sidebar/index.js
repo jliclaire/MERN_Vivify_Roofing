@@ -241,7 +241,7 @@ const Sidebar = props => {
         <div className="sidebar-bottom-item">
           <h4>Manage Account</h4>
           <div className="sidebar-bottom-container">
-            <div className="sidebar-bottom-button" onClick={deleteToken}>
+            <div className="sidebar-bottom-button">
               <Link to='/me' className="button-text">
                 Edit
               </Link>
