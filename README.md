@@ -227,8 +227,6 @@ The application has two types of users, an Admin who has full access to features
 
  Our Figma flow set for the Admin User’s journey to have our end_user (service provider access. to the application.  
 
-<img src="./docs/figma-pic.png">
-
 
 ### Wireframes
 
