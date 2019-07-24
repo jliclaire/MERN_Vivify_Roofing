@@ -6,7 +6,7 @@ import { capitaliseMultiple } from "../../../utils/capitalise";
 import { FaAngleDown, FaAngleLeft } from "react-icons/fa";
 
 const SideMenu = props => {
-  let { changeScreen, currentUser, data, activeScreen, newLead } = props;
+  let { changeScreen, currentUser, data, activeScreen } = props;
   // function to toggle classname
   console.log(currentUser);
 

@@ -31,13 +31,10 @@ class Login extends React.Component {
     let emailError = "";
     let passwordError = "";
 
-    if (this.state.password.length < 5) {
-      passwordError = "* password requires more than 5 characters";
-    }
 
-    if (!this.state.password) {
-      passwordError = "* password is empty";
-    }
+    if(!this.state.password) {
+      passwordError = "* forgot to enter in your password";
+    } 
 
     if (!this.state.email.includes("@") || !this.state.email) {
       emailError = "* invalid email";

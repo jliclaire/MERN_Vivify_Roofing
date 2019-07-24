@@ -20,11 +20,11 @@ the sales procedure.
 
 Irregularities and lack of system around the sales procedure and
 communication between the trades and sales staff had meant that
-mistakes were often made and jobs misquoted. This is a risk to both the
+mistakes were often made and jobs misquoted. This is a risk and an opportunity to both the
 reputation and bottom line of the business.
 
 A significant aspect of this problem was that communication and record-keeping
-was done on an ad hoc basis. Therefore, Having all of the information regarding
+was done on an ad hoc basis. Therefore, having all the information regarding
 the customer and their particular needs in a centralised hub was meant to
 improve this situation and improve communication between the trades and the
 sales team more generally.
@@ -36,27 +36,26 @@ place, we want the software to centralise information regarding customer leads
 and the development of these over the sales lifecycle, as well as to standardise
 interactions and processes concerning the potential customer.
 
-This functionality is covered in the **Dashboard** of the software. An
-**Admin User** on the dashboard can see all the sales **Leads** and sort them by
-their current status in the sales lifecycle (new => in progress => sold/archived).
-Clicking on a lead will display contact information for the potential customer
-and the details of the job.
+This functionality is covered in the **Dashboard** of the software. An **Admin User** on the dashboard can see all the sales **Leads** and sorted them by their current status in the sales lifecycle, allowing **Admin Users**  to have the complete control. 
 
-Sales leads can be assigned to **Sales Users** whose responsiblity it then is
-to follow up with the lead in order to quote and potentially sell the job. At
-this stage the Lead is marked as "in progress."
-Once in contact with the customers they are required to submit **Followups** using
-the HTML forms which are attached to the **Lead** as a record of the sales
-attempt. The Sales Users can also provide more unforseen details about the job
-and provide the price for which they have sold it. Once this occurs the job is
-marked as "sold."
+Clicking on a **Lead** will display contact information for the potential customer and the details of the job.
+
+Sales leads can be assigned to **Sales Users** whose responsiblity is then
+to follow up the the **Lead** in order to quote and potentially sale of the job. At
+this stage the Lead is marked as **"in progress."**
+
+The **Sale User** contacts the **Lead** and is required to submit a **Followups** using
+the HTML forms which are attached to the **Lead** as a record of securing the job. The **Sales Users** can also provide more unforseen details about the job, photos and sets a quote of which they have sold it. Once this occurs the job is marked as "sold."
+
+
+<img src="./docs/dashboard.gif">
+
 
 The second piece of functionality, the analytics, is covered in the **Admin**
 section of the software. Here an Admin User can find information about what kinds
 of jobs they have been able to sell, who has been selling them, how much they
 have been sold for, and where they have been sold.
 
-<img src="./docs/dashboard.gif">
 
 ### Technology Stack
 
