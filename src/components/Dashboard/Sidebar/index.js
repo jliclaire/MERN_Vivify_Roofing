@@ -6,7 +6,7 @@ import { capitaliseMultiple } from "../../../utils/capitalise";
 import { FaAngleDown, FaAngleLeft } from "react-icons/fa";
 
 const SideMenu = props => {
-  let { changeScreen, currentUser, data, activeScreen } = props;
+  let { changeScreen, currentUser, data, activeScreen, setHamburger } = props;
   // function to toggle classname
   console.log(currentUser);
 
@@ -17,7 +17,10 @@ const SideMenu = props => {
         {currentUser.role === "Admin" && (
           <div
             className={isActive("inbox", activeScreen)}
-            onClick={() => changeScreen("inbox")}
+            onClick={() => {
+              changeScreen("inbox")
+              setHamburger();
+            } }
           >
             <p>
               Unassigned (
@@ -32,10 +35,13 @@ const SideMenu = props => {
         )}
         <div
           className={isActive("in progress", activeScreen)}
-          onClick={() => changeScreen("in progress")}
+          onClick={() => {
+            changeScreen("in progress")
+            setHamburger()
+          }}
         >
           <p>
-            {currentUser.admin ? "Assigned" : "New Leads"} (
+            {currentUser.role === "Admin" ? "Assigned" : "New Leads"} (
             {
               data.filter(datum => {
                 return datum.assignedTrade && !datum.sold && !datum.archived;
@@ -46,7 +52,10 @@ const SideMenu = props => {
         </div>
         <div
           className={isActive("sold", activeScreen)}
-          onClick={() => changeScreen("sold")}
+          onClick={() => {
+            changeScreen("sold")
+            setHamburger();
+          }}
         >
           <p>
             Sold (
@@ -60,7 +69,10 @@ const SideMenu = props => {
         </div>
         <div
           className={isActive("archive", activeScreen)}
-          onClick={() => changeScreen("archive")}
+          onClick={() => {
+            changeScreen("archive")
+            setHamburger();
+          } }
         >
           <p>
             Archived (
@@ -94,7 +106,6 @@ const isActive = (box, prop) => {
 // needing token to login > user
 const deleteToken = () => {
   localStorage.removeItem("token");
-  sessionStorage.removeItem("token");
   document.location.reload();
 };
 
@@ -131,7 +142,7 @@ const Sidebar = props => {
           </div>
         </div>
         {hamburgerActive ? (
-          <SideMenu {...props} currentUser={currentUser} />
+          <SideMenu {...props} currentUser={currentUser} setHamburger={setHamburgerActive} />
         ) : null}
         <div className="sidebar-leadboxes">
           <NewLead {...props} newLead={newLead} />
