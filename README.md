@@ -235,12 +235,12 @@ The application has two types of users, an Admin who has full access to features
 Building on the the previous design process, we made a wireframe to match and colorate for each viewers endpoint.
 
 #### Vivify Color
-<img src="./docs/Vivify CRM.pdf">
+<img src="./docs/Vivify-CRM-color.jpg">
 
 #### Vivify Wireframes
 
-<img src="./docs/Vivify CRM (2).pdf">
-<img src="./docs/Vivify CRM (1).pdf">
+<img src="./docs/Vivify-CRM-desktop.jpg">
+<img src="./docs/Vivify-CRM-mobile.jpg">
 
 ### ERDs
 
