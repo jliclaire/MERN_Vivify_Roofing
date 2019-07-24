@@ -9,7 +9,12 @@
   padding: 10px;
   border-radius: 5%;
   background: #ff7e7e;
+  font-weight: 700;
   cursor: pointer;
+}
+
+.button:hover {
+  color: #fff;
 }
 
 .button-text {

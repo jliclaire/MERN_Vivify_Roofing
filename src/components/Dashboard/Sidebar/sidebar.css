@@ -9,7 +9,7 @@
 
 .sidebar-logo {
   color: #ff7e7e;
-  padding: 15px;
+  padding: 10px;
   display: flex;
   justify-content: center;
 }
@@ -88,7 +88,7 @@
 
 .sidebar-add-lead {
   margin-bottom: 25px;
-}  
+}
 
 @media only screen and (max-width: 767px) {
   .sidebar {
@@ -100,7 +100,7 @@
 
   .sidebar-add-lead {
     margin-bottom: 0;
-  } 
+  }
 
   .sidebar-info {
     width: 95%;
@@ -167,8 +167,6 @@
     border-radius: 5%;
     text-align: center;
   }
-
-
 }
 
 .sidebar-add-lead-button {
