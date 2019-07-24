@@ -1,5 +1,6 @@
 import React from "react";
 import "./register.css";
+import { Link } from "react-router-dom";
 
 const initialState = {
   name: "",
@@ -163,6 +164,9 @@ class Register extends React.Component {
           </form>
           <div className="btn-register" onClick={this.handleClick}>
             <p>Register</p>
+          </div>
+          <div className="btn-register">
+            <Link to="/">Back to Dashboard</Link>
           </div>
         </div>
       </div>

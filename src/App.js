@@ -75,9 +75,27 @@ class App extends Component {
       const response = await axios.get(
         `${process.env.REACT_APP_API_URL}/users`
       );
-      const users = response.data
+      const users = response.data;
       this.setState({
         usernames: users
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  getSales = async () => {
+    const token = localStorage.getItem("token");
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/users/sales`,
+        {
+          headers: { token: token }
+        }
+      );
+      const salesUsers = await response.data;
+      this.setState({
+        salesUsers: salesUsers
       });
     } catch (error) {
       console.log(error);
@@ -89,17 +107,24 @@ class App extends Component {
     this.getUsernames();
     this.getLeads();
     this.historySettings();
+    this.getSales();
   }
 
   historySettings = () => {
     window.history.pushState(null, null, window.location.href);
     window.onpopstate = function() {
       window.history.go(1);
-    }
-  }
+    };
+  };
 
   render() {
-    const { data, authenticated, currentUser, usernames } = this.state;
+    const {
+      data,
+      authenticated,
+      currentUser,
+      usernames,
+      salesUsers
+    } = this.state;
     if (data.length === 0) {
       return <Loading />;
     } else {
@@ -109,6 +134,7 @@ class App extends Component {
           authenticated={authenticated}
           currentUser={currentUser}
           users={usernames}
+          salesUsers={salesUsers}
           authCall={this.authCall}
           getLeads={this.getLeads}
         />
