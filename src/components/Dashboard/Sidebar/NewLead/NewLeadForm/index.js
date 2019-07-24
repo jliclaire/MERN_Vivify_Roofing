@@ -114,6 +114,7 @@ class NewLeadForm extends Component {
                     <span className="comments">Suburb: </span>
                     <input
                       id="suburb"
+                      className="input-points"
                       type="text"
                       placeholder="required"
                       onChange={this.handleOnChange}
@@ -129,6 +130,7 @@ class NewLeadForm extends Component {
                     <span className="comments">Email: </span>
                     <input
                       id="email"
+                      className="input-points"
                       type="email"
                       onChange={this.handleOnChange}
                     />
