@@ -52,13 +52,6 @@ class Routes extends Component {
             )
           }
         />
-
-        <Route
-          path="/admin"
-          render={props => (
-            <Admin {...props} data={data} currentUser={currentUser} />
-          )}
-        />
       </Switch>
     );
   }

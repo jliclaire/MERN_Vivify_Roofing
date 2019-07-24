@@ -12,7 +12,7 @@ class Dashboard extends Component {
     this.state = {
       mobileShowList: true,
       activeScreen: "inbox",
-      activeJob: this.authoriseData(this.props.data)[0],
+      activeJob: this.authoriseData(this.props.data)[0] || null,
       editJob: false,
       editedEnquiry: ""
     };
@@ -210,6 +210,7 @@ class Dashboard extends Component {
     data = this.authoriseData(data);
     const { activeJob, mobileShowList, activeScreen } = this.state;
     return (
+      activeJob ?
       <div className="dashboard">
         <Sidebar
           data={data}
@@ -224,10 +225,10 @@ class Dashboard extends Component {
           data={this.filterData(data)}
           setActiveJob={this.setActiveJob}
           show={this.state.mobileShowList}
-          activeId={this.state.activeJob._id}
+          activeId={this.state.activeJob ? this.state.activeJob._id: null}
           clearEditData={this.handleClearEditData}
         />
-        {(this.state.mobileShowList && window.innerWidth < 767) || (
+        {(this.state.mobileShowList && window.innerWidth < 767) ||
           <Job
             users={this.props.users}
             data={activeJob}
@@ -243,8 +244,9 @@ class Dashboard extends Component {
             handleSaveEditedFollowup={this.handleSaveEditedFollowup}
             handleUpload={this.handleUpload}
           />
-        )}
-      </div>
+        }
+      </div> :
+      <p>It looks like you don't have any leads assigned.</p>
     );
   }
 }
