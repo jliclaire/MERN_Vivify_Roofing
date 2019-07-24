@@ -44,13 +44,14 @@ class EditUser extends React.Component {
   validate = () => {
     let passwordError = "";
 
-    if (this.state.password !== this.state.confirmPassword) {
+    if (this.state.password !== this.state.confirmPassword ||
+        !this.state.password) {
       passwordError = "Passwords must match";
     }
 
     if (passwordError) {
       this.setState({
-        passwordError,
+        flashMessage: passwordError,
       });
       return false;
     }
@@ -61,30 +62,37 @@ class EditUser extends React.Component {
     e.preventDefault();
     const isValid = this.validate();
 
-    // if (isValid) {
-      const { email, password, name, phone } = this.state;
+    if (isValid) {
+      const { password } = this.state;
       const res = await this.editApiCall({
         password
       });
       if (res) {
-        window.location = "/";
+        this.setState({
+          flashMessage: "You successfully changed your password. Redirecting to main page..."
+        })
+        setTimeout(() => {
+          window.location = "/";
+        }, 2000)
       } else {
         this.setState({
           loginError: "There was a problem changing your details"
         });
       }
-    // }
+    }
   };
 
   render() {
-    console.log(this.props.currentUser._id)
     return (
       <div className='edit-container'>
         <h1>Change your password</h1>
         <p className='explanation'>
-          This page will allow you to modify your user password.
+          This page will allow you to change your user password.
         </p>
-        <h3>{this.state.loginError}</h3>
+        {
+          this.state.flashMessage &&
+          <p className='flash'>{this.state.flashMessage}</p>
+        }
         <form className='register-form'>
           <p>
             <label>New Password</label><br />
