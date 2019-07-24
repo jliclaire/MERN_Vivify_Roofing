@@ -22,9 +22,17 @@ class Routes extends Component {
           render={props => <Login {...props} authCall={authCall} />}
         />
 
+        {/* check if currentUser is admin */}
+
         <Route
           path="/register"
-          render={props => <Register {...props} authCall={authCall} />}
+          render={props =>
+            currentUser && currentUser.role === "Admin" ? (
+              <Register {...props} authCall={authCall} />
+            ) : (
+              <Redirect to="/login" />
+            )
+          }
         />
 
         <Route
