@@ -3,7 +3,7 @@ import JobListRow from "./JobListRow";
 
 class JobList extends Component {
   render() {
-    const { data, setActiveJob, show, activeId, clearEditData } = this.props;
+    const { data, setActiveJob, show, activeId, clearEditData, toggleHamburger } = this.props;
     if (show) {
       return (
         <JobListRow
@@ -11,6 +11,7 @@ class JobList extends Component {
           setActiveJob={setActiveJob}
           activeId={activeId}
           clearEditData={clearEditData}
+          toggleHamburger={toggleHamburger}
         />
       );
     } else {

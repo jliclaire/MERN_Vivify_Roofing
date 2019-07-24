@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const initialState = {
   name: "",
   password: "",
-  role: "",
+  role: "Sales",
   phone: "",
   email: "",
   nameError: "",
