@@ -3,7 +3,6 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Login from "./components/Login/";
 import Register from "./components/Register/";
 import Dashboard from "./components/Dashboard";
-import Admin from "./components/Admin";
 
 class Routes extends Component {
   render() {
@@ -51,13 +50,6 @@ class Routes extends Component {
               <Redirect to="/login" />
             )
           }
-        />
-
-        <Route
-          path="/admin"
-          render={props => (
-            <Admin {...props} data={data} currentUser={currentUser} />
-          )}
         />
       </Switch>
     );

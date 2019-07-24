@@ -4,7 +4,7 @@ import "./register.css";
 const initialState = {
   name: "",
   password: "",
-  role: "",
+  role: "Sales",
   phone: "",
   email: "",
   nameError: "",

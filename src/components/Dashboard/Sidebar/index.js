@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NewLead from "./NewLead";
 import { Link } from "react-router-dom";
 import "./sidebar.css";
@@ -6,9 +6,7 @@ import { capitaliseMultiple } from "../../../utils/capitalise";
 import { FaAngleDown, FaAngleLeft } from "react-icons/fa";
 
 const SideMenu = props => {
-  let { changeScreen, currentUser, data, activeScreen } = props;
-  // function to toggle classname
-  console.log(currentUser);
+  let { changeScreen, currentUser, data, activeScreen, toggleHamburger } = props;
 
   return (
     <>
@@ -17,7 +15,10 @@ const SideMenu = props => {
         {currentUser.role === "Admin" && (
           <div
             className={isActive("inbox", activeScreen)}
-            onClick={() => changeScreen("inbox")}
+            onClick={() => {
+              changeScreen("inbox")
+              toggleHamburger();
+            } }
           >
             <p>
               Unassigned (
@@ -32,10 +33,13 @@ const SideMenu = props => {
         )}
         <div
           className={isActive("in progress", activeScreen)}
-          onClick={() => changeScreen("in progress")}
+          onClick={() => {
+            changeScreen("in progress")
+            toggleHamburger();
+          }}
         >
           <p>
-            {currentUser.admin ? "Assigned" : "New Leads"} (
+            {currentUser.role === "Admin" ? "Assigned" : "New Leads"} (
             {
               data.filter(datum => {
                 return datum.assignedTrade && !datum.sold && !datum.archived;
@@ -46,7 +50,10 @@ const SideMenu = props => {
         </div>
         <div
           className={isActive("sold", activeScreen)}
-          onClick={() => changeScreen("sold")}
+          onClick={() => {
+            changeScreen("sold")
+            toggleHamburger();
+          }}
         >
           <p>
             Sold (
@@ -60,7 +67,10 @@ const SideMenu = props => {
         </div>
         <div
           className={isActive("archive", activeScreen)}
-          onClick={() => changeScreen("archive")}
+          onClick={() => {
+            changeScreen("archive")
+            toggleHamburger();
+          } }
         >
           <p>
             Archived (
@@ -80,7 +90,7 @@ const SideMenu = props => {
           </div>
         )}
         <div className="button" onClick={deleteToken}>
-          <p>Logout</p>
+          <p className='button-text'>Logout</p>
         </div>
       </div>
     </>
@@ -94,7 +104,6 @@ const isActive = (box, prop) => {
 // needing token to login > user
 const deleteToken = () => {
   localStorage.removeItem("token");
-  sessionStorage.removeItem("token");
   document.location.reload();
 };
 
@@ -106,9 +115,10 @@ const Sidebar = props => {
     changeScreen,
     back,
     mobileShowList,
-    newLead
+    newLead,
+    hamburger,
+    toggleHamburger
   } = props;
-  const [hamburgerActive, setHamburgerActive] = useState(false);
 
   return (
     <div className="sidebar">
@@ -122,7 +132,7 @@ const Sidebar = props => {
           </div>
           <div className="hamburger">
             {mobileShowList ? (
-              <div onClick={() => setHamburgerActive(!hamburgerActive)}>
+              <div onClick={() => toggleHamburger()}>
                 <FaAngleDown size="33px" />
               </div>
             ) : (
@@ -130,7 +140,7 @@ const Sidebar = props => {
             )}
           </div>
         </div>
-        {hamburgerActive ? (
+        {hamburger ? (
           <SideMenu {...props} currentUser={currentUser} />
         ) : null}
         <div className="sidebar-leadboxes">

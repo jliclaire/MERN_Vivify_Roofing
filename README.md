@@ -269,7 +269,7 @@ Week 3:
 
 1. What are the most important aspects of quality software?
 
-There are at least four core "most" important aspects of quality software. The
+There are at least six core "most" important aspects of quality software. The
 first aspect is that it satisfies the logic of the business problem which it
 aims to solve. Software is poor quality if it is badly suited to its real world
 problem, or if it approaches this problem with an eccentric or overly complicated
@@ -286,9 +286,19 @@ fulfils its own function and is not overly entangled with the other parts.
 Software that separates its concerns is more easily extensible than software
 which does not.
 
-The final aspect is that of scalability. Quality software can work in production
+The fourth aspect is that of scalability. Quality software can work in production
 contexts where the load on the system may be much higher than in development
 contexts.
+
+The fifth aspect is that of respecting the distinction between configuration and
+code. Variables which fit the software to a particular context should not be
+hardcoded and should be located in a separate file (e.g, as environmental
+variables) so that they can be changed if the software is used in another
+context.
+
+The sixth aspect is that of security. All sensitive data that flows through a
+piece of quality software should be secured against unauthorised access in order
+to protect the privacy of its users.
 
 2. What libraries are being used in the app and why?
 
