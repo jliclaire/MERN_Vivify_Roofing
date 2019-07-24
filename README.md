@@ -206,19 +206,57 @@ Part 2: Followup info filled by sales trade
 
 ### Design process
 
+The designing process primarily focused on simplicity to the UX of the app while meeting the technical requirements. Brett and Luke are seeking a practical way to access and project manage their leads coming through the Vivify website. They said most users will be accessing the app remotely, via mobile phones. 
+
+Our first draft and wireframes was designed for a smartphones client., then we added a desktop design. 
+
+We aim to have the design consistency to Vivify’s website, and since the app is not to be publish publicly, it design is to be purely to enhance its functionality. 
+
 ### User stories
+
+The application has two types of users, an Admin who has full access to features and Sales account .
+
+- Admin User can view all the leads from Inbox and archive and direct the unassigned leads two a Sales User. 
+
+- Admin register another Admin or Sales User
+
+- Admin and Sales User can create a new lead or edit an existing lead.
+
+- Sales user can see all the lead assigned to them and can edit leads, add follow ups or upload photos.
+
+<img src="./docs/UX.flow.jpeg">
+
 
 ### Workflow diagram
 
+ Our Figma flow set for the Admin User’s journey to have our end_user (service provider access. to the application.  
+
+<img src="./docs/figma-pic.png">
+
+
 ### Wireframes
+
+Building on the the previous design process, we made a wireframe to match and colorate for each viewers endpoint.
+
+#### Vivify Color
+<img src="./docs/Vivify CRM.pdf">
+
+#### Vivify Wireframes
+
+<img src="./docs/Vivify CRM (2).pdf">
+<img src="./docs/Vivify CRM (1).pdf">
 
 ### ERDs
 
-<img src="./docs/database.png">
+
 
 ### Data flow diagram
 
+<img src="./docs/data-flow-diagram.jpeg">
+
 ### OO design documentation
+
+
 
 ## Project Management and Planning process
 
