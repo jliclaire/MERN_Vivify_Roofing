@@ -4,31 +4,20 @@ import axios from 'axios';
 import './editUser.css'
 
 const initialState = {
-  name: "",
   password: "",
-  phone: "",
-  email: "",
-  nameError: "",
+  confirmPassword: "",
   passwordError: "",
-  phoneError: "",
-  emailError: ""
 }
 
 class EditUser extends React.Component {
   initialState = {
-    name: this.props.currentUser.name,
     password: '',
-    phone: this.props.currentUser.phone,
-    email: this.props.currentUser.email,
-    nameError: "",
+    confirmPassword: '',
     passwordError: "",
-    phoneError: "",
-    emailError: ""
   }
   state = initialState
 
   editApiCall = async (data) => {
-    console.log(this.props.currentUser._id)
     try {
       const token = localStorage.getItem('token')
       const { _id } = this.props.currentUser
@@ -39,8 +28,7 @@ class EditUser extends React.Component {
           headers: { token: token }
         }
       )
-      console.log(response)
-      const { newToken } = response.data;
+      const newToken = response.data.token;
       localStorage.setItem("token", newToken);
       return true
     } catch (error) {
@@ -76,10 +64,7 @@ class EditUser extends React.Component {
     // if (isValid) {
       const { email, password, name, phone } = this.state;
       const res = await this.editApiCall({
-        email,
-        password,
-        name,
-        phone
+        password
       });
       if (res) {
         window.location = "/";
@@ -95,35 +80,12 @@ class EditUser extends React.Component {
     console.log(this.props.currentUser._id)
     return (
       <div className='edit-container'>
-        <h1>Change your details</h1>
+        <h1>Change your password</h1>
         <p className='explanation'>
-          This page will allow you to modify your user details, such as email
-          and password. Only enter the details you want to change.
+          This page will allow you to modify your user password.
         </p>
         <h3>{this.state.loginError}</h3>
         <form className='register-form'>
-          <p>
-            <label>New Name</label><br />
-            <input
-              type='text'
-              id='name'
-              onChange={this.handleChange}
-              value={this.state.name}
-              placeholder={this.state.nameError}
-            />
-          </p>
-
-          <p>
-            <label>New Email</label><br />
-            <input
-              type='text'
-              id='email'
-              onChange={this.handleChange}
-              value={this.state.email}
-              placeholder={this.state.nameError}
-            />
-          </p>
-
           <p>
             <label>New Password</label><br />
             <input
@@ -144,20 +106,9 @@ class EditUser extends React.Component {
               value={this.state.confirmPassword}
             />
           </p>
-
-          <p>
-            <label>New Phone</label><br />
-            <input
-              type='text'
-              id='phone'
-              onChange={this.handleChange}
-              value={this.state.phone}
-              placeholder={this.state.phoneError}
-            />
-          </p>
           <div className='buttons'>
             <div className="btn-register back-to-dashboard-btn" onClick={this.handleClick}>
-              <p>Change Details</p>
+              <p>Change Password</p>
             </div>
             <div className="btn-register back-to-dashboard-btn">
               <Link to="/"> Back to Dashboard</Link>
