@@ -58,6 +58,7 @@ class Login extends React.Component {
       this.setState(initialState);
     }
     if (response) {
+      localStorage.setItem('token', response)
       window.location = "/";
     } else {
       this.setState({

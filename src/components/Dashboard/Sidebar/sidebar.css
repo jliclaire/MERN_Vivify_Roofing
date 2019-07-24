@@ -107,6 +107,10 @@
   margin-bottom: 25px;
 }
 
+.mob-button {
+  margin-bottom: 15px;
+}
+
 @media only screen and (max-width: 767px) {
   .sidebar {
     width: 100%;

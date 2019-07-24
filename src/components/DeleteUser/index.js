@@ -72,8 +72,10 @@ class DeleteUser extends Component {
           })}
         </div>
 
-        <div className="btn-register back-to-dashboard-btn">
-          <Link to="/"> Back to Dashboard</Link>
+        <div className='flexme'>
+          <div className="btn-register back-to-dashboard-btn">
+            <Link to="/"> Back to Dashboard</Link>
+          </div>
         </div>
       </div>
     );
