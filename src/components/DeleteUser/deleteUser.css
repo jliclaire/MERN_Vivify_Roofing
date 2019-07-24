@@ -50,5 +50,10 @@
 }
 
 .back-to-dashboard-btn {
-  width: 30%;
+  /* width: 40%; */
+  text-align: center;
+}
+
+.flexme {
+  width: 40%;
 }

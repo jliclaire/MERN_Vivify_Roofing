@@ -12,6 +12,7 @@
   width: 50%;
 }
 
-.edituser-button {
-  margin: auto;
+.buttons {
+  display: flex;
+  justify-content: space-around;
 }

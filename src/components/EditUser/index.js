@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import axios from 'axios';
 import './editUser.css'
 
@@ -161,8 +162,13 @@ class EditUser extends React.Component {
               placeholder={this.state.phoneError}
             />
           </p>
-          <div className="btn-register edituser-button" onClick={this.handleClick}>
-            <p>Change Details</p>
+          <div className='buttons'>
+            <div className="btn-register back-to-dashboard-btn" onClick={this.handleClick}>
+              <p>Change Details</p>
+            </div>
+            <div className="btn-register back-to-dashboard-btn">
+              <Link to="/"> Back to Dashboard</Link>
+            </div>
           </div>
         </form>
       </div>
