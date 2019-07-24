@@ -1,0 +1,17 @@
+.edit-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.explanation {
+  text-align: center;
+  margin-top: 15px;
+  width: 50%;
+}
+
+.edituser-button {
+  margin: auto;
+}
