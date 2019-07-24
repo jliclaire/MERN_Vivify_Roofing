@@ -19,7 +19,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-left: 1px solid #dfdcdc
+  border-left: 1px solid #dfdcdc;
+  text-align: center;
+  height: 100vh;
 }
 
 @media only screen and (max-width: 767px) {
