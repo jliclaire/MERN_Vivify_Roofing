@@ -256,7 +256,22 @@ class Dashboard extends Component {
           />
         }
       </div> :
-      <h1>It looks like you don't have any leads assigned.</h1>
+      <div className='dashboard'>
+        <Sidebar
+          data={data}
+          changeScreen={this.changeScreen}
+          back={this.back}
+          mobileShowList={mobileShowList}
+          activeScreen={activeScreen}
+          newLead={this.updateNewLeads}
+          currentUser={currentUser}
+          hamburger={this.state.hamburgerOpen}
+          toggleHamburger={this.toggleHamburger} 
+        />
+        <div className='noleads'>
+          <h1>It looks like you don't have any leads assigned.</h1>
+        </div>
+      </div>
     );
   }
 }
