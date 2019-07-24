@@ -83,7 +83,12 @@ class Register extends React.Component {
         phone
       });
       if (res) {
-        window.location = "/";
+        this.setState({
+          loginError: "Successfully created user, redirecting to dashboard"
+        })
+        setTimeout(() => {
+          window.location = "/"
+        }, 2000)
       } else {
         this.setState({
           loginError: "There was a problem signing you up"
