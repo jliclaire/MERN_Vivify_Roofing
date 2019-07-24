@@ -72,7 +72,13 @@ const SideMenu = props => {
             )
           </p>
         </div>
-
+        {currentUser.role === "Admin" && (
+          <div className="sidebar-bottom-button">
+            <Link to="/register" className="button-text">
+              Register User
+            </Link>
+          </div>
+        )}
         <div className="button" onClick={deleteToken}>
           <p>Logout</p>
         </div>
@@ -90,10 +96,6 @@ const deleteToken = () => {
   localStorage.removeItem("token");
   sessionStorage.removeItem("token");
   document.location.reload();
-};
-
-const registerUser = () => {
-  return null;
 };
 
 const Sidebar = props => {
