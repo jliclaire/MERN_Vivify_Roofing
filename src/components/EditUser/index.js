@@ -28,15 +28,16 @@ class EditUser extends React.Component {
   state = initialState
 
   editApiCall = async (data) => {
+    console.log(this.props.currentUser._id)
     try {
       const token = localStorage.getItem('token')
       const { _id } = this.props.currentUser
       const response = await axios.put(
         `${process.env.REACT_APP_API_URL}/users/${_id}`,
+        data,
         {
           headers: { token: token }
-        },
-        data
+        }
       )
       console.log(response)
       const { newToken } = response.data;
@@ -91,14 +92,13 @@ class EditUser extends React.Component {
   };
 
   render() {
-    console.log(this.props.currentUser)
-    console.log(this.state)
+    console.log(this.props.currentUser._id)
     return (
       <div className='edit-container'>
         <h1>Change your details</h1>
         <p className='explanation'>
           This page will allow you to modify your user details, such as email
-          and password.
+          and password. Only enter the details you want to change.
         </p>
         <h3>{this.state.loginError}</h3>
         <form className='register-form'>
