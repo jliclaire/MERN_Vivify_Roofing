@@ -2,10 +2,14 @@
 
 Built with blood sweat and tears by Jing Li, Mark Butcher, and Andrew Sims
 
+Deployed application:
+
 https://vivify-roofing.netlify.com/
 
 Link to GitHub repository:
+
 https://github.com/jliclaire/MERN_Vivify_Roofing_frontend
+
 https://github.com/jliclaire/MERN_Vivify_Roofing_backend
 
 ## Description
@@ -20,8 +24,8 @@ the sales procedure.
 
 Irregularities and lack of system around the sales procedure and
 communication between the trades and sales staff had meant that
-mistakes were often made and jobs misquoted. This is a risk and an opportunity to both the
-reputation and bottom line of the business.
+mistakes were often made and jobs misquoted. This is a risk 
+to both the reputation and bottom line of the business.
 
 A significant aspect of this problem was that communication and record-keeping
 was done on an ad hoc basis. Therefore, having all the information regarding
@@ -49,13 +53,6 @@ the HTML forms which are attached to the **Lead** as a record of securing the jo
 
 
 <img src="./docs/dashboard.gif">
-
-
-The second piece of functionality, the analytics, is covered in the **Admin**
-section of the software. Here an Admin User can find information about what kinds
-of jobs they have been able to sell, who has been selling them, how much they
-have been sold for, and where they have been sold.
-
 
 ### Technology Stack
 
@@ -371,9 +368,36 @@ high standard in the time alotted.
 
 5. Evaluate how effective your knowledge and skills were this project, using examples, and suggest changes or improvements for future projects of a similar nature.
 
-````
+Our knowledge and skills were adequate to complete a project of this kind, but
+we were able to identify ways in which we could improve. 
 
-```
+Firstly, we overlooked some aspects of the device-specific features of the UX 
+that made our application
+more difficult to use. Specifically, one of the users would be interacting with
+our software through an android phone and our user workflow did not cohere
+with the typical flow on android. He was quite used to pressing the back button
+on his phone and this would break our single page application (it would be navigated
+away from the app).
 
-```
-````
+If we had identified this issue earlier we could have made our frontend Routes
+more fine-grained in order to better manipulate the browser history. This suggests
+two improvements: 1) try to be more thorough in our initial interview with the
+client; and 2) manually test on a more specifically targeted range of devices
+during development.
+
+Secondly, we could have improved our code review process. We did an informal
+code review where we would look over our changes as a team, but we did not
+integrate this process into the git workflow. As a result we were not highly
+familiar with eachothers code, and were limited in our ability as a team to 
+immediately fix bugs. One way to improve on this would be to integrate the
+code review process into the process of merging PRs on GitHub, so that at least
+one other person, but preferably both, is familiar with the new code.
+
+Finally, frequent refactoring of our codebase might have made our code more 
+user friendly during development. Our CSS, for example, was spread across many
+files and was prone to duplication. From time to time we had to restructure or
+modify the styling and our ad-hoc structuring made doing this more difficult
+than it could have been.
+
+We feel that addressing just these issues alone would make us a much more 
+effective team in future.
