@@ -39,8 +39,7 @@
 .btn-register {
   padding: 10px;
   text-align: center;
-  width: 85px;
-  border-radius: 10%;
+  border-radius: 5px;
   background: #ff7e7e;
   cursor: pointer;
   margin-bottom: 25px;
@@ -48,6 +47,10 @@
 
 .btn-text {
   text-align: center;
+}
+
+.btn-register:hover a {
+  color: #fff;
 }
 
 .btn-register:hover p {
