@@ -14,8 +14,15 @@ class Dashboard extends Component {
       activeScreen: "inbox",
       activeJob: this.authoriseData(this.props.data)[0] || null,
       editJob: false,
-      editedEnquiry: ""
+      editedEnquiry: "",
+      hamburgerOpen: false
     };
+  }
+
+  toggleHamburger = () => {
+    this.setState({
+      hamburgerOpen: !this.state.hamburgerOpen
+    })
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -220,6 +227,8 @@ class Dashboard extends Component {
           activeScreen={activeScreen}
           newLead={this.updateNewLeads}
           currentUser={currentUser}
+          hamburger={this.state.hamburgerOpen}
+          toggleHamburger={this.toggleHamburger}
         />
         <JobList
           data={this.filterData(data)}
@@ -227,6 +236,7 @@ class Dashboard extends Component {
           show={this.state.mobileShowList}
           activeId={this.state.activeJob ? this.state.activeJob._id: null}
           clearEditData={this.handleClearEditData}
+          toggleHamburger={this.toggleHamburger}
         />
         {(this.state.mobileShowList && window.innerWidth < 767) ||
           <Job

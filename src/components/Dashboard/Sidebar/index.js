@@ -6,9 +6,7 @@ import { capitaliseMultiple } from "../../../utils/capitalise";
 import { FaAngleDown, FaAngleLeft } from "react-icons/fa";
 
 const SideMenu = props => {
-  let { changeScreen, currentUser, data, activeScreen, setHamburger } = props;
-  // function to toggle classname
-  console.log(currentUser);
+  let { changeScreen, currentUser, data, activeScreen, hamburger, toggleHamburger } = props;
 
   return (
     <>
@@ -19,7 +17,7 @@ const SideMenu = props => {
             className={isActive("inbox", activeScreen)}
             onClick={() => {
               changeScreen("inbox")
-              setHamburger();
+              toggleHamburger();
             } }
           >
             <p>
@@ -37,7 +35,7 @@ const SideMenu = props => {
           className={isActive("in progress", activeScreen)}
           onClick={() => {
             changeScreen("in progress")
-            setHamburger()
+            toggleHamburger();
           }}
         >
           <p>
@@ -54,7 +52,7 @@ const SideMenu = props => {
           className={isActive("sold", activeScreen)}
           onClick={() => {
             changeScreen("sold")
-            setHamburger();
+            toggleHamburger();
           }}
         >
           <p>
@@ -71,7 +69,7 @@ const SideMenu = props => {
           className={isActive("archive", activeScreen)}
           onClick={() => {
             changeScreen("archive")
-            setHamburger();
+            toggleHamburger();
           } }
         >
           <p>
@@ -92,7 +90,7 @@ const SideMenu = props => {
           </div>
         )}
         <div className="button" onClick={deleteToken}>
-          <p>Logout</p>
+          <p className='button-text'>Logout</p>
         </div>
       </div>
     </>
@@ -117,7 +115,9 @@ const Sidebar = props => {
     changeScreen,
     back,
     mobileShowList,
-    newLead
+    newLead,
+    hamburger,
+    toggleHamburger
   } = props;
   const [hamburgerActive, setHamburgerActive] = useState(false);
 
@@ -133,7 +133,7 @@ const Sidebar = props => {
           </div>
           <div className="hamburger">
             {mobileShowList ? (
-              <div onClick={() => setHamburgerActive(!hamburgerActive)}>
+              <div onClick={() => toggleHamburger()}>
                 <FaAngleDown size="33px" />
               </div>
             ) : (
@@ -141,7 +141,7 @@ const Sidebar = props => {
             )}
           </div>
         </div>
-        {hamburgerActive ? (
+        {hamburger ? (
           <SideMenu {...props} currentUser={currentUser} setHamburger={setHamburgerActive} />
         ) : null}
         <div className="sidebar-leadboxes">
