@@ -5,7 +5,7 @@ const OPTIONS = ["checkOne", "checkTwo", "checkThree", "checkFour"];
 
 const LISTS = [
   { name: "checkOne", text: "I've checked the pitch of the roof" },
-  { name: "checkTwo", text: "I've checked if there are skylights" },
+  { name: "checkTwo", text: "I've checked if there are skylights or large holes" },
   { name: "checkThree", text: "I've checked the sizing of the gutters" },
   { name: "checkFour", text: "I've checked whether it needs carpentry" }
 ];
