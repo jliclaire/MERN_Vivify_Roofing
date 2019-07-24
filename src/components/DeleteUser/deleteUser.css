@@ -6,8 +6,18 @@
 .delete-user-dashboard h1 {
   text-align: center;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  /* border-bottom: 1px solid #ff7e7e; */
+}
+
+.delete-user-dashboard h4 {
+  color: #ff7e7e;
+}
+
+.salesUser-container {
+  border-top: 1px solid #ff7e7e;
   border-bottom: 1px solid #ff7e7e;
+  margin-bottom: 20px;
 }
 
 .user-row {
@@ -19,7 +29,11 @@
 }
 
 .user-col {
-  width: 20%;
+  width: 15%;
+}
+
+.col-width {
+  width: 40%;
 }
 
 .fa-trash-alt {
@@ -29,4 +43,12 @@
 
 .fa-trash-alt:hover {
   color: #111;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.back-to-dashboard-btn {
+  width: 30%;
 }

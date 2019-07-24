@@ -8,21 +8,29 @@ class DeleteUser extends Component {
     super(props);
     this.state = {
       deleteMessage: "",
-      users: this.props.salesUsers
+      remainingUsers: ""
     };
   }
 
   handleDeleteUser = async e => {
     e.preventDefault();
-    const userId = e.target.parentNode.id;
     const token = localStorage.getItem("token");
+    const userId = e.target.parentNode.id;
+    const deletedUser = this.props.salesUsers.find(user => user._id === userId);
+    const remainingUsers = this.props.salesUsers.filter(
+      user => user._id !== userId
+    );
     try {
       await axios.delete(`${process.env.REACT_APP_API_URL}/users/${userId}`, {
         headers: { token: token }
       });
-      const deleteMessage = "Successfully deleted sales user account!";
+
+      const deleteMessage = `Successfully deleted account for ${
+        deletedUser.name
+      }!`;
       this.setState({
-        deleteMessage
+        deleteMessage,
+        remainingUsers
       });
     } catch (error) {
       console.log(error);
@@ -31,32 +39,32 @@ class DeleteUser extends Component {
 
   render() {
     const { salesUsers } = this.props;
-    const { users } = this.state;
+    const { remainingUsers } = this.state;
     let data;
     {
-      users ? (data = users) : (data = salesUsers);
+      remainingUsers ? (data = remainingUsers) : (data = salesUsers);
     }
     return (
       <div className="delete-user-dashboard">
         <h1>All Sales Account</h1>
         {this.state.deleteMessage ? <h4>{this.state.deleteMessage}</h4> : null}
         <div className="salesUser-container">
-          <div className="user-row">
+          <div className="user-row p-font comments">
             <div className="user-col">Name</div>
             <div className="user-col">Role</div>
             <div className="user-col">Phone</div>
-            <div className="user-col">Email</div>
-            <div className="user-col">Delete Account</div>
+            <div className="col-width">Email</div>
+            <div className="user-col text-center">Delete Account</div>
           </div>
           {data.map((user, index) => {
             return (
-              <div key={index} className="user-row" id={user._id}>
+              <div key={index} className="user-row p-font" id={user._id}>
                 <div className="user-col">{user.name}</div>
                 <div className="user-col">{user.role}</div>
                 <div className="user-col">{user.phone}</div>
-                <div className="user-col">{user.email}</div>
+                <div className="col-width">{user.email}</div>
                 <i
-                  class="far fa-trash-alt user-col"
+                  className="far fa-trash-alt user-col text-center"
                   onClick={this.handleDeleteUser}
                 />
               </div>
@@ -65,7 +73,7 @@ class DeleteUser extends Component {
         </div>
 
         <div className="btn-register back-to-dashboard-btn">
-          <Link to="/">Back to Dashboard</Link>
+          <Link to="/"> Back to Dashboard</Link>
         </div>
       </div>
     );
