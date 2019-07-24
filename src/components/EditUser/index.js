@@ -31,8 +31,6 @@ class EditUser extends React.Component {
     try {
       const token = localStorage.getItem('token')
       const { _id } = this.props.currentUser
-      console.log(_id)
-      console.log(token)
       const response = await axios.put(
         `${process.env.REACT_APP_API_URL}/users/${_id}`,
         {
@@ -55,30 +53,15 @@ class EditUser extends React.Component {
   }
 
   validate = () => {
-    let nameError = "";
     let passwordError = "";
-    let phoneError = "";
-    let emailError = "";
 
-    if (!this.state.name) {
-      nameError = "Please enter your name";
-    }
-    if (!this.state.password) {
-      passwordError = "Please enter a new password";
-    }
-    if (!this.state.phone) {
-      phoneError = "Please enter your phone number";
-    }
-    if (!this.state.email) {
-      emailError = "Please enter your email";
+    if (this.state.password !== this.state.confirmPassword) {
+      passwordError = "Passwords must match";
     }
 
-    if (nameError || passwordError || phoneError || emailError) {
+    if (passwordError) {
       this.setState({
-        nameError,
         passwordError,
-        phoneError,
-        emailError
       });
       return false;
     }
@@ -89,7 +72,7 @@ class EditUser extends React.Component {
     e.preventDefault();
     const isValid = this.validate();
 
-    if (isValid) {
+    // if (isValid) {
       const { email, password, name, phone } = this.state;
       const res = await this.editApiCall({
         email,
@@ -104,7 +87,7 @@ class EditUser extends React.Component {
           loginError: "There was a problem changing your details"
         });
       }
-    }
+    // }
   };
 
   render() {
@@ -120,7 +103,7 @@ class EditUser extends React.Component {
         <h3>{this.state.loginError}</h3>
         <form className='register-form'>
           <p>
-            <label>Name</label><br />
+            <label>New Name</label><br />
             <input
               type='text'
               id='name'
@@ -131,7 +114,7 @@ class EditUser extends React.Component {
           </p>
 
           <p>
-            <label>Email</label><br />
+            <label>New Email</label><br />
             <input
               type='text'
               id='email'
@@ -144,7 +127,7 @@ class EditUser extends React.Component {
           <p>
             <label>New Password</label><br />
             <input
-              type='text'
+              type='password'
               id='password'
               onChange={this.handleChange}
               value={this.state.password}
@@ -153,7 +136,17 @@ class EditUser extends React.Component {
           </p>
 
           <p>
-            <label>Phone</label><br />
+            <label>Confirm New Password</label><br />
+            <input
+              type='password'
+              id='confirmPassword'
+              onChange={this.handleChange}
+              value={this.state.confirmPassword}
+            />
+          </p>
+
+          <p>
+            <label>New Phone</label><br />
             <input
               type='text'
               id='phone'
