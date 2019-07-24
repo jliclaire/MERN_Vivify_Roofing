@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NewLead from "./NewLead";
 import { Link } from "react-router-dom";
 import "./sidebar.css";
@@ -6,7 +6,7 @@ import { capitaliseMultiple } from "../../../utils/capitalise";
 import { FaAngleDown, FaAngleLeft } from "react-icons/fa";
 
 const SideMenu = props => {
-  let { changeScreen, currentUser, data, activeScreen, hamburger, toggleHamburger } = props;
+  let { changeScreen, currentUser, data, activeScreen, toggleHamburger } = props;
 
   return (
     <>
@@ -119,7 +119,6 @@ const Sidebar = props => {
     hamburger,
     toggleHamburger
   } = props;
-  const [hamburgerActive, setHamburgerActive] = useState(false);
 
   return (
     <div className="sidebar">
@@ -142,7 +141,7 @@ const Sidebar = props => {
           </div>
         </div>
         {hamburger ? (
-          <SideMenu {...props} currentUser={currentUser} setHamburger={setHamburgerActive} />
+          <SideMenu {...props} currentUser={currentUser} />
         ) : null}
         <div className="sidebar-leadboxes">
           <NewLead {...props} newLead={newLead} />
