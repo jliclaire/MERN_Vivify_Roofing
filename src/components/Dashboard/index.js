@@ -246,7 +246,7 @@ class Dashboard extends Component {
           />
         }
       </div> :
-      <p>It looks like you don't have any leads assigned.</p>
+      <h1>It looks like you don't have any leads assigned.</h1>
     );
   }
 }
