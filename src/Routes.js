@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Login from "./components/Login/";
 import Register from "./components/Register/";
+import DeleteUser from "./components/DeleteUser/";
 import Dashboard from "./components/Dashboard";
 
 class Routes extends Component {
@@ -12,7 +13,8 @@ class Routes extends Component {
       currentUser,
       authCall,
       users,
-      getLeads
+      getLeads,
+      salesUsers
     } = this.props;
     return (
       <Switch>
@@ -21,13 +23,26 @@ class Routes extends Component {
           render={props => <Login {...props} authCall={authCall} />}
         />
 
-        {/* check if currentUser is admin */}
-
         <Route
           path="/register"
           render={props =>
             currentUser && currentUser.role === "Admin" ? (
               <Register {...props} authCall={authCall} />
+            ) : (
+              <Redirect to="/login" />
+            )
+          }
+        />
+
+        <Route
+          path="/users/sales"
+          render={props =>
+            currentUser && currentUser.role === "Admin" ? (
+              <DeleteUser
+                {...props}
+                authCall={authCall}
+                salesUsers={salesUsers}
+              />
             ) : (
               <Redirect to="/login" />
             )

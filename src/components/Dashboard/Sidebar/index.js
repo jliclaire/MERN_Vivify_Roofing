@@ -6,7 +6,13 @@ import { capitaliseMultiple } from "../../../utils/capitalise";
 import { FaAngleDown, FaAngleLeft } from "react-icons/fa";
 
 const SideMenu = props => {
-  let { changeScreen, currentUser, data, activeScreen, toggleHamburger } = props;
+  let {
+    changeScreen,
+    currentUser,
+    data,
+    activeScreen,
+    toggleHamburger
+  } = props;
 
   return (
     <>
@@ -16,9 +22,9 @@ const SideMenu = props => {
           <div
             className={isActive("inbox", activeScreen)}
             onClick={() => {
-              changeScreen("inbox")
+              changeScreen("inbox");
               toggleHamburger();
-            } }
+            }}
           >
             <p>
               Unassigned (
@@ -34,7 +40,7 @@ const SideMenu = props => {
         <div
           className={isActive("in progress", activeScreen)}
           onClick={() => {
-            changeScreen("in progress")
+            changeScreen("in progress");
             toggleHamburger();
           }}
         >
@@ -51,7 +57,7 @@ const SideMenu = props => {
         <div
           className={isActive("sold", activeScreen)}
           onClick={() => {
-            changeScreen("sold")
+            changeScreen("sold");
             toggleHamburger();
           }}
         >
@@ -68,9 +74,9 @@ const SideMenu = props => {
         <div
           className={isActive("archive", activeScreen)}
           onClick={() => {
-            changeScreen("archive")
+            changeScreen("archive");
             toggleHamburger();
-          } }
+          }}
         >
           <p>
             Archived (
@@ -90,14 +96,14 @@ const SideMenu = props => {
               </Link>
             </div>
             <div className="sidebar-bottom-button">
-              <Link to="/register" className="button-text">
+              <Link to="/users/sales" className="button-text">
                 Delete User
               </Link>
             </div>
           </div>
         )}
         <div className="button" onClick={deleteToken}>
-          <p className='button-text'>Logout</p>
+          <p className="button-text">Logout</p>
         </div>
       </div>
     </>
@@ -147,9 +153,7 @@ const Sidebar = props => {
             )}
           </div>
         </div>
-        {hamburger ? (
-          <SideMenu {...props} currentUser={currentUser} />
-        ) : null}
+        {hamburger ? <SideMenu {...props} currentUser={currentUser} /> : null}
         <div className="sidebar-leadboxes">
           <NewLead {...props} newLead={newLead} />
           {currentUser.role === "Admin" && (
@@ -226,7 +230,7 @@ const Sidebar = props => {
                 </Link>
               </div>
               <div className="sidebar-bottom-button">
-                <Link to="/register" className="button-text">
+                <Link to="/users/sales" className="button-text">
                   Delete
                 </Link>
               </div>
