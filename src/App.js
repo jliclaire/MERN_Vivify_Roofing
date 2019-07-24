@@ -92,6 +92,14 @@ class App extends Component {
     this.getUser();
     this.getUsernames();
     this.getLeads();
+    this.historySettings();
+  }
+
+  historySettings = () => {
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function() {
+      window.history.go(1);
+    }
   }
 
   render() {
