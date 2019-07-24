@@ -73,10 +73,17 @@ const SideMenu = props => {
           </p>
         </div>
         {currentUser.role === "Admin" && (
-          <div className="sidebar-bottom-button">
-            <Link to="/register" className="button-text">
-              Register User
-            </Link>
+          <div>
+            <div className="sidebar-bottom-button">
+              <Link to="/register" className="button-text">
+                Register User
+              </Link>
+            </div>
+            <div className="sidebar-bottom-button">
+              <Link to="/register" className="button-text">
+                Delete User
+              </Link>
+            </div>
           </div>
         )}
         <div className="button" onClick={deleteToken}>
@@ -200,14 +207,33 @@ const Sidebar = props => {
 
       <div className="sidebar-bottom">
         {currentUser.role === "Admin" && (
-          <div className="sidebar-bottom-button">
-            <Link to="/register" className="button-text">
-              Register User
-            </Link>
+          <div className="sidebar-bottom-item">
+            <h4>Manage User</h4>
+            <div className="sidebar-bottom-container">
+              <div className="sidebar-bottom-button">
+                <Link to="/register" className="button-text">
+                  Register
+                </Link>
+              </div>
+              <div className="sidebar-bottom-button">
+                <Link to="/register" className="button-text">
+                  Delete
+                </Link>
+              </div>
+            </div>
           </div>
         )}
-        <div className="sidebar-bottom-button" onClick={deleteToken}>
-          <p className="button-text">Logout</p>
+
+        <div className="sidebar-bottom-item">
+          <h4>Manage Account</h4>
+          <div className="sidebar-bottom-container">
+            <div className="sidebar-bottom-button" onClick={deleteToken}>
+              <p className="button-text">Edit</p>
+            </div>
+            <div className="sidebar-bottom-button" onClick={deleteToken}>
+              <p className="button-text">Logout</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
