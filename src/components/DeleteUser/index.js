@@ -106,7 +106,6 @@ class DeleteUser extends Component {
             <Link to="/"> Back to Dashboard</Link>
           </div>
         </div>
-        </div>
       );
     }
   }
