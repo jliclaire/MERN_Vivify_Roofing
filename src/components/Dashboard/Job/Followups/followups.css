@@ -1,5 +1,4 @@
 .job-followups h1 {
-  text-align: center;
   border-top: 1px solid #ff7e7e;
   border-bottom: 1px solid #ff7e7e;
   padding: 15px;
@@ -37,10 +36,10 @@
   padding-left: 2px;
 }
 
-.edit-button {
+/* .edit-button {
   padding: 5px;
   background: grey;
-}
+} */
 
 .edit-comment {
   width: 100%;

@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 import "./login.css";
 
 const initialState = {
@@ -18,53 +17,53 @@ class Login extends React.Component {
 
   handleChange = e => {
     const isCheckbox = e.target.type === "checkbox";
-    this.setState({ 
+    this.setState({
       [e.target.id]: e.target.value
-      });
+    });
 
     this.setState({
-      [e.target.name]: isCheckbox
-      ? e.target.checked
-      : e.target.value
-      });
+      [e.target.name]: isCheckbox ? e.target.checked : e.target.value
+    });
   };
 
-  validate= () => {
-    let emailError= "";
-    let passwordError= "";
+  validate = () => {
+    let emailError = "";
+    let passwordError = "";
+
 
     if(!this.state.password) {
       passwordError = "* forgot to enter in your password";
     } 
 
-    if(!this.state.email.includes('@') || !this.state.email) {
+    if (!this.state.email.includes("@") || !this.state.email) {
       emailError = "* invalid email";
     }
 
     if (emailError || passwordError) {
-      this.setState({ emailError, passwordError});
+      this.setState({ emailError, passwordError });
       return false;
     }
     return true;
-  }
+  };
 
-  handleClick = async(e) => {
+  handleClick = async e => {
     const { authCall } = this.props;
     e.preventDefault();
     const response = await authCall({
       email: this.state.email,
       password: this.state.password
     });
-    const isValid = this.validate()
+    const isValid = this.validate();
     if (isValid) {
       this.setState(initialState);
     }
     if (response) {
-      window.location='/';
+      localStorage.setItem('token', response)
+      window.location = "/";
     } else {
       this.setState({
-        loginError: 'Invalid credentials'
-      })
+        loginError: "Invalid credentials"
+      });
     }
   };
 
@@ -72,12 +71,13 @@ class Login extends React.Component {
     return (
       <div className="login-form">
         <h1 className="login-logo">VIVIFY</h1>
-        <div className='login-error'>
+        <div className="login-error">
           <h3>{this.state.loginError}</h3>
         </div>
         <form className="inner-form-login">
           <p>
-            <label>Email</label><br />
+            <label>Email</label>
+            <br />
             <input
               value={this.state.email}
               onChange={this.handleChange}
@@ -86,7 +86,8 @@ class Login extends React.Component {
             />
           </p>
           <p>
-            <label>Password</label><br />
+            <label>Password</label>
+            <br />
             <input
               value={this.state.password}
               onChange={this.handleChange}
@@ -98,9 +99,6 @@ class Login extends React.Component {
             <p className="btn-text">Log In</p>
           </div>
         </form>
-        <Link className='minor-button' to='/register'>
-          <p className='btn-text'>Register</p>
-        </Link>
       </div>
     );
   }

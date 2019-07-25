@@ -2,10 +2,14 @@
 
 Built with blood sweat and tears by Jing Li, Mark Butcher, and Andrew Sims
 
+Deployed application:
+
 https://vivify-roofing.netlify.com/
 
 Link to GitHub repository:
+
 https://github.com/jliclaire/MERN_Vivify_Roofing_frontend
+
 https://github.com/jliclaire/MERN_Vivify_Roofing_backend
 
 ## Description
@@ -20,11 +24,11 @@ the sales procedure.
 
 Irregularities and lack of system around the sales procedure and
 communication between the trades and sales staff had meant that
-mistakes were often made and jobs misquoted. This is a risk to both the
-reputation and bottom line of the business.
+mistakes were often made and jobs misquoted. This is a risk 
+to both the reputation and bottom line of the business.
 
 A significant aspect of this problem was that communication and record-keeping
-was done on an ad hoc basis. Therefore, Having all of the information regarding
+was done on an ad hoc basis. Therefore, having all the information regarding
 the customer and their particular needs in a centralised hub was meant to
 improve this situation and improve communication between the trades and the
 sales team more generally.
@@ -36,25 +40,17 @@ place, we want the software to centralise information regarding customer leads
 and the development of these over the sales lifecycle, as well as to standardise
 interactions and processes concerning the potential customer.
 
-This functionality is covered in the **Dashboard** of the software. An
-**Admin User** on the dashboard can see all the sales **Leads** and sort them by
-their current status in the sales lifecycle (new => in progress => sold/archived).
-Clicking on a lead will display contact information for the potential customer
-and the details of the job.
+This functionality is covered in the **Dashboard** of the software. An **Admin User** on the dashboard can see all the sales **Leads** and sorted them by their current status in the sales lifecycle, allowing **Admin Users**  to have the complete control. 
 
-Sales leads can be assigned to **Sales Users** whose responsiblity it then is
-to follow up with the lead in order to quote and potentially sell the job. At
-this stage the Lead is marked as "in progress."
-Once in contact with the customers they are required to submit **Followups** using
-the HTML forms which are attached to the **Lead** as a record of the sales
-attempt. The Sales Users can also provide more unforseen details about the job
-and provide the price for which they have sold it. Once this occurs the job is
-marked as "sold."
+Clicking on a **Lead** will display contact information for the potential customer and the details of the job.
 
-The second piece of functionality, the analytics, is covered in the **Admin**
-section of the software. Here an Admin User can find information about what kinds
-of jobs they have been able to sell, who has been selling them, how much they
-have been sold for, and where they have been sold.
+Sales leads can be assigned to **Sales Users** whose responsiblity is then
+to follow up the the **Lead** in order to quote and potentially sale of the job. At
+this stage the Lead is marked as **"in progress."**
+
+The **Sale User** contacts the **Lead** and is required to submit a **Followups** using
+the HTML forms which are attached to the **Lead** as a record of securing the job. The **Sales Users** can also provide more unforseen details about the job, photos and sets a quote of which they have sold it. Once this occurs the job is marked as "sold."
+
 
 <img src="./docs/dashboard.gif">
 
@@ -232,8 +228,6 @@ The application has two types of users, an Admin who has full access to features
 
  Our Figma flow set for the Admin User’s journey to have our end_user (service provider access. to the application.  
 
-<img src="./docs/figma-pic.png">
-
 
 ### Wireframes
 
@@ -249,9 +243,15 @@ Building on the the previous design process, we made a wireframe to match and co
 
 ### ERDs
 
+
+The application is seperate to the Vivify’s database, and we preferences using MongoDB documenting services, that is easier to alter the Schema during the testing phase with the clients (Vivify)
+
 <img src="./docs/database.png">
 
+
 ### Data flow diagram
+
+This digram illustrates mailgun’s POST request that populates the leads into the MongoDB database
 
 <img src="./docs/data-flow-diagram.jpeg">
 
@@ -259,9 +259,12 @@ Building on the the previous design process, we made a wireframe to match and co
 
 The design of components is relevant flow to the user accessing access the database within the program.  The primary function focuses on Admin Users having full access to create and delete Users, and ability to assign Leads. 
 
- Sales Users inherit limited props of the Leads assigned to them by Admin 
+
+The design of components is relevant flow to the user accessing access the database within the program.  The primary function was to ensure Admin Users has full access to create and delete Users, and ablity to assign Leads. 
+
+ Sales Users are limited to the Leads given to them by Admin and have the ability to update and post follow-ups and images to Leads.
  
-<img src="./docs/OODesign.jpeg">
+ 
 
 ## Project Management and Planning process
 
@@ -316,7 +319,7 @@ Week 3:
 
 1. What are the most important aspects of quality software?
 
-There are at least four core "most" important aspects of quality software. The
+There are at least six core "most" important aspects of quality software. The
 first aspect is that it satisfies the logic of the business problem which it
 aims to solve. Software is poor quality if it is badly suited to its real world
 problem, or if it approaches this problem with an eccentric or overly complicated
@@ -333,9 +336,19 @@ fulfils its own function and is not overly entangled with the other parts.
 Software that separates its concerns is more easily extensible than software
 which does not.
 
-The final aspect is that of scalability. Quality software can work in production
+The fourth aspect is that of scalability. Quality software can work in production
 contexts where the load on the system may be much higher than in development
 contexts.
+
+The fifth aspect is that of respecting the distinction between configuration and
+code. Variables which fit the software to a particular context should not be
+hardcoded and should be located in a separate file (e.g, as environmental
+variables) so that they can be changed if the software is used in another
+context.
+
+The sixth aspect is that of security. All sensitive data that flows through a
+piece of quality software should be secured against unauthorised access in order
+to protect the privacy of its users.
 
 2. What libraries are being used in the app and why?
 
@@ -415,9 +428,36 @@ high standard in the time alotted.
 
 5. Evaluate how effective your knowledge and skills were this project, using examples, and suggest changes or improvements for future projects of a similar nature.
 
-````
+Our knowledge and skills were adequate to complete a project of this kind, but
+we were able to identify ways in which we could improve. 
 
-```
+Firstly, we overlooked some aspects of the device-specific features of the UX 
+that made our application
+more difficult to use. Specifically, one of the users would be interacting with
+our software through an android phone and our user workflow did not cohere
+with the typical flow on android. He was quite used to pressing the back button
+on his phone and this would break our single page application (it would be navigated
+away from the app).
 
-```
-````
+If we had identified this issue earlier we could have made our frontend Routes
+more fine-grained in order to better manipulate the browser history. This suggests
+two improvements: 1) try to be more thorough in our initial interview with the
+client; and 2) manually test on a more specifically targeted range of devices
+during development.
+
+Secondly, we could have improved our code review process. We did an informal
+code review where we would look over our changes as a team, but we did not
+integrate this process into the git workflow. As a result we were not highly
+familiar with eachothers code, and were limited in our ability as a team to 
+immediately fix bugs. One way to improve on this would be to integrate the
+code review process into the process of merging PRs on GitHub, so that at least
+one other person, but preferably both, is familiar with the new code.
+
+Finally, frequent refactoring of our codebase might have made our code more 
+user friendly during development. Our CSS, for example, was spread across many
+files and was prone to duplication. From time to time we had to restructure or
+modify the styling and our ad-hoc structuring made doing this more difficult
+than it could have been.
+
+We feel that addressing just these issues alone would make us a much more 
+effective team in future.

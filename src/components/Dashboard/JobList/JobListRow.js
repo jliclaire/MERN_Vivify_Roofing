@@ -11,6 +11,9 @@ class JobListRow extends Component {
     const jobId = element.id;
     this.props.clearEditData();
     this.props.setActiveJob(jobId);
+    if (window.innerWidth < 767) {
+      this.props.toggleHamburger(false);
+    }
   };
 
   render() {
