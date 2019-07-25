@@ -242,6 +242,11 @@ Building on the the previous design process, we made a wireframe to match and co
 
 ### ERDs
 
+The application is seperate to the Vivify’s database, meaning we had to populate leads from  structure itself in MongoDB rather than SQL database. 
+
+There was some preferences to choosing MongoDB documenting services, given it will be easier to alter the Schema during the testing phase with the clients (Vivify)
+
+<img src="./docs/database.png">
 
 
 ### Data flow diagram
