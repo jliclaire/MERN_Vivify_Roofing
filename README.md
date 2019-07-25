@@ -249,6 +249,8 @@ The application is seperate to the Vivify’s database, and we preferences using
 
 ### Data flow diagram
 
+This digram illustrates mailgun’s POST request that populates the leads into the MongoDB database
+
 <img src="./docs/data-flow-diagram.jpeg">
 
 ### OO design documentation
