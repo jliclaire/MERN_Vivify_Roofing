@@ -221,7 +221,7 @@ The application has two types of users, an Admin who has full access to features
 
 - Sales user can see all the lead assigned to them and can edit leads, add follow ups or upload photos.
 
-<img src="./docs/UX\ flow.jpeg">
+<img src="./docs/UX-flow.jpeg">
 
 
 ### Workflow diagram
@@ -461,3 +461,4 @@ than it could have been.
 
 We feel that addressing just these issues alone would make us a much more 
 effective team in future.
+
