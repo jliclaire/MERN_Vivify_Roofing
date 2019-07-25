@@ -256,6 +256,11 @@ This digram illustrates mailgun’s POST request that populates the leads into t
 ### OO design documentation
 
 
+The design of components is relevant flow to the user accessing access the database within the program.  The primary function was to ensure Admin Users has full access to create and delete Users, and ablity to assign Leads. 
+
+ Sales Users are limited to the Leads given to them by Admin and have the ability to update and post follow-ups and images to Leads.
+ 
+ 
 
 ## Project Management and Planning process
 
