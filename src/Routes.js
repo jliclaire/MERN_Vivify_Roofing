@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Login from "./components/Login/";
 import Register from "./components/Register/";
+import DeleteUser from "./components/DeleteUser/";
 import Dashboard from "./components/Dashboard";
-import Admin from "./components/Admin";
+import EditUser from './components/EditUser';
 
 class Routes extends Component {
   render() {
@@ -13,7 +14,8 @@ class Routes extends Component {
       currentUser,
       authCall,
       users,
-      getLeads
+      getLeads,
+      salesUsers
     } = this.props;
     return (
       <Switch>
@@ -24,7 +26,40 @@ class Routes extends Component {
 
         <Route
           path="/register"
-          render={props => <Register {...props} authCall={authCall} />}
+          render={props =>
+            currentUser && currentUser.role === "Admin" ? (
+              <Register {...props} authCall={authCall} />
+            ) : (
+              <Redirect to="/login" />
+            )
+          }
+        />
+
+        <Route 
+          path='/me'
+          render={
+            props =>
+            currentUser ? (
+              <EditUser {...props} currentUser={currentUser} />
+            ) : (
+              <Redirect to='/login' />
+            )
+          }
+        />
+
+        <Route
+          path="/users/sales"
+          render={props =>
+            currentUser && currentUser.role === "Admin" ? (
+              <DeleteUser
+                {...props}
+                authCall={authCall}
+                salesUsers={salesUsers}
+              />
+            ) : (
+              <Redirect to="/login" />
+            )
+          }
         />
 
         <Route
@@ -43,13 +78,6 @@ class Routes extends Component {
               <Redirect to="/login" />
             )
           }
-        />
-
-        <Route
-          path="/admin"
-          render={props => (
-            <Admin {...props} data={data} currentUser={currentUser} />
-          )}
         />
       </Switch>
     );

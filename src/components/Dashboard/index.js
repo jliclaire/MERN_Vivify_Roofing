@@ -12,10 +12,24 @@ class Dashboard extends Component {
     this.state = {
       mobileShowList: true,
       activeScreen: "inbox",
-      activeJob: this.authoriseData(this.props.data)[0],
+      activeJob: this.authoriseData(this.props.data)[0] || null,
       editJob: false,
-      editedEnquiry: ""
+      editedEnquiry: "",
+      hamburgerOpen: false
     };
+  }
+
+  toggleHamburger = (state) => {
+    if (state === false) {
+      this.setState({
+        hamburgerOpen: false
+      })
+    } else {
+      this.setState({
+        hamburgerOpen: !this.state.hamburgerOpen
+      })
+    }
+    
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -210,6 +224,7 @@ class Dashboard extends Component {
     data = this.authoriseData(data);
     const { activeJob, mobileShowList, activeScreen } = this.state;
     return (
+      activeJob ?
       <div className="dashboard">
         <Sidebar
           data={data}
@@ -219,15 +234,18 @@ class Dashboard extends Component {
           activeScreen={activeScreen}
           newLead={this.updateNewLeads}
           currentUser={currentUser}
+          hamburger={this.state.hamburgerOpen}
+          toggleHamburger={this.toggleHamburger}
         />
         <JobList
           data={this.filterData(data)}
           setActiveJob={this.setActiveJob}
           show={this.state.mobileShowList}
-          activeId={this.state.activeJob._id}
+          activeId={this.state.activeJob ? this.state.activeJob._id: null}
           clearEditData={this.handleClearEditData}
+          toggleHamburger={this.toggleHamburger}
         />
-        {(this.state.mobileShowList && window.innerWidth < 767) || (
+        {(this.state.mobileShowList && window.innerWidth < 767) ||
           <Job
             users={this.props.users}
             data={activeJob}
@@ -243,7 +261,23 @@ class Dashboard extends Component {
             handleSaveEditedFollowup={this.handleSaveEditedFollowup}
             handleUpload={this.handleUpload}
           />
-        )}
+        }
+      </div> :
+      <div className='dashboard'>
+        <Sidebar
+          data={data}
+          changeScreen={this.changeScreen}
+          back={this.back}
+          mobileShowList={mobileShowList}
+          activeScreen={activeScreen}
+          newLead={this.updateNewLeads}
+          currentUser={currentUser}
+          hamburger={this.state.hamburgerOpen}
+          toggleHamburger={this.toggleHamburger} 
+        />
+        <div className='noleads'>
+          <h1>It looks like you don't have any leads assigned.</h1>
+        </div>
       </div>
     );
   }
