@@ -12,7 +12,7 @@ class JobListRow extends Component {
     this.props.clearEditData();
     this.props.setActiveJob(jobId);
     if (window.innerWidth < 767) {
-      this.props.toggleHamburger();
+      this.props.toggleHamburger(false);
     }
   };
 
