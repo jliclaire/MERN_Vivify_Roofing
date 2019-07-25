@@ -202,6 +202,7 @@ Part 2: Followup info filled by sales trade
 
 <img src="./docs/Capture-assignto-markas.JPG">
 
+
 ## Design documentation
 
 ### Design process
@@ -248,7 +249,7 @@ Building on the the previous design process, we made a wireframe to match and co
 
 ### ERDs
 
-
+<img src="./docs/database.png">
 
 ### Data flow diagram
 
@@ -256,7 +257,11 @@ Building on the the previous design process, we made a wireframe to match and co
 
 ### OO design documentation
 
+The design of components is relevant flow to the user accessing access the database within the program.  The primary function focuses on Admin Users having full access to create and delete Users, and ability to assign Leads. 
 
+ Sales Users inherit limited props of the Leads assigned to them by Admin 
+ 
+<img src="./docs/OODesign.jpeg">
 
 ## Project Management and Planning process
 
