@@ -19,10 +19,17 @@ class Dashboard extends Component {
     };
   }
 
-  toggleHamburger = () => {
-    this.setState({
-      hamburgerOpen: !this.state.hamburgerOpen
-    })
+  toggleHamburger = (state) => {
+    if (state === false) {
+      this.setState({
+        hamburgerOpen: false
+      })
+    } else {
+      this.setState({
+        hamburgerOpen: !this.state.hamburgerOpen
+      })
+    }
+    
   }
 
   componentDidUpdate(prevProps, prevState) {
