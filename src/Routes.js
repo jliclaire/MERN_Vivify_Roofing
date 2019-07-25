@@ -4,7 +4,7 @@ import Login from "./components/Login/";
 import Register from "./components/Register/";
 import DeleteUser from "./components/DeleteUser/";
 import Dashboard from "./components/Dashboard";
-import EditUser from './components/EditUser';
+import EditUser from "./components/EditUser";
 
 class Routes extends Component {
   render() {
@@ -15,7 +15,8 @@ class Routes extends Component {
       authCall,
       users,
       getLeads,
-      salesUsers
+      remainingUsers,
+      deletedUser
     } = this.props;
     return (
       <Switch>
@@ -35,14 +36,13 @@ class Routes extends Component {
           }
         />
 
-        <Route 
-          path='/me'
-          render={
-            props =>
+        <Route
+          path="/me"
+          render={props =>
             currentUser ? (
               <EditUser {...props} currentUser={currentUser} />
             ) : (
-              <Redirect to='/login' />
+              <Redirect to="/login" />
             )
           }
         />
@@ -54,7 +54,8 @@ class Routes extends Component {
               <DeleteUser
                 {...props}
                 authCall={authCall}
-                salesUsers={salesUsers}
+                remainingUsers={remainingUsers}
+                deletedUser={deletedUser}
               />
             ) : (
               <Redirect to="/login" />

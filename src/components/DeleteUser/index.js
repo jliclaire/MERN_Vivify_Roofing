@@ -7,42 +7,52 @@ class DeleteUser extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      deleteMessage: "",
-      remainingUsers: ""
+      deleteMessage: ""
     };
   }
 
-  handleDeleteUser = async e => {
+  // handleDeleteUser = async e => {
+  //   e.preventDefault();
+  //   const token = localStorage.getItem("token");
+  //   const userId = e.target.parentNode.id;
+  //   const deletedUser = this.props.salesUsers.find(user => user._id === userId);
+  //   const remainingUsers = this.props.salesUsers.filter(
+  //     user => user._id !== userId
+  //   );
+  //   try {
+  //     await axios.delete(`${process.env.REACT_APP_API_URL}/users/${userId}`, {
+  //       headers: { token: token }
+  //     });
+  //     const deleteMessage = `Successfully deleted account for ${
+  //       deletedUser.name
+  //     }!`;
+  //     this.setState({
+  //       deleteMessage,
+  //       remainingUsers
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  handleDeleteUser = e => {
     e.preventDefault();
-    const token = localStorage.getItem("token");
     const userId = e.target.parentNode.id;
-    const deletedUser = this.props.salesUsers.find(user => user._id === userId);
-    const remainingUsers = this.props.salesUsers.filter(
-      user => user._id !== userId
+    const deletedUserAccount = this.props.remainingUsers.find(
+      user => user._id === userId
     );
-    try {
-      await axios.delete(`${process.env.REACT_APP_API_URL}/users/${userId}`, {
-        headers: { token: token }
-      });
-      const deleteMessage = `Successfully deleted account for ${
-        deletedUser.name
-      }!`;
-      this.setState({
-        deleteMessage,
-        remainingUsers
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    const deleteMessage = `Successfully deleted account for ${
+      deletedUserAccount.name
+    }!`;
+    this.props.deletedUser(userId);
+    this.setState({
+      deleteMessage
+    });
   };
 
   render() {
-    const { salesUsers } = this.props;
-    const { remainingUsers } = this.state;
-    let data;
-    {
-      remainingUsers ? (data = remainingUsers) : (data = salesUsers);
-    }
+    const { remainingUsers } = this.props;
+
     if (window.innerWidth < 767) {
       return (
         <div className="delete-user-dashboard">
@@ -55,7 +65,7 @@ class DeleteUser extends Component {
               <div className="user-col">Name</div>
               <div className="user-col text-center">Delete Account</div>
             </div>
-            {data.map((user, index) => {
+            {remainingUsers.map((user, index) => {
               return (
                 <div key={index} className="user-row p-font" id={user._id}>
                   <div className="user-col">{user.name}</div>
@@ -87,7 +97,7 @@ class DeleteUser extends Component {
               <div className="col-width">Email</div>
               <div className="user-col text-center">Delete Account</div>
             </div>
-            {data.map((user, index) => {
+            {remainingUsers.map((user, index) => {
               return (
                 <div key={index} className="user-row p-font" id={user._id}>
                   <div className="user-col">{user.name}</div>
@@ -105,7 +115,6 @@ class DeleteUser extends Component {
           <div className="btn-register back-to-dashboard-btn">
             <Link to="/"> Back to Dashboard</Link>
           </div>
-        </div>
         </div>
       );
     }

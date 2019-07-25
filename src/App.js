@@ -57,7 +57,7 @@ class App extends Component {
       // set state appropriately
       this.setState({
         authenticated: true,
-        currentUser: authCall.data,
+        currentUser: authCall.data
       });
     } catch (err) {
       console.log(err);
@@ -92,9 +92,29 @@ class App extends Component {
           headers: { token: token }
         }
       );
-      const salesUsers = await response.data;
+      const remainingUsers = await response.data;
       this.setState({
-        salesUsers: salesUsers
+        remainingUsers
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  deleteUser = async id => {
+    const token = localStorage.getItem("token");
+    try {
+      const deletedUser = await axios.delete(
+        `${process.env.REACT_APP_API_URL}/users/${id}`,
+        {
+          headers: { token: token }
+        }
+      );
+      const newRemainingUsers = this.state.remainingUsers.filter(user => {
+        return user._id !== deletedUser.data._id;
+      });
+      this.setState({
+        remainingUsers: newRemainingUsers
       });
     } catch (error) {
       console.log(error);
@@ -122,7 +142,7 @@ class App extends Component {
       authenticated,
       currentUser,
       usernames,
-      salesUsers
+      remainingUsers
     } = this.state;
     if (data.length === 0) {
       return <Loading />;
@@ -133,9 +153,10 @@ class App extends Component {
           authenticated={authenticated}
           currentUser={currentUser}
           users={usernames}
-          salesUsers={salesUsers}
           authCall={this.authCall}
           getLeads={this.getLeads}
+          deletedUser={this.deleteUser}
+          remainingUsers={remainingUsers}
         />
       );
     }
