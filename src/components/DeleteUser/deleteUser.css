@@ -54,6 +54,15 @@
   text-align: center;
 }
 
+@media only screen and (max-width: 767px) {
+  .back-to-dashboard-btn {
+    width: 100%;
+  }
+
+  .user-col {
+    width: 25%;
+  }
+}
 .flexme {
   width: 40%;
 }
