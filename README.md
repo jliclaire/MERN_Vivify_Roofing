@@ -198,6 +198,7 @@ Part 2: Followup info filled by sales trade
 
 <img src="./docs/Capture-assignto-markas.JPG">
 
+
 ## Design documentation
 
 ### Design process
@@ -242,6 +243,7 @@ Building on the the previous design process, we made a wireframe to match and co
 
 ### ERDs
 
+
 The application is seperate to the Vivify’s database, and we preferences using MongoDB documenting services, that is easier to alter the Schema during the testing phase with the clients (Vivify)
 
 <img src="./docs/database.png">
@@ -254,6 +256,8 @@ This digram illustrates mailgun’s POST request that populates the leads into t
 <img src="./docs/data-flow-diagram.jpeg">
 
 ### OO design documentation
+
+The design of components is relevant flow to the user accessing access the database within the program.  The primary function focuses on Admin Users having full access to create and delete Users, and ability to assign Leads. 
 
 
 The design of components is relevant flow to the user accessing access the database within the program.  The primary function was to ensure Admin Users has full access to create and delete Users, and ablity to assign Leads. 

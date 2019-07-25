@@ -8,7 +8,7 @@ afterEach(cleanup);
 test("renders", () => {
 
   const { getByText } =render(<NewLeadForm />);
-  expect(getByText("Save")).toHaveClass("edit-button");
+  expect(getByText("Name:")).toHaveClass("comments");
   expect(getByText("Desired Roof Material:")).toHaveClass("comments");
 })
 
