@@ -50,7 +50,8 @@
 }
 
 .back-to-dashboard-btn {
-  /* width: 40%; */
+  width: 30%;
+  float: right;
   text-align: center;
 }
 
@@ -60,9 +61,6 @@
   }
 
   .user-col {
-    width: 25%;
+    width: 40%;
   }
-}
-.flexme {
-  width: 40%;
 }
