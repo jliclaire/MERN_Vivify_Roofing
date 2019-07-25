@@ -24,11 +24,10 @@ class App extends Component {
         creds
       );
       const { token } = authCall.data;
-      localStorage.setItem("token", token);
       this.setState({
         authenticated: true
       });
-      return true;
+      return token;
     } catch (error) {
       console.log(error);
       this.setState({
@@ -58,11 +57,7 @@ class App extends Component {
       // set state appropriately
       this.setState({
         authenticated: true,
-        currentUser: {
-          email: authCall.data.email,
-          name: authCall.data.name,
-          role: authCall.data.role
-        }
+        currentUser: authCall.data,
       });
     } catch (err) {
       console.log(err);

@@ -4,6 +4,7 @@ import Login from "./components/Login/";
 import Register from "./components/Register/";
 import DeleteUser from "./components/DeleteUser/";
 import Dashboard from "./components/Dashboard";
+import EditUser from './components/EditUser';
 
 class Routes extends Component {
   render() {
@@ -30,6 +31,18 @@ class Routes extends Component {
               <Register {...props} authCall={authCall} />
             ) : (
               <Redirect to="/login" />
+            )
+          }
+        />
+
+        <Route 
+          path='/me'
+          render={
+            props =>
+            currentUser ? (
+              <EditUser {...props} currentUser={currentUser} />
+            ) : (
+              <Redirect to='/login' />
             )
           }
         />

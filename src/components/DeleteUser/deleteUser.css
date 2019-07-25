@@ -50,7 +50,8 @@
 }
 
 .back-to-dashboard-btn {
-  width: 30%;
+  /* width: 40%; */
+  text-align: center;
 }
 
 @media only screen and (max-width: 767px) {
@@ -61,4 +62,7 @@
   .user-col {
     width: 25%;
   }
+}
+.flexme {
+  width: 40%;
 }

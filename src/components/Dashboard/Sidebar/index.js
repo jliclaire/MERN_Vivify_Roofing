@@ -90,7 +90,7 @@ const SideMenu = props => {
         </div>
         {currentUser.role === "Admin" && (
           <div>
-            <div className="sidebar-bottom-button">
+            <div className="sidebar-bottom-button mob-button">
               <Link to="/register" className="button-text">
                 Register User
               </Link>
@@ -102,6 +102,9 @@ const SideMenu = props => {
             </div>
           </div>
         )}
+        <Link to='/me' className="button">
+          <p className="button-text">Password</p>
+        </Link>
         <div className="button" onClick={deleteToken}>
           <p className="button-text">Logout</p>
         </div>
@@ -241,8 +244,10 @@ const Sidebar = props => {
         <div className="sidebar-bottom-item">
           <h4>Manage Account</h4>
           <div className="sidebar-bottom-container">
-            <div className="sidebar-bottom-button" onClick={deleteToken}>
-              <p className="button-text">Edit</p>
+            <div className="sidebar-bottom-button">
+              <Link to='/me' className="button-text">
+                Password
+              </Link>
             </div>
             <div className="sidebar-bottom-button" onClick={deleteToken}>
               <p className="button-text">Logout</p>

@@ -73,7 +73,6 @@ class Register extends React.Component {
     e.preventDefault();
     const isValid = this.validate();
 
-    console.log(isValid);
     if (isValid) {
       const { email, password, role, name, phone } = this.state;
       const res = await this.props.authCall({
@@ -83,9 +82,13 @@ class Register extends React.Component {
         name,
         phone
       });
-      console.log(res);
       if (res) {
-        window.location = "/";
+        this.setState({
+          loginError: "Successfully created user, redirecting to dashboard"
+        })
+        setTimeout(() => {
+          window.location = "/"
+        }, 2000)
       } else {
         this.setState({
           loginError: "There was a problem signing you up"

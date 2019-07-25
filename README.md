@@ -227,26 +227,29 @@ The application has two types of users, an Admin who has full access to features
 
  Our Figma flow set for the Admin User’s journey to have our end_user (service provider access. to the application.  
 
-<img src="./docs/figma-pic.png">
-
 
 ### Wireframes
 
 Building on the the previous design process, we made a wireframe to match and colorate for each viewers endpoint.
 
 #### Vivify Color
-<img src="./docs/Vivify CRM.pdf">
+<img src="./docs/Vivify-CRM-color.jpg">
 
 #### Vivify Wireframes
 
-<img src="./docs/Vivify CRM (2).pdf">
-<img src="./docs/Vivify CRM (1).pdf">
+<img src="./docs/Vivify-CRM-desktop.jpg">
+<img src="./docs/Vivify-CRM-mobile.jpg">
 
 ### ERDs
 
+The application is seperate to the Vivify’s database, and we preferences using MongoDB documenting services, that is easier to alter the Schema during the testing phase with the clients (Vivify)
+
+<img src="./docs/database.png">
 
 
 ### Data flow diagram
+
+This digram illustrates mailgun’s POST request that populates the leads into the MongoDB database
 
 <img src="./docs/data-flow-diagram.jpeg">
 

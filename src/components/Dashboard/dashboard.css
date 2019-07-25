@@ -13,6 +13,17 @@
   width: 60%;
 }
 
+.noleads {
+  background: #fff;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid #dfdcdc;
+  text-align: center;
+  height: 100vh;
+}
+
 @media only screen and (max-width: 767px) {
   .dashboard {
     display: block;
